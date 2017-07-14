@@ -15,17 +15,11 @@ Machine parameters:  mode = NOMERGE
 	readEvent
 	processEvent
 	shouldWeStop
-    *** nextItemType: Lumi 2 ***
+    *** nextItemType: File 0 ***
 	shouldWeStop
 	endLumi 1/1
 	writeLumi 1/1
 	deleteLumiFromCache 1/1
-	readLuminosityBlock 2
-	beginLumi 1/2
-    *** nextItemType: File 0 ***
-	endLumi 1/2
-	writeLumi 1/2
-	deleteLumiFromCache 1/2
 	endRun 1
 	writeRun 1
 	deleteRunFromCache 1
@@ -35,29 +29,24 @@ Machine parameters:  mode = NOMERGE
  	readFile
 	respondToOpenInputFile
 	openOutputFiles
-    *** nextItemType: Run 1 ***
-	readRun 1
-	beginRun 1
-    *** nextItemType: Lumi 2 ***
-	readLuminosityBlock 2
-	beginLumi 1/2
-    *** nextItemType: Event ***
-	readEvent
-	processEvent
-	shouldWeStop
-    *** nextItemType: Stop 1 ***
-	shouldWeStop
-	endLumi 1/2
-	writeLumi 1/2
-	deleteLumiFromCache 1/2
-	endRun 1
-	writeRun 1
-	deleteRunFromCache 1
+    *** nextItemType: Run 2 ***
+	readRun 2
+	beginRun 2
+    *** nextItemType: Throw 1 ***
+    *** nextItemType: Lumi 1 ***
+	readLuminosityBlock 1
+	beginLumi 2/1
+	throwing
+	endLumi 2/1
+	writeLumi 2/1
+	deleteLumiFromCache 2/1
+	endRun 2
+	writeRun 2
+	deleteRunFromCache 2
 	respondToCloseInputFile
 	closeInputFile
 	closeOutputFiles
-	endOfLoop
-Left processing loop.
+caught test exception
 
 Machine parameters:  mode = FULLMERGE
 	startingNewLoop
@@ -75,37 +64,34 @@ Machine parameters:  mode = FULLMERGE
 	readEvent
 	processEvent
 	shouldWeStop
-    *** nextItemType: Lumi 2 ***
-	shouldWeStop
-	endLumi 1/1
-	writeLumi 1/1
-	deleteLumiFromCache 1/1
-	readLuminosityBlock 2
-	beginLumi 1/2
     *** nextItemType: File 0 ***
+	shouldWeStop
 	shouldWeCloseOutput
 	respondToCloseInputFile
 	closeInputFile
  	readFile
 	respondToOpenInputFile
-    *** nextItemType: Run 1 ***
-	readAndMergeRun 1
-    *** nextItemType: Lumi 2 ***
-	readAndMergeLumi 2
-    *** nextItemType: Event ***
-	readEvent
-	processEvent
-	shouldWeStop
-    *** nextItemType: Stop 1 ***
-	shouldWeStop
-	endLumi 1/2
-	writeLumi 1/2
-	deleteLumiFromCache 1/2
+    *** nextItemType: Run 2 ***
+	endLumi 1/1
+	writeLumi 1/1
+	deleteLumiFromCache 1/1
 	endRun 1
 	writeRun 1
 	deleteRunFromCache 1
+	readRun 2
+	beginRun 2
+    *** nextItemType: Throw 1 ***
+    *** nextItemType: Lumi 1 ***
+	readLuminosityBlock 1
+	beginLumi 2/1
+	throwing
+	endLumi 2/1
+	writeLumi 2/1
+	deleteLumiFromCache 2/1
+	endRun 2
+	writeRun 2
+	deleteRunFromCache 2
 	respondToCloseInputFile
 	closeInputFile
 	closeOutputFiles
-	endOfLoop
-Left processing loop.
+caught test exception
