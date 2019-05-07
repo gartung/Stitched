@@ -1,86 +1,101 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 if(BUILDTEST)
 add_subdirectory(test)
 endif()
-reflex_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml)
 add_library(DataFormatsProvenance SHARED 
-  src/LuminosityBlockAuxiliary.cc
-  src/ParameterSetBlob.cc
-  src/BranchIDListHelper.cc
-  src/RunID.cc
-  src/RunAux.cc
-  src/FileID.cc
-  src/LuminosityBlockAux.cc
-  src/EventRange.cc
-  src/BranchDescription.cc
-  src/FileFormatVersion.cc
-  src/ViewTypeChecker.cc
-  src/ProductProvenanceRetriever.cc
-  src/ModuleDescription.cc
-  src/ProcessConfiguration.cc
-  src/BranchType.cc
-  src/History.cc
-  src/ProductRegistry.cc
-  src/RunAuxiliary.cc
-  src/IndexIntoFile.cc
-  src/Hash.cc
-  src/BranchKey.cc
-  src/FileIndex.cc
-  src/ProcessHistoryRegistry.cc
-  src/BranchID.cc
-  src/Provenance.cc
-  src/ProcessHistory.cc
-  src/LuminosityBlockRange.cc
-  src/ProductID.cc
-  src/EventAux.cc
   src/BranchChildren.cc
+  src/BranchDescription.cc
+  src/BranchID.cc
+  src/BranchIDListHelper.cc
+  src/BranchKey.cc
+  src/BranchType.cc
+  src/ESRecordAuxiliary.cc
+  src/ElementID.cc
+  src/EventAux.cc
+  src/EventAuxiliary.cc
   src/EventEntryDescription.cc
   src/EventEntryInfo.cc
-  src/StableProvenance.cc
-  src/ESRecordAuxiliary.cc
   src/EventID.cc
-  src/ProductProvenance.cc
-  src/ParentageRegistry.cc
-  src/ProductIDToBranchID.cc
-  src/RunLumiEntryInfo.cc
-  src/Parentage.cc
+  src/EventRange.cc
+  src/FileFormatVersion.cc
+  src/FileID.cc
+  src/FileIndex.cc
+  src/Hash.cc
+  src/History.cc
+  src/IndexIntoFile.cc
+  src/LuminosityBlockAux.cc
+  src/LuminosityBlockAuxiliary.cc
   src/LuminosityBlockID.cc
+  src/LuminosityBlockRange.cc
+  src/MergeableRunProductMetadataBase.cc
+  src/ModuleDescription.cc
+  src/ParameterSetBlob.cc
+  src/Parentage.cc
+  src/ParentageRegistry.cc
+  src/ProcessConfiguration.cc
+  src/ProcessHistory.cc
+  src/ProcessHistoryRegistry.cc
+  src/ProductID.cc
+  src/ProductIDToBranchID.cc
+  src/ProductProvenance.cc
+  src/ProductProvenanceRetriever.cc
+  src/ProductRegistry.cc
+  src/ProductResolverIndexHelper.cc
+  src/Provenance.cc
+  src/RunAux.cc
+  src/RunAuxiliary.cc
+  src/RunID.cc
+  src/RunLumiEntryInfo.cc
+  src/StableProvenance.cc
+  src/StoredMergeableRunProductMetadata.cc
+  src/SubProcessParentageHelper.cc
   src/ThinnedAssociationsHelper.cc
   src/Timestamp.cc
-  src/ProductResolverIndexHelper.cc
-  src/EventAuxiliary.cc
-  DataFormatsProvenanceDict.cpp
+  src/ViewTypeChecker.cc
 )
 
-add_dependencies(DataFormatsProvenance DataFormatsProvenanceDict)
-target_include_directories(DataFormatsProvenance PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(DataFormatsProvenance PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(DataFormatsProvenance PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(DataFormatsProvenance PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(DataFormatsProvenance PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(DataFormatsProvenance PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(DataFormatsProvenance PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(DataFormatsProvenance PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${MD5_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+)
 target_link_libraries(DataFormatsProvenance PUBLIC
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  dl
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  Thread
-  FWCoreMessageLogger
-  Tree
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  MathCore
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
   ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  Net
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  Core
   ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  FWCoreUtilities
-  RIO
+  ${Boost_PYTHON_LIBRARY_RELEASE}
+  ${Boost_REGEX_LIBRARY_RELEASE}
+  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
+  ${Boost_SYSTEM_LIBRARY_RELEASE}
+  ${Boost_THREAD_LIBRARY_RELEASE}
+  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Core
+  FWCoreMessageLogger
+  FWCoreUtilities
+  MathCore
+  Net
+  RIO
+  Thread
+  Tree
+  dl
 )
 
-install( TARGETS DataFormatsProvenance EXPORT DataFormatsProvenance DESTINATION  lib )
+install( TARGETS DataFormatsProvenance DESTINATION  lib  EXPORT stitched::DataFormatsProvenance)
 
+include_directories(${CMAKE_SOURCE_DIR})
+include_directories(/usr/include/)
+include_directories(${Boost_INCLUDE_DIR})
+include_directories(${MD5_INCLUDE_DIR})
+include_directories(${ROOT_INCLUDE_DIR})
+include_directories(${TBB_INCLUDE_DIRS})
+include_directories(${TINYXML2_INCLUDE_DIR})
+include_directories(${UUID_INCLUDE_DIR})
+reflex_generate_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsProvenanceDict)
+add_library(DataFormatsProvenanceDict SHARED DataFormatsProvenanceDict.cpp)
+add_dependencies(DataFormatsProvenance DataFormatsProvenanceGen)
+install( TARGETS DataFormatsProvenanceDict DESTINATION lib EXPORT stitched::DataFormatsProvenanceDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)

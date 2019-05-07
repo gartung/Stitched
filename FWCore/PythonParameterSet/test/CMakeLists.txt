@@ -1,39 +1,37 @@
 add_executable(testPythonParameterSet
-  processbuilder_t.cppunit.cpp
   makeprocess_t.cppunit.cc
   makepset_t.cppunit.cc
+  processbuilder_t.cppunit.cpp
   readpsetsfrom_t.cppunit.cc
 )
 
-target_include_directories(testPythonParameterSet PUBLIC ${CPPUNIT_INCLUDE_DIR})
-include_directories(testPythonParameterSet PUBLIC ${CPPUNIT_INCLUDE_DIR})
-target_include_directories(testPythonParameterSet PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(testPythonParameterSet PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(testPythonParameterSet PUBLIC ${MD5_INCLUDE_DIR})
-include_directories(testPythonParameterSet PUBLIC ${MD5_INCLUDE_DIR})
-target_include_directories(testPythonParameterSet PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(testPythonParameterSet PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(testPythonParameterSet PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(testPythonParameterSet PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(testPythonParameterSet PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(testPythonParameterSet PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(testPythonParameterSet PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(testPythonParameterSet PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(testPythonParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(testPythonParameterSet PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${CPPUNIT_INCLUDE_DIR}
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+)
 target_link_libraries(testPythonParameterSet PUBLIC
-  FWCoreParameterSet
-  dl
-  ${CPPUNIT_LIBRARY}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  FWCoreUtilities
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  FWCorePythonParameterSet
   ${Boost_FILESYSTEM_LIBRARY_RELEASE}
+  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
+  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
   ${Boost_PYTHON_LIBRARY_RELEASE}
+  ${Boost_REGEX_LIBRARY_RELEASE}
+  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
+  ${Boost_SYSTEM_LIBRARY_RELEASE}
+  ${Boost_THREAD_LIBRARY_RELEASE}
+  ${CPPUNIT_LIBRARY}
+  ${PYTHON_LIBRARY}
+  FWCoreParameterSet
+  FWCorePythonParameterSet
+  FWCoreUtilities
+  dl
 )
 
 add_test(NAME testPythonParameterSet COMMAND testPythonParameterSet)

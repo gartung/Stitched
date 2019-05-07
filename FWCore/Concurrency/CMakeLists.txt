@@ -1,21 +1,24 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 if(BUILDTEST)
 add_subdirectory(test)
 endif()
 add_library(FWCoreConcurrency SHARED 
   src/SerialTaskQueue.cc
-  src/WaitingTaskList.cc
-  src/Xerces.cc
   src/SharedResourceNames.cc
+  src/ThreadSafeOutputFileStream.cc
+  src/WaitingTaskList.cc
+  src/WaitingTaskWithArenaHolder.cc
+  src/Xerces.cc
 )
 
-target_include_directories(FWCoreConcurrency PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(FWCoreConcurrency PUBLIC ${TBB_INCLUDE_DIRS})
+target_include_directories(FWCoreConcurrency PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(FWCoreConcurrency PUBLIC
+ ${TBB_INCLUDE_DIRS}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(FWCoreConcurrency PUBLIC
   ${TBB_LIBRARIES}
-  xerces-c
+  ${XERCESC_LIBRARIES}
 )
 
-install( TARGETS FWCoreConcurrency EXPORT FWCoreConcurrency DESTINATION  lib )
+install( TARGETS FWCoreConcurrency DESTINATION  lib  EXPORT stitched::FWCoreConcurrency)
 

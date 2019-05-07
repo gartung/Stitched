@@ -1,51 +1,58 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 add_subdirectory(plugins)
 add_library(IOPoolStreamer SHARED 
+  src/ClassFiller.cc
+  src/DumpTools.cc
+  src/EventMessage.cc
+  src/EventMsgBuilder.cc
+  src/FRDEventMessage.cc
+  src/InitMessage.cc
+  src/InitMsgBuilder.cc
+  src/StreamSerializer.cc
+  src/StreamerFileIO.cc
+  src/StreamerFileReader.cc
+  src/StreamerFileWriter.cc
+  src/StreamerInputFile.cc
+  src/StreamerInputSource.cc
   src/StreamerOutputFile.cc
   src/StreamerOutputModuleBase.cc
-  src/StreamerFileIO.cc
-  src/StreamerInputSource.cc
-  src/EventMsgBuilder.cc
-  src/StreamerFileWriter.cc
-  src/InitMessage.cc
-  src/StreamerFileReader.cc
-  src/InitMsgBuilder.cc
-  src/ClassFiller.cc
-  src/StreamerInputFile.cc
-  src/FRDEventMessage.cc
-  src/DumpTools.cc
-  src/StreamSerializer.cc
-  src/EventMessage.cc
 )
 
-target_include_directories(IOPoolStreamer PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(IOPoolStreamer PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(IOPoolStreamer PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(IOPoolStreamer PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(IOPoolStreamer PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(IOPoolStreamer PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(IOPoolStreamer PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(IOPoolStreamer PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${OPENSSL_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+ ${ZLIB_INCLUDE_DIR}
+)
+add_compile_options("-D_FILE_OFFSET_BITS=64")
 target_link_libraries(IOPoolStreamer PUBLIC
   Core
-  z
-  FWCoreVersion
-  Thread
-  FWCoreParameterSet
   DataFormatsCommon
-  FWCoreFramework
-  Tree
-  FWCoreSources
-  RIO
-  MathCore
-  FWCoreCatalog
-  FWCoreServiceRegistry
-  DataFormatsStreamer
-  UtilitiesStorageFactory
-  FWCorePluginManager
-  Net
-  FWCoreUtilities
   DataFormatsProvenance
+  DataFormatsStreamer
+  FWCoreCatalog
+  FWCoreFramework
+  FWCoreParameterSet
+  FWCorePluginManager
+  FWCoreServiceRegistry
+  FWCoreSources
+  FWCoreUtilities
+  FWCoreVersion
+  MathCore
+  Net
+  RIO
+  Thread
+  Tree
+  UtilitiesStorageFactory
+  z
 )
 
-install( TARGETS IOPoolStreamer EXPORT IOPoolStreamer DESTINATION  lib )
+install( TARGETS IOPoolStreamer DESTINATION  lib  EXPORT stitched::IOPoolStreamer)
 

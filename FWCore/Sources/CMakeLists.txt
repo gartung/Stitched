@@ -1,29 +1,38 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 add_library(FWCoreSources SHARED 
-  src/RawInputSource.cc
-  src/EventSkipperByID.cc
-  src/VectorInputSourceFactory.cc
-  src/ProducerSourceBase.cc
-  src/RawInputSourceFromFiles.cc
-  src/FromFiles.cc
-  src/ProducerSourceFromFiles.cc
-  src/VectorInputSource.cc
   src/DaqProvenanceHelper.cc
+  src/EventSkipperByID.cc
+  src/FromFiles.cc
+  src/ProducerSourceBase.cc
+  src/ProducerSourceFromFiles.cc
+  src/PuttableSourceBase.cc
+  src/RawInputSource.cc
+  src/RawInputSourceFromFiles.cc
+  src/VectorInputSource.cc
+  src/VectorInputSourceFactory.cc
 )
 
-target_include_directories(FWCoreSources PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(FWCoreSources PUBLIC ${TBB_INCLUDE_DIRS})
+target_include_directories(FWCoreSources PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(FWCoreSources PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(FWCoreSources PUBLIC
-  FWCoreParameterSet
-  FWCoreCatalog
-  FWCorePluginManager
-  FWCoreMessageLogger
-  FWCoreFramework
-  DataFormatsProvenance
   ${TBB_LIBRARIES}
+  DataFormatsProvenance
+  FWCoreCatalog
+  FWCoreFramework
+  FWCoreMessageLogger
+  FWCoreParameterSet
+  FWCorePluginManager
   FWCoreUtilities
 )
 
-install( TARGETS FWCoreSources EXPORT FWCoreSources DESTINATION  lib )
+install( TARGETS FWCoreSources DESTINATION  lib  EXPORT stitched::FWCoreSources)
 

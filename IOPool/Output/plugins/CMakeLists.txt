@@ -2,19 +2,21 @@ add_library(IOPoolOutputPlugins SHARED
   Module.cc
 )
 
-target_include_directories(IOPoolOutputPlugins PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(IOPoolOutputPlugins PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(IOPoolOutputPlugins PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(IOPoolOutputPlugins PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(IOPoolOutputPlugins PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(IOPoolOutputPlugins PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(IOPoolOutputPlugins PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(IOPoolOutputPlugins PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(IOPoolOutputPlugins PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(IOPoolOutputPlugins PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(IOPoolOutputPlugins PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(IOPoolOutputPlugins PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(IOPoolOutputPlugins PUBLIC
   IOPoolOutput
 )
 
-install( TARGETS IOPoolOutputPlugins EXPORT IOPoolOutputPlugins DESTINATION  lib )
+install( TARGETS IOPoolOutputPlugins DESTINATION  lib  EXPORT stitched::IOPoolOutputPlugins)
 

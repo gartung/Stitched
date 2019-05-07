@@ -1,8 +1,10 @@
-add_subdirectory(Output)
+add_subdirectory(Common)
 add_subdirectory(Input)
+add_subdirectory(Output)
 add_subdirectory(Streamer)
 add_subdirectory(TFileAdaptor)
-add_subdirectory(Common)
+add_subdirectory(Provenance)
+add_subdirectory(SecondaryInput)
 
 
 # Meta-target that builds everything in this subsystem

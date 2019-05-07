@@ -2,27 +2,25 @@ add_library(IOMCRandomEnginePlugins SHARED
   Module.cc
 )
 
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(IOMCRandomEnginePlugins PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${ROOT_INCLUDE_DIR})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${MD5_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${MD5_INCLUDE_DIR})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${CLHEP_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${CLHEP_INCLUDE_DIR})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(IOMCRandomEnginePlugins PUBLIC ${TINYXML_INCLUDE_DIR})
-include_directories(IOMCRandomEnginePlugins PUBLIC ${TINYXML_INCLUDE_DIR})
+target_include_directories(IOMCRandomEnginePlugins PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(IOMCRandomEnginePlugins PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${CLHEP_INCLUDE_DIR}
+ ${GSL_INCLUDE_DIR}
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(IOMCRandomEnginePlugins PUBLIC
-  IOMCRandomEngine
   FWCoreFramework
   FWCoreServiceRegistry
+  IOMCRandomEngine
 )
 
-install( TARGETS IOMCRandomEnginePlugins EXPORT IOMCRandomEnginePlugins DESTINATION  lib )
+install( TARGETS IOMCRandomEnginePlugins DESTINATION  lib  EXPORT stitched::IOMCRandomEnginePlugins)
 

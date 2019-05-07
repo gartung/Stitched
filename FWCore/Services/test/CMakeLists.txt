@@ -1,75 +1,63 @@
-add_library(FpeTester SHARED 
-  FpeTester.cc
-)
-
-target_link_libraries(FpeTester PUBLIC
-  FWCorePluginManager
-  FWCoreServices
-  FWCoreFramework
-)
-
 add_library(StuckAnalyzer SHARED 
   StuckAnalyzer.cc
 )
 
-target_include_directories(StuckAnalyzer PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(StuckAnalyzer PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(StuckAnalyzer PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(StuckAnalyzer PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(StuckAnalyzer PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(StuckAnalyzer PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(StuckAnalyzer PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(StuckAnalyzer PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(StuckAnalyzer PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(StuckAnalyzer PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(StuckAnalyzer PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(StuckAnalyzer PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(StuckAnalyzer PUBLIC
+  FWCoreFramework
   FWCorePluginManager
   FWCoreServices
-  FWCoreFramework
 )
 
 add_library(SiteLocalConfigUnitTestClient SHARED 
   SiteLocalConfigServiceTester.cc
 )
 
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${ROOT_INCLUDE_DIR})
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${MD5_INCLUDE_DIR})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${MD5_INCLUDE_DIR})
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(SiteLocalConfigUnitTestClient PUBLIC ${TINYXML_INCLUDE_DIR})
-include_directories(SiteLocalConfigUnitTestClient PUBLIC ${TINYXML_INCLUDE_DIR})
+target_include_directories(SiteLocalConfigUnitTestClient PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(SiteLocalConfigUnitTestClient PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(SiteLocalConfigUnitTestClient PUBLIC
+  FWCoreFramework
   FWCorePluginManager
   FWCoreServices
-  FWCoreFramework
 )
 
 add_executable(TestFWCoreServicesDriver
   TestFWCoreServicesDriver.cpp
 )
 
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(TestFWCoreServicesDriver PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(TestFWCoreServicesDriver PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${TINYXML_INCLUDE_DIR})
-include_directories(TestFWCoreServicesDriver PUBLIC ${TINYXML_INCLUDE_DIR})
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(TestFWCoreServicesDriver PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${MD5_INCLUDE_DIR})
-include_directories(TestFWCoreServicesDriver PUBLIC ${MD5_INCLUDE_DIR})
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(TestFWCoreServicesDriver PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(TestFWCoreServicesDriver PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(TestFWCoreServicesDriver PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(TestFWCoreServicesDriver PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(TestFWCoreServicesDriver PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(TestFWCoreServicesDriver PUBLIC
   FWCoreServices
   FWCoreUtilities

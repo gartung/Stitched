@@ -2,28 +2,37 @@ add_executable(edmToFriendlyClassName
   edmToFriendlyClassName.cc
 )
 
-target_include_directories(edmToFriendlyClassName PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(edmToFriendlyClassName PUBLIC ${ROOT_INCLUDE_DIR})
-target_include_directories(edmToFriendlyClassName PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(edmToFriendlyClassName PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(edmToFriendlyClassName PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(edmToFriendlyClassName PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(edmToFriendlyClassName PUBLIC ${MD5_INCLUDE_DIR})
-include_directories(edmToFriendlyClassName PUBLIC ${MD5_INCLUDE_DIR})
+target_include_directories(edmToFriendlyClassName PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(edmToFriendlyClassName PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${MD5_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${UUID_INCLUDE_DIR}
+)
 target_link_libraries(edmToFriendlyClassName PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS edmToFriendlyClassName EXPORT edmToFriendlyClassName DESTINATION  bin )
+install( TARGETS edmToFriendlyClassName DESTINATION  bin  EXPORT stitched::edmToFriendlyClassName)
 
 add_executable(cms_adler32
   adler32.c
 )
 
+target_include_directories(cms_adler32 PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(cms_adler32 PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${MD5_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${UUID_INCLUDE_DIR}
+ ${ZLIB_INCLUDE_DIR}
+)
 target_link_libraries(cms_adler32 PUBLIC
-  z
   FWCoreUtilities
+  z
 )
 
-install( TARGETS cms_adler32 EXPORT cms_adler32 DESTINATION  bin )
+install( TARGETS cms_adler32 DESTINATION  bin  EXPORT stitched::cms_adler32)
 

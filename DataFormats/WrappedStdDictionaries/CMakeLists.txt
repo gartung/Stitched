@@ -1,14 +1,14 @@
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
-reflex_dictionary(DataFormatsWrappedStdDictionaries src/classes.h src/classes_def.xml)
-add_library(DataFormatsWrappedStdDictionaries SHARED 
-  DataFormatsWrappedStdDictionariesDict.cpp
-)
-
-add_dependencies(DataFormatsWrappedStdDictionaries DataFormatsWrappedStdDictionariesDict)
-target_link_libraries(DataFormatsWrappedStdDictionaries PUBLIC
-  DataFormatsCommon
-)
-
-install( TARGETS DataFormatsWrappedStdDictionaries EXPORT DataFormatsWrappedStdDictionaries DESTINATION  lib )
-
+include_directories(${Boost_INCLUDE_DIR})
+include_directories(${MD5_INCLUDE_DIR})
+include_directories(${ROOT_INCLUDE_DIR})
+include_directories(${TBB_INCLUDE_DIRS})
+include_directories(${TINYXML2_INCLUDE_DIR})
+include_directories(${UUID_INCLUDE_DIR})
+add_library(DataFormatsWrappedStdDictionaries INTERFACE)
+reflex_generate_dictionary(DataFormatsWrappedStdDictionaries src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsWrappedStdDictionariesDict)
+add_library(DataFormatsWrappedStdDictionariesDict SHARED DataFormatsWrappedStdDictionariesDict.cpp)
+add_dependencies(DataFormatsWrappedStdDictionaries DataFormatsWrappedStdDictionariesGen)
+install( TARGETS DataFormatsWrappedStdDictionariesDict DESTINATION lib EXPORT stitched::DataFormatsWrappedStdDictionariesDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsWrappedStdDictionariesDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsWrappedStdDictionaries.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)

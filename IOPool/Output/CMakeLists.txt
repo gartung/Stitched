@@ -1,40 +1,41 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 add_subdirectory(plugins)
 add_library(IOPoolOutput SHARED 
-  src/RootOutputFile.cc
   src/PoolOutputModule.cc
-  src/TimeoutPoolOutputModule.cc
+  src/RootOutputFile.cc
   src/RootOutputTree.cc
+  src/TimeoutPoolOutputModule.cc
 )
 
-target_include_directories(IOPoolOutput PUBLIC ${PYTHON_INCLUDE_DIR})
-include_directories(IOPoolOutput PUBLIC ${PYTHON_INCLUDE_DIR})
-target_include_directories(IOPoolOutput PUBLIC ${Boost_INCLUDE_DIR}/python)
-include_directories(IOPoolOutput PUBLIC ${Boost_INCLUDE_DIR}/python)
-target_include_directories(IOPoolOutput PUBLIC ${Boost_INCLUDE_DIR})
-include_directories(IOPoolOutput PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(IOPoolOutput PUBLIC ${TBB_INCLUDE_DIRS})
-include_directories(IOPoolOutput PUBLIC ${TBB_INCLUDE_DIRS})
-target_include_directories(IOPoolOutput PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(IOPoolOutput PUBLIC ${ROOT_INCLUDE_DIR})
+target_include_directories(IOPoolOutput PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(IOPoolOutput PUBLIC
+ ${Boost_INCLUDE_DIR}
+ ${Boost_INCLUDE_DIR}/python
+ ${MD5_INCLUDE_DIR}
+ ${PYTHON_INCLUDE_DIR}
+ ${ROOT_INCLUDE_DIR}
+ ${TBB_INCLUDE_DIRS}
+ ${TINYXML2_INCLUDE_DIR}
+ ${UUID_INCLUDE_DIR}
+ ${XERCESC_INCLUDE_DIR}
+)
 target_link_libraries(IOPoolOutput PUBLIC
-  FWCoreParameterSet
-  FWCoreVersion
-  Thread
   Core
   DataFormatsCommon
-  FWCoreFramework
-  Tree
-  FWCoreUtilities
-  RIO
-  MathCore
-  IOPoolCommon
-  Net
   DataFormatsProvenance
+  FWCoreFramework
   FWCoreMessageLogger
+  FWCoreParameterSet
   FWCoreServiceRegistry
+  FWCoreUtilities
+  FWCoreVersion
+  IOPoolCommon
+  IOPoolProvenance
+  MathCore
+  Net
+  RIO
+  Thread
+  Tree
 )
 
-install( TARGETS IOPoolOutput EXPORT IOPoolOutput DESTINATION  lib )
+install( TARGETS IOPoolOutput DESTINATION  lib  EXPORT stitched::IOPoolOutput)
 

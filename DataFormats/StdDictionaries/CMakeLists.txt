@@ -1,30 +1,24 @@
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
-reflex_dictionary(DataFormatsStdDictionaries_pair src/classes_pair.h src/classes_def_pair.xml)
-reflex_dictionary(DataFormatsStdDictionaries_vector src/classes_vector.h src/classes_def_vector.xml)
-reflex_dictionary(DataFormatsStdDictionaries_map src/classes_map.h src/classes_def_map.xml)
-reflex_dictionary(DataFormatsStdDictionaries_others src/classes_others.h src/classes_def_others.xml)
-add_library(DataFormatsStdDictionaries SHARED 
-  DataFormatsStdDictionaries_pairDict.cpp
-  DataFormatsStdDictionaries_vectorDict.cpp
-  DataFormatsStdDictionaries_mapDict.cpp
-  DataFormatsStdDictionaries_othersDict.cpp
-)
-
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_pairDict)
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_vectorDict)
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_mapDict)
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_othersDict)
-target_include_directories(DataFormatsStdDictionaries PUBLIC ${ROOT_INCLUDE_DIR})
-include_directories(DataFormatsStdDictionaries PUBLIC ${ROOT_INCLUDE_DIR})
-target_link_libraries(DataFormatsStdDictionaries PUBLIC
-  Core
-  MathCore
-  Thread
-  RIO
-  Net
-  Tree
-)
-
-install( TARGETS DataFormatsStdDictionaries EXPORT DataFormatsStdDictionaries DESTINATION  lib )
-
+include_directories(${ROOT_INCLUDE_DIR})
+add_library(DataFormatsStdDictionaries INTERFACE)
+reflex_generate_dictionary(DataFormatsStdDictionaries_map src/classes_map.h src/classes_def_map.xml ROOTMAPLIB DataFormatsStdDictionariesDict)
+add_library(DataFormatsStdDictionaries_mapDict SHARED DataFormatsStdDictionaries_mapDict.cpp)
+add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_mapGen)
+install( TARGETS DataFormatsStdDictionaries_mapDict DESTINATION lib EXPORT stitched::DataFormatsStdDictionaries_mapDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_mapDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_map.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_generate_dictionary(DataFormatsStdDictionaries_others src/classes_others.h src/classes_def_others.xml ROOTMAPLIB DataFormatsStdDictionariesDict)
+add_library(DataFormatsStdDictionaries_othersDict SHARED DataFormatsStdDictionaries_othersDict.cpp)
+add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_othersGen)
+install( TARGETS DataFormatsStdDictionaries_othersDict DESTINATION lib EXPORT stitched::DataFormatsStdDictionaries_othersDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_othersDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_others.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_generate_dictionary(DataFormatsStdDictionaries_pair src/classes_pair.h src/classes_def_pair.xml ROOTMAPLIB DataFormatsStdDictionariesDict)
+add_library(DataFormatsStdDictionaries_pairDict SHARED DataFormatsStdDictionaries_pairDict.cpp)
+add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_pairGen)
+install( TARGETS DataFormatsStdDictionaries_pairDict DESTINATION lib EXPORT stitched::DataFormatsStdDictionaries_pairDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_pairDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_pair.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_generate_dictionary(DataFormatsStdDictionaries_vector src/classes_vector.h src/classes_def_vector.xml ROOTMAPLIB DataFormatsStdDictionariesDict)
+add_library(DataFormatsStdDictionaries_vectorDict SHARED DataFormatsStdDictionaries_vectorDict.cpp)
+add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_vectorGen)
+install( TARGETS DataFormatsStdDictionaries_vectorDict DESTINATION lib EXPORT stitched::DataFormatsStdDictionaries_vectorDict )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_vectorDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_vector.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)

@@ -1,10 +1,9 @@
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(/usr/include/)
 add_library(FWCoreVersion SHARED 
-  src/GetReleaseVersion.cc
   src/GetFileFormatVersion.cc
+  src/GetReleaseVersion.cc
 )
 
+target_include_directories(FWCoreVersion PRIVATE ${CMAKE_SOURCE_DIR})
 
-install( TARGETS FWCoreVersion EXPORT FWCoreVersion DESTINATION  lib )
+install( TARGETS FWCoreVersion DESTINATION  lib  EXPORT stitched::FWCoreVersion)
 
