@@ -11,27 +11,27 @@ target_include_directories(testPythonParameterSet PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testPythonParameterSet PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreParameterSet
   FWCorePythonParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME testPythonParameterSet COMMAND testPythonParameterSet)

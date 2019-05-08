@@ -11,17 +11,17 @@ target_include_directories(Exception_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Exception_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Exception_t COMMAND Exception_t)
@@ -38,17 +38,17 @@ target_include_directories(EDMException_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(EDMException_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME EDMException_t COMMAND EDMException_t)
@@ -65,17 +65,17 @@ target_include_directories(TestHelper_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestHelper_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestHelper_t COMMAND TestHelper_t)
@@ -92,17 +92,17 @@ target_include_directories(value_ptr_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(value_ptr_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME value_ptr_t COMMAND value_ptr_t)
@@ -119,17 +119,17 @@ target_include_directories(atomic_value_ptr_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(atomic_value_ptr_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME atomic_value_ptr_t COMMAND atomic_value_ptr_t)
@@ -146,17 +146,17 @@ target_include_directories(Digest_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Digest_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Digest_t COMMAND Digest_t)
@@ -173,17 +173,17 @@ target_include_directories(CRC32Calculator_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(CRC32Calculator_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME CRC32Calculator_t COMMAND CRC32Calculator_t)
@@ -200,17 +200,17 @@ target_include_directories(Guid_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Guid_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Guid_t COMMAND Guid_t)
@@ -227,17 +227,17 @@ target_include_directories(typedefs_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(typedefs_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME typedefs_t COMMAND typedefs_t)
@@ -255,18 +255,18 @@ target_include_directories(HRTime_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(HRTime_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME HRTime_t COMMAND HRTime_t)
@@ -283,17 +283,17 @@ target_include_directories(isFinite_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(isFinite_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME isFinite_t COMMAND isFinite_t)
@@ -310,17 +310,17 @@ target_include_directories(clone_ptr_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(clone_ptr_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME clone_ptr_t COMMAND clone_ptr_t)
@@ -338,18 +338,18 @@ target_include_directories(MallocOpts_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(MallocOpts_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME MallocOpts_t COMMAND MallocOpts_t)
@@ -380,18 +380,18 @@ target_include_directories(testFWCoreUtilities PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testFWCoreUtilities PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME testFWCoreUtilities COMMAND testFWCoreUtilities)
@@ -408,18 +408,18 @@ target_include_directories(InputTag_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(InputTag_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME InputTag_t COMMAND InputTag_t)
@@ -436,17 +436,17 @@ target_include_directories(EDGetToken_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(EDGetToken_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME EDGetToken_t COMMAND EDGetToken_t)
@@ -463,18 +463,18 @@ target_include_directories(RunningAverage_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(RunningAverage_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME RunningAverage_t COMMAND RunningAverage_t)

@@ -8,7 +8,7 @@ target_include_directories(FWCoreTFWLiteSelectorTest PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -16,21 +16,11 @@ target_include_directories(FWCoreTFWLiteSelectorTest PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreTFWLiteSelectorTest PUBLIC
-  Core
   DataFormatsCommon
   FWCoreTFWLiteSelector
-  Gpad
-  Graf
-  Graf3d
-  Hist
-  MathCore
-  Matrix
-  Net
-  Postscript
-  RIO
-  Thread
-  Tree
-  TreePlayer
+  ROOT::Graf3D
+  ROOT::Postscript
+  ROOT::TreePlayer
 )
 
 install( TARGETS FWCoreTFWLiteSelectorTest DESTINATION  lib  EXPORT stitched::FWCoreTFWLiteSelectorTest)
@@ -40,7 +30,7 @@ include_directories(/usr/include/)
 include_directories(${Boost_INCLUDE_DIR})
 include_directories(${Boost_INCLUDE_DIR}/python)
 include_directories(${MD5_INCLUDE_DIR})
-include_directories(${PYTHON_INCLUDE_DIR})
+include_directories(${Python2_INCLUDE_DIRS})
 include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})

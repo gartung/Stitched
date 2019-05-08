@@ -21,16 +21,11 @@ target_include_directories(FWCoreFWLite PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFWLite PUBLIC
-  Core
   DataFormatsCommon
   DataFormatsProvenance
   FWCorePluginManager
   FWCoreUtilities
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS FWCoreFWLite DESTINATION  lib  EXPORT stitched::FWCoreFWLite)

@@ -33,18 +33,18 @@ target_include_directories(testDataFormatsCommon PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testDataFormatsCommon PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME testDataFormatsCommon COMMAND testDataFormatsCommon)
@@ -63,18 +63,18 @@ target_include_directories(DetSetVector_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DetSetVector_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME DetSetVector_t COMMAND DetSetVector_t)
@@ -93,18 +93,18 @@ target_include_directories(OwnVector_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(OwnVector_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME OwnVector_t COMMAND OwnVector_t)
@@ -123,26 +123,21 @@ target_include_directories(DictionaryTools_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DictionaryTools_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
-  Core
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsStdDictionaries
   DataFormatsWrappedStdDictionaries
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
-  dl
+  Python2::Python
+  ROOT::Core
+  Threads::Threads
 )
 
 add_test(NAME DictionaryTools_t COMMAND DictionaryTools_t)
@@ -161,18 +156,18 @@ target_include_directories(Wrapper_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Wrapper_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Wrapper_t COMMAND Wrapper_t)
@@ -191,18 +186,18 @@ target_include_directories(traits_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(traits_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME traits_t COMMAND traits_t)
@@ -221,18 +216,18 @@ target_include_directories(RefCore_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(RefCore_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME RefCore_t COMMAND RefCore_t)
@@ -251,18 +246,18 @@ target_include_directories(Ref_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Ref_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Ref_t COMMAND Ref_t)
@@ -281,18 +276,18 @@ target_include_directories(RefVector_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(RefVector_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME RefVector_t COMMAND RefVector_t)
@@ -311,18 +306,18 @@ target_include_directories(DataFrame_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DataFrame_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME DataFrame_t COMMAND DataFrame_t)
@@ -341,18 +336,18 @@ target_include_directories(DetSetNew_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DetSetNew_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME DetSetNew_t COMMAND DetSetNew_t)
@@ -371,18 +366,18 @@ target_include_directories(DetSetNewTS_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DetSetNewTS_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME DetSetNewTS_t COMMAND DetSetNewTS_t)
@@ -401,18 +396,18 @@ target_include_directories(MapOfVectors_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(MapOfVectors_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME MapOfVectors_t COMMAND MapOfVectors_t)
@@ -431,18 +426,18 @@ target_include_directories(exDSTV PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(exDSTV PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME exDSTV COMMAND exDSTV)
@@ -461,18 +456,18 @@ target_include_directories(Trie_t PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(Trie_t PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME Trie_t COMMAND Trie_t)
@@ -491,18 +486,18 @@ target_include_directories(exTrie PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(exTrie PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME exTrie COMMAND exTrie)
@@ -521,18 +516,18 @@ target_include_directories(testBoostRange PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testBoostRange PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME testBoostRange COMMAND testBoostRange)
@@ -552,18 +547,18 @@ target_include_directories(testMultiAssociation PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testMultiAssociation PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME testMultiAssociation COMMAND testMultiAssociation)

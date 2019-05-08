@@ -11,17 +11,17 @@ target_include_directories(edmPluginDump PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(edmPluginDump PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS edmPluginDump DESTINATION  bin  EXPORT stitched::edmPluginDump)
@@ -39,17 +39,17 @@ target_include_directories(edmPluginRefresh PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(edmPluginRefresh PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS edmPluginRefresh DESTINATION  bin  EXPORT stitched::edmPluginRefresh)

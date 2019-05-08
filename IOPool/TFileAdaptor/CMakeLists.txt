@@ -14,7 +14,7 @@ target_include_directories(IOPoolTFileAdaptor PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -23,16 +23,11 @@ target_include_directories(IOPoolTFileAdaptor PUBLIC
 )
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 target_link_libraries(IOPoolTFileAdaptor PUBLIC
-  Core
   FWCoreCatalog
   FWCoreMessageLogger
   FWCoreParameterSet
   FWCoreServiceRegistry
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
   UtilitiesStorageFactory
 )
 
@@ -44,7 +39,7 @@ include_directories(${Boost_INCLUDE_DIR})
 include_directories(${Boost_INCLUDE_DIR}/python)
 include_directories(${MD5_INCLUDE_DIR})
 include_directories(${OPENSSL_INCLUDE_DIR})
-include_directories(${PYTHON_INCLUDE_DIR})
+include_directories(${Python2_INCLUDE_DIRS})
 include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})

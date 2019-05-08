@@ -7,7 +7,7 @@ target_include_directories(edmProvDump PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -15,8 +15,7 @@ target_include_directories(edmProvDump PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(edmProvDump PUBLIC
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  Core
+  Boost::program_options
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsStdDictionaries
@@ -27,11 +26,7 @@ target_link_libraries(edmProvDump PUBLIC
   FWCoreServices
   FWCoreUtilities
   IOPoolCommon
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS edmProvDump DESTINATION  bin  EXPORT stitched::edmProvDump)
@@ -46,7 +41,7 @@ target_include_directories(edmFileUtil PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -54,31 +49,26 @@ target_include_directories(edmFileUtil PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(edmFileUtil PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
-  Core
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreCatalog
   FWCoreParameterSet
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreServices
-  Hist
   IOPoolCommon
-  MathCore
-  Matrix
-  Net
-  RIO
-  Thread
-  Tree
-  dl
+  Python2::Python
+  ROOT::Core
+  ROOT::Hist
+  ROOT::Matrix
+  Threads::Threads
 )
 
 install( TARGETS edmFileUtil DESTINATION  bin  EXPORT stitched::edmFileUtil)
@@ -93,7 +83,7 @@ target_include_directories(edmCopyUtil PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -102,22 +92,22 @@ target_include_directories(edmCopyUtil PUBLIC
 )
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 target_link_libraries(edmCopyUtil PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreCatalog
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreServices
   IOPoolCommon
+  Python2::Python
+  Threads::Threads
   UtilitiesStorageFactory
-  dl
 )
 
 install( TARGETS edmCopyUtil DESTINATION  bin  EXPORT stitched::edmCopyUtil)

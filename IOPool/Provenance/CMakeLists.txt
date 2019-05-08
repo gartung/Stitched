@@ -12,14 +12,9 @@ target_include_directories(IOPoolProvenance PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(IOPoolProvenance PUBLIC
-  Core
   DataFormatsProvenance
   FWCoreParameterSet
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS IOPoolProvenance DESTINATION  lib  EXPORT stitched::IOPoolProvenance)

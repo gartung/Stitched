@@ -23,18 +23,18 @@ target_include_directories(FWCorePluginManager PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(FWCorePluginManager PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS FWCorePluginManager DESTINATION  lib  EXPORT stitched::FWCorePluginManager)

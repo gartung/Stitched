@@ -10,7 +10,7 @@ target_include_directories(FWCoreTFWLiteSelector PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -18,17 +18,12 @@ target_include_directories(FWCoreTFWLiteSelector PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreTFWLiteSelector PUBLIC
-  Core
   DataFormatsCommon
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
   FWCoreUtilities
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS FWCoreTFWLiteSelector DESTINATION  lib  EXPORT stitched::FWCoreTFWLiteSelector)
@@ -38,7 +33,7 @@ include_directories(/usr/include/)
 include_directories(${Boost_INCLUDE_DIR})
 include_directories(${Boost_INCLUDE_DIR}/python)
 include_directories(${MD5_INCLUDE_DIR})
-include_directories(${PYTHON_INCLUDE_DIR})
+include_directories(${Python2_INCLUDE_DIRS})
 include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})

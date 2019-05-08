@@ -13,9 +13,9 @@ target_include_directories(testDataFormatsFWLiteMakeInput PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(testDataFormatsFWLiteMakeInput PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
+  Boost::filesystem
+  Boost::system
   DataFormatsFWLite
   FWCoreUtilities
 )

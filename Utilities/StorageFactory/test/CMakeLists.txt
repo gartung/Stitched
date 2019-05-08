@@ -8,7 +8,7 @@ target_include_directories(test_StorageFactory_t0Repack PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -31,7 +31,7 @@ target_include_directories(test_StorageFactory_randomread PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -54,7 +54,7 @@ target_include_directories(test_StorageFactory_Any PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -77,7 +77,7 @@ target_include_directories(test_StorageFactory_Local PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -100,7 +100,7 @@ target_include_directories(test_StorageFactory_Local2 PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -123,7 +123,7 @@ target_include_directories(test_StorageFactory_Local3 PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -146,7 +146,7 @@ target_include_directories(test_StorageFactory_Ftp PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -169,7 +169,7 @@ target_include_directories(test_StorageFactory_Ftp2 PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -192,7 +192,7 @@ target_include_directories(test_StorageFactory_Rfio2 PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -215,7 +215,7 @@ target_include_directories(test_StorageFactory_Rfio3 PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -238,7 +238,7 @@ target_include_directories(test_StorageFactory_Write PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -261,7 +261,7 @@ target_include_directories(test_StorageFactory_Mkstemp PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}

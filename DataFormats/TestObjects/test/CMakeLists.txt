@@ -14,16 +14,11 @@ target_include_directories(Enum_t PUBLIC
 )
 target_link_libraries(Enum_t PUBLIC
   ${CPPUNIT_LIBRARY}
-  Core
   DataFormatsCommon
   DataFormatsStdDictionaries
   DataFormatsTestObjects
   DataFormatsWrappedStdDictionaries
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 add_test(NAME Enum_t COMMAND Enum_t)

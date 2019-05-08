@@ -11,7 +11,7 @@ target_include_directories(IOPoolOutput PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -19,7 +19,6 @@ target_include_directories(IOPoolOutput PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(IOPoolOutput PUBLIC
-  Core
   DataFormatsCommon
   DataFormatsProvenance
   FWCoreFramework
@@ -30,11 +29,7 @@ target_link_libraries(IOPoolOutput PUBLIC
   FWCoreVersion
   IOPoolCommon
   IOPoolProvenance
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS IOPoolOutput DESTINATION  lib  EXPORT stitched::IOPoolOutput)

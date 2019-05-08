@@ -7,7 +7,7 @@ target_include_directories(cmsRunGlibC PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -15,17 +15,15 @@ target_include_directories(cmsRunGlibC PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRunGlibC PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
-  Core
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -33,14 +31,10 @@ target_link_libraries(cmsRunGlibC PUBLIC
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreUtilities
-  Hist
-  MathCore
-  Matrix
-  Net
-  RIO
-  Thread
-  Tree
-  dl
+  Python2::Python
+  ROOT::Hist
+  ROOT::Matrix
+  Threads::Threads
 )
 
 install( TARGETS cmsRunGlibC DESTINATION  bin  EXPORT stitched::cmsRunGlibC)
@@ -54,7 +48,7 @@ target_include_directories(cmsRunTC PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TCMALLOC_INCLUDE_DIR}
@@ -63,16 +57,16 @@ target_include_directories(cmsRunTC PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRunTC PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  ${TCMALLOC_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -80,8 +74,8 @@ target_link_libraries(cmsRunTC PUBLIC
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
-  tcmalloc_minimal
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS cmsRunTC DESTINATION  bin  EXPORT stitched::cmsRunTC)
@@ -95,7 +89,7 @@ target_include_directories(cmsRun PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -103,16 +97,15 @@ target_include_directories(cmsRun PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRun PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -120,7 +113,8 @@ target_link_libraries(cmsRun PUBLIC
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS cmsRun DESTINATION  bin  EXPORT stitched::cmsRun)
@@ -135,7 +129,7 @@ target_include_directories(cmsRunVDT PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${JEMALLOC_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -144,16 +138,16 @@ target_include_directories(cmsRunVDT PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRunVDT PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  ${JEMALLOC_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -161,8 +155,8 @@ target_link_libraries(cmsRunVDT PUBLIC
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
-  jemalloc
+  Python2::Python
+  Threads::Threads
   vdt
 )
 
@@ -178,7 +172,7 @@ target_include_directories(cmsRunJE PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${JEMALLOC_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -186,16 +180,16 @@ target_include_directories(cmsRunJE PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRunJE PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  ${JEMALLOC_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -203,8 +197,8 @@ target_link_libraries(cmsRunJE PUBLIC
   FWCorePluginManager
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
-  jemalloc
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS cmsRunJE DESTINATION  bin  EXPORT stitched::cmsRunJE)
@@ -218,8 +212,8 @@ target_include_directories(cmsRunPyDev PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}/pybind11
+ ${Python2_INCLUDE_DIRS}
+ ${Python2_INCLUDE_DIRS}/pybind11
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -227,16 +221,15 @@ target_include_directories(cmsRunPyDev PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(cmsRunPyDev PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
@@ -244,7 +237,8 @@ target_link_libraries(cmsRunPyDev PUBLIC
   FWCorePyDevParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS cmsRunPyDev DESTINATION  bin  EXPORT stitched::cmsRunPyDev)

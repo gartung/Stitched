@@ -26,29 +26,29 @@ target_include_directories(FWCoreMessageService PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreMessageService PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreMessageLogger
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 install( TARGETS FWCoreMessageService DESTINATION  lib  EXPORT stitched::FWCoreMessageService)

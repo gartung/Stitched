@@ -16,7 +16,7 @@ target_include_directories(IOMCRandomEngine PUBLIC
  ${CLHEP_INCLUDE_DIR}
  ${GSL_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -25,21 +25,16 @@ target_include_directories(IOMCRandomEngine PUBLIC
 )
 target_link_libraries(IOMCRandomEngine PUBLIC
   ${CLHEP_MAIN_LIBRARY}
-  Core
   DataFormatsProvenance
   FWCoreFramework
   FWCoreMessageLogger
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  GenVector
-  MathCore
-  MathMore
-  Net
-  RIO
+  ROOT::Core
+  ROOT::GenVector
+  ROOT::MathMore
   SimDataFormatsRandomEngine
-  Thread
-  Tree
   gsl
 )
 

@@ -13,8 +13,8 @@ target_include_directories(FWCorePyDevParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
 target_include_directories(FWCorePyDevParameterSet PUBLIC
  ${Boost_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}/pybind11
+ ${Python2_INCLUDE_DIRS}
+ ${Python2_INCLUDE_DIRS}/pybind11
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -22,10 +22,10 @@ target_include_directories(FWCorePyDevParameterSet PUBLIC
 )
 target_link_libraries(FWCorePyDevParameterSet PUBLIC
   ${PYBIND11_LIBRARY}
-  ${PYTHON_LIBRARY}
   DataFormatsProvenance
   FWCoreParameterSet
   FWCoreUtilities
+  Python2::Python
 )
 
 install( TARGETS FWCorePyDevParameterSet DESTINATION  lib  EXPORT stitched::FWCorePyDevParameterSet)

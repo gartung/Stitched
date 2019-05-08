@@ -10,8 +10,8 @@ target_include_directories(testPyBind11ParameterSet PUBLIC
  ${Boost_INCLUDE_DIR}
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}/pybind11
+ ${Python2_INCLUDE_DIRS}
+ ${Python2_INCLUDE_DIRS}/pybind11
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}

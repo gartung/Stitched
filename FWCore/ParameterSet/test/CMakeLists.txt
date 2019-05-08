@@ -33,19 +33,19 @@ target_include_directories(TestFWCoreParameterSetDescription PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreParameterSetDescription PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreParameterSetDescription COMMAND TestFWCoreParameterSetDescription)

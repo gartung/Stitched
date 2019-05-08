@@ -9,7 +9,7 @@ target_include_directories(IOMCRandomEngineTestRandomNumberServiceGlobal PUBLIC
  ${CLHEP_INCLUDE_DIR}
  ${GSL_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -37,7 +37,7 @@ target_include_directories(TestIOMCRandomEngineService PUBLIC
  ${CLHEP_INCLUDE_DIR}
  ${GSL_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}

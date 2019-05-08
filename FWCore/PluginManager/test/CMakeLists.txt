@@ -12,18 +12,18 @@ target_include_directories(TestFWCorePluginManagerPluginFactoryManager PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCorePluginManagerPluginFactoryManager PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCorePluginManagerPluginFactoryManager COMMAND TestFWCorePluginManagerPluginFactoryManager)
@@ -41,19 +41,19 @@ target_include_directories(TestFWCorePluginManagerPluginManager PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCorePluginManagerPluginManager PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
+  Python2::Python
   TestFWCorePluginManagerDummyFactory
-  dl
+  Threads::Threads
 )
 
 add_test(NAME TestFWCorePluginManagerPluginManager COMMAND TestFWCorePluginManagerPluginManager)
@@ -71,18 +71,18 @@ target_include_directories(TestFWCorePluginManagerCacheParser PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCorePluginManagerCacheParser PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCorePluginManagerCacheParser COMMAND TestFWCorePluginManagerCacheParser)
@@ -100,18 +100,18 @@ target_include_directories(TestFWCorePluginManagerPluginFactory PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCorePluginManagerPluginFactory PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCorePluginManager
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCorePluginManagerPluginFactory COMMAND TestFWCorePluginManagerPluginFactory)

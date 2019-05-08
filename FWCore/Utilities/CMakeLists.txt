@@ -57,25 +57,20 @@ target_include_directories(FWCoreUtilities PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreUtilities PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${MD5_LIBRARY}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
   ${UUID_LIBRARIES}
-  Core
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
-  dl
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
+  Python2::Python
+  ROOT::Core
+  Threads::Threads
 )
 
 install( TARGETS FWCoreUtilities DESTINATION  lib  EXPORT stitched::FWCoreUtilities)

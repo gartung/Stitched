@@ -12,14 +12,9 @@ target_include_directories(DataFormatsStreamer PUBLIC
  ${UUID_INCLUDE_DIR}
 )
 target_link_libraries(DataFormatsStreamer PUBLIC
-  Core
   DataFormatsProvenance
   DataFormatsStdDictionaries
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
 )
 
 install( TARGETS DataFormatsStreamer DESTINATION  lib  EXPORT stitched::DataFormatsStreamer)

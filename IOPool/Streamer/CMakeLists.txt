@@ -23,7 +23,7 @@ target_include_directories(IOPoolStreamer PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
  ${OPENSSL_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -33,7 +33,6 @@ target_include_directories(IOPoolStreamer PUBLIC
 )
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 target_link_libraries(IOPoolStreamer PUBLIC
-  Core
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsStreamer
@@ -45,11 +44,7 @@ target_link_libraries(IOPoolStreamer PUBLIC
   FWCoreSources
   FWCoreUtilities
   FWCoreVersion
-  MathCore
-  Net
-  RIO
-  Thread
-  Tree
+  ROOT::Core
   UtilitiesStorageFactory
   z
 )

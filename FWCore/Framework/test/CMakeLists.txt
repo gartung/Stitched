@@ -11,7 +11,7 @@ target_include_directories(FWCoreFrameworkTestDummyForEventSetup PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -19,17 +19,17 @@ target_include_directories(FWCoreFrameworkTestDummyForEventSetup PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestDummyForEventSetup PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTest SHARED 
@@ -42,7 +42,7 @@ target_include_directories(FWCoreFrameworkTest PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -50,17 +50,17 @@ target_include_directories(FWCoreFrameworkTest PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTest PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestOutputModule SHARED 
@@ -72,7 +72,7 @@ target_include_directories(TestOutputModule PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -80,21 +80,21 @@ target_include_directories(TestOutputModule PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestOutputModule PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestFilterModule SHARED 
@@ -106,7 +106,7 @@ target_include_directories(TestFilterModule PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -114,19 +114,19 @@ target_include_directories(TestFilterModule PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFilterModule PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestTBBTasksAnalyzer SHARED 
@@ -139,7 +139,7 @@ target_include_directories(TestTBBTasksAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -147,20 +147,20 @@ target_include_directories(TestTBBTasksAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestTBBTasksAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
   ${TBB_LIBRARIES}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_executable(TestFWCoreFrameworkTBBTasks
@@ -172,7 +172,7 @@ target_include_directories(TestFWCoreFrameworkTBBTasks PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -180,18 +180,18 @@ target_include_directories(TestFWCoreFrameworkTBBTasks PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkTBBTasks PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkTBBTasks COMMAND TestFWCoreFrameworkTBBTasks)
@@ -204,7 +204,7 @@ target_include_directories(TestTriggerNames PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -212,22 +212,22 @@ target_include_directories(TestTriggerNames PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestTriggerNames PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestMergeResults SHARED 
@@ -239,7 +239,7 @@ target_include_directories(TestMergeResults PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -247,15 +247,14 @@ target_include_directories(TestMergeResults PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestMergeResults PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsTestObjects
@@ -264,7 +263,8 @@ target_link_libraries(TestMergeResults PUBLIC
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(RunLumiEventAnalyzer SHARED 
@@ -276,7 +276,7 @@ target_include_directories(RunLumiEventAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -284,18 +284,18 @@ target_include_directories(RunLumiEventAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(RunLumiEventAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestMod SHARED 
@@ -307,7 +307,7 @@ target_include_directories(TestMod PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -315,18 +315,18 @@ target_include_directories(TestMod PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestMod PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestToyModules SHARED 
@@ -344,7 +344,7 @@ target_include_directories(TestToyModules PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -352,20 +352,20 @@ target_include_directories(TestToyModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestToyModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsTestObjects
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestGlobalModules SHARED 
@@ -380,7 +380,7 @@ target_include_directories(TestGlobalModules PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -388,18 +388,18 @@ target_include_directories(TestGlobalModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestGlobalModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestLimitedModules SHARED 
@@ -413,7 +413,7 @@ target_include_directories(TestLimitedModules PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -421,18 +421,18 @@ target_include_directories(TestLimitedModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestLimitedModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestOneModules SHARED 
@@ -446,7 +446,7 @@ target_include_directories(TestOneModules PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -454,18 +454,18 @@ target_include_directories(TestOneModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestOneModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestStreamModules SHARED 
@@ -479,7 +479,7 @@ target_include_directories(TestStreamModules PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -487,18 +487,18 @@ target_include_directories(TestStreamModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestStreamModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestSchedulerModule1 SHARED 
@@ -510,7 +510,7 @@ target_include_directories(TestSchedulerModule1 PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -518,18 +518,18 @@ target_include_directories(TestSchedulerModule1 PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestSchedulerModule1 PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestSchedulerModule2 SHARED 
@@ -541,7 +541,7 @@ target_include_directories(TestSchedulerModule2 PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -549,19 +549,19 @@ target_include_directories(TestSchedulerModule2 PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestSchedulerModule2 PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestLoadableDummyFinder SHARED 
@@ -573,7 +573,7 @@ target_include_directories(TestLoadableDummyFinder PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -581,18 +581,18 @@ target_include_directories(TestLoadableDummyFinder PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestLoadableDummyFinder PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestLoadableDummyESSource SHARED 
@@ -604,7 +604,7 @@ target_include_directories(TestLoadableDummyESSource PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -612,18 +612,18 @@ target_include_directories(TestLoadableDummyESSource PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestLoadableDummyESSource PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestLoadableDummyEventSetupRecordRetriever SHARED 
@@ -635,7 +635,7 @@ target_include_directories(TestLoadableDummyEventSetupRecordRetriever PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -643,17 +643,17 @@ target_include_directories(TestLoadableDummyEventSetupRecordRetriever PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestLoadableDummyEventSetupRecordRetriever PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(TestLoadableDummyProvider SHARED 
@@ -665,7 +665,7 @@ target_include_directories(TestLoadableDummyProvider PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -673,18 +673,18 @@ target_include_directories(TestLoadableDummyProvider PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestLoadableDummyProvider PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTestDummyLooper SHARED 
@@ -697,7 +697,7 @@ target_include_directories(FWCoreFrameworkTestDummyLooper PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -705,19 +705,19 @@ target_include_directories(FWCoreFrameworkTestDummyLooper PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestDummyLooper PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsTestObjects
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTestESDummyDataAnalyzer SHARED 
@@ -729,7 +729,7 @@ target_include_directories(FWCoreFrameworkTestESDummyDataAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -737,20 +737,20 @@ target_include_directories(FWCoreFrameworkTestESDummyDataAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestESDummyDataAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
   FWCoreParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTestPRegisterModules SHARED 
@@ -765,7 +765,7 @@ target_include_directories(FWCoreFrameworkTestPRegisterModules PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -773,19 +773,19 @@ target_include_directories(FWCoreFrameworkTestPRegisterModules PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestPRegisterModules PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTestBeginEndJobAnalyzer SHARED 
@@ -797,7 +797,7 @@ target_include_directories(FWCoreFrameworkTestBeginEndJobAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -805,18 +805,18 @@ target_include_directories(FWCoreFrameworkTestBeginEndJobAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestBeginEndJobAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTest
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkTestFailuresAnalyzer SHARED 
@@ -828,7 +828,7 @@ target_include_directories(FWCoreFrameworkTestFailuresAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -836,19 +836,19 @@ target_include_directories(FWCoreFrameworkTestFailuresAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkTestFailuresAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_library(FWCoreFrameworkHistoryAnalyzer SHARED 
@@ -860,7 +860,7 @@ target_include_directories(FWCoreFrameworkHistoryAnalyzer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -868,19 +868,19 @@ target_include_directories(FWCoreFrameworkHistoryAnalyzer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(FWCoreFrameworkHistoryAnalyzer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_executable(TestFWCoreFramework
@@ -907,7 +907,7 @@ target_include_directories(TestFWCoreFramework PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -915,16 +915,15 @@ target_include_directories(TestFWCoreFramework PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFramework PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsTestObjects
@@ -934,7 +933,8 @@ target_link_libraries(TestFWCoreFramework PUBLIC
   FWCoreParameterSetReader
   FWCoreUtilities
   FWCoreVersion
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFramework COMMAND TestFWCoreFramework)
@@ -962,7 +962,7 @@ target_include_directories(TestFWCoreFrameworkeventsetup PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -970,22 +970,22 @@ target_include_directories(TestFWCoreFrameworkeventsetup PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkeventsetup PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTestDummyForEventSetup
   FWCoreParameterSet
   FWCoreUtilities
   FWCoreVersion
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkeventsetup COMMAND TestFWCoreFrameworkeventsetup)
@@ -1001,7 +1001,7 @@ target_include_directories(TestFWCoreFrameworkeventprocessor PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1009,16 +1009,15 @@ target_include_directories(TestFWCoreFrameworkeventprocessor PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkeventprocessor PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsWrappedStdDictionaries
@@ -1027,7 +1026,8 @@ target_link_libraries(TestFWCoreFrameworkeventprocessor PUBLIC
   FWCoreParameterSetReader
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkeventprocessor COMMAND TestFWCoreFrameworkeventprocessor)
@@ -1043,7 +1043,7 @@ target_include_directories(TestFWCoreFrameworkeventprincipal PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1051,16 +1051,15 @@ target_include_directories(TestFWCoreFrameworkeventprincipal PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkeventprincipal PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsTestObjects
@@ -1068,7 +1067,8 @@ target_link_libraries(TestFWCoreFrameworkeventprincipal PUBLIC
   FWCoreParameterSet
   FWCoreUtilities
   FWCoreVersion
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkeventprincipal COMMAND TestFWCoreFrameworkeventprincipal)
@@ -1082,7 +1082,7 @@ target_include_directories(TestFWCoreFrameworkEvent PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1090,16 +1090,15 @@ target_include_directories(TestFWCoreFrameworkEvent PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEvent PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsProvenance
   DataFormatsTestObjects
@@ -1108,7 +1107,8 @@ target_link_libraries(TestFWCoreFrameworkEvent PUBLIC
   FWCoreParameterSet
   FWCoreUtilities
   FWCoreVersion
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEvent COMMAND TestFWCoreFrameworkEvent)
@@ -1122,7 +1122,7 @@ target_include_directories(TestFWCoreFrameworkView PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CPPUNIT_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1130,19 +1130,19 @@ target_include_directories(TestFWCoreFrameworkView PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkView PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
   ${CPPUNIT_LIBRARY}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkView COMMAND TestFWCoreFrameworkView)
@@ -1155,7 +1155,7 @@ target_include_directories(TestFWCoreFrameworkCmsRun PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1163,18 +1163,18 @@ target_include_directories(TestFWCoreFrameworkCmsRun PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkCmsRun PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkCmsRun COMMAND TestFWCoreFrameworkCmsRun)
@@ -1187,7 +1187,7 @@ target_include_directories(TestFWCoreFrameworkESRefer PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1195,18 +1195,18 @@ target_include_directories(TestFWCoreFrameworkESRefer PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkESRefer PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkESRefer COMMAND TestFWCoreFrameworkESRefer)
@@ -1219,7 +1219,7 @@ target_include_directories(TestFWCoreFrameworkUnscheduled PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1227,18 +1227,18 @@ target_include_directories(TestFWCoreFrameworkUnscheduled PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkUnscheduled PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkUnscheduled COMMAND TestFWCoreFrameworkUnscheduled)
@@ -1251,7 +1251,7 @@ target_include_directories(TestFWCoreFrameworkGlobalStreamOne PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1259,20 +1259,20 @@ target_include_directories(TestFWCoreFrameworkGlobalStreamOne PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkGlobalStreamOne PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsWrappedStdDictionaries
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkGlobalStreamOne COMMAND TestFWCoreFrameworkGlobalStreamOne)
@@ -1285,7 +1285,7 @@ target_include_directories(TestFWCoreFrameworkMayConsumesDeadlock PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1293,20 +1293,20 @@ target_include_directories(TestFWCoreFrameworkMayConsumesDeadlock PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkMayConsumesDeadlock PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   DataFormatsWrappedStdDictionaries
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkMayConsumesDeadlock COMMAND TestFWCoreFrameworkMayConsumesDeadlock)
@@ -1319,7 +1319,7 @@ target_include_directories(TestFWCoreFrameworkReplace PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1327,18 +1327,18 @@ target_include_directories(TestFWCoreFrameworkReplace PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkReplace PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkReplace COMMAND TestFWCoreFrameworkReplace)
@@ -1351,7 +1351,7 @@ target_include_directories(TestFWCoreFrameworkESProducerLooper PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1359,18 +1359,18 @@ target_include_directories(TestFWCoreFrameworkESProducerLooper PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkESProducerLooper PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkESProducerLooper COMMAND TestFWCoreFrameworkESProducerLooper)
@@ -1383,7 +1383,7 @@ target_include_directories(TestFWCoreFrameworkTrigBit PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1391,18 +1391,18 @@ target_include_directories(TestFWCoreFrameworkTrigBit PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkTrigBit PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkTrigBit COMMAND TestFWCoreFrameworkTrigBit)
@@ -1415,7 +1415,7 @@ target_include_directories(TestFWCoreFrameworkTrigMask PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1423,18 +1423,18 @@ target_include_directories(TestFWCoreFrameworkTrigMask PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkTrigMask PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkTrigMask COMMAND TestFWCoreFrameworkTrigMask)
@@ -1447,7 +1447,7 @@ target_include_directories(TestXMLSafeException PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1455,18 +1455,18 @@ target_include_directories(TestXMLSafeException PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestXMLSafeException PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestXMLSafeException COMMAND TestXMLSafeException)
@@ -1479,7 +1479,7 @@ target_include_directories(TestFWCoreFrameworkProductSelector PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1487,20 +1487,20 @@ target_include_directories(TestFWCoreFrameworkProductSelector PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkProductSelector PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkProductSelector COMMAND TestFWCoreFrameworkProductSelector)
@@ -1513,7 +1513,7 @@ target_include_directories(TestFWCoreFrameworkEventSelector PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1521,21 +1521,21 @@ target_include_directories(TestFWCoreFrameworkEventSelector PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEventSelector PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEventSelector COMMAND TestFWCoreFrameworkEventSelector)
@@ -1548,7 +1548,7 @@ target_include_directories(TestFWCoreFrameworkEventSelWildcard PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1556,21 +1556,21 @@ target_include_directories(TestFWCoreFrameworkEventSelWildcard PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEventSelWildcard PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEventSelWildcard COMMAND TestFWCoreFrameworkEventSelWildcard)
@@ -1583,7 +1583,7 @@ target_include_directories(TestFWCoreFrameworkEventSelExc PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1591,21 +1591,21 @@ target_include_directories(TestFWCoreFrameworkEventSelExc PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEventSelExc PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEventSelExc COMMAND TestFWCoreFrameworkEventSelExc)
@@ -1618,7 +1618,7 @@ target_include_directories(TestFWCoreFrameworkEventSelOverlap PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1626,21 +1626,21 @@ target_include_directories(TestFWCoreFrameworkEventSelOverlap PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEventSelOverlap PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsCommon
   FWCoreFramework
   FWCoreParameterSet
   FWCoreServiceRegistry
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEventSelOverlap COMMAND TestFWCoreFrameworkEventSelOverlap)
@@ -1653,7 +1653,7 @@ target_include_directories(TestFWCoreFrameworkRegistryTemplate PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1661,20 +1661,20 @@ target_include_directories(TestFWCoreFrameworkRegistryTemplate PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkRegistryTemplate PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   DataFormatsProvenance
   FWCoreFramework
   FWCoreParameterSet
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkRegistryTemplate COMMAND TestFWCoreFrameworkRegistryTemplate)
@@ -1687,7 +1687,7 @@ target_include_directories(TestFWCoreOutputModuleUtilities PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1695,17 +1695,17 @@ target_include_directories(TestFWCoreOutputModuleUtilities PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreOutputModuleUtilities PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreOutputModuleUtilities COMMAND TestFWCoreOutputModuleUtilities)
@@ -1718,7 +1718,7 @@ target_include_directories(TestFWCoreFrameworkStatemachine PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1726,18 +1726,18 @@ target_include_directories(TestFWCoreFrameworkStatemachine PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkStatemachine PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreFrameworkTest
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkStatemachine COMMAND TestFWCoreFrameworkStatemachine)
@@ -1750,7 +1750,7 @@ target_include_directories(TestFWCoreFrameworkStatemachineSH PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1758,18 +1758,18 @@ target_include_directories(TestFWCoreFrameworkStatemachineSH PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkStatemachineSH PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkStatemachineSH COMMAND TestFWCoreFrameworkStatemachineSH)
@@ -1782,7 +1782,7 @@ target_include_directories(TestFWCoreFrameworkInputTagFailure PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1790,18 +1790,18 @@ target_include_directories(TestFWCoreFrameworkInputTagFailure PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkInputTagFailure PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkInputTagFailure COMMAND TestFWCoreFrameworkInputTagFailure)
@@ -1814,7 +1814,7 @@ target_include_directories(TestFWCoreFrameworkDeleteEarly PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1822,18 +1822,18 @@ target_include_directories(TestFWCoreFrameworkDeleteEarly PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkDeleteEarly PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkDeleteEarly COMMAND TestFWCoreFrameworkDeleteEarly)
@@ -1846,7 +1846,7 @@ target_include_directories(TestFWCoreFrameworkEarlyTerminationSignal PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1854,18 +1854,18 @@ target_include_directories(TestFWCoreFrameworkEarlyTerminationSignal PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkEarlyTerminationSignal PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkEarlyTerminationSignal COMMAND TestFWCoreFrameworkEarlyTerminationSignal)
@@ -1878,7 +1878,7 @@ target_include_directories(TestFWCoreFrameworkPrintDependencies PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1886,18 +1886,18 @@ target_include_directories(TestFWCoreFrameworkPrintDependencies PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkPrintDependencies PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkPrintDependencies COMMAND TestFWCoreFrameworkPrintDependencies)
@@ -1910,7 +1910,7 @@ target_include_directories(TestFWCoreFrameworkTransitions PUBLIC
  ${Boost_INCLUDE_DIR}
  ${Boost_INCLUDE_DIR}/python
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1918,18 +1918,18 @@ target_include_directories(TestFWCoreFrameworkTransitions PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkTransitions PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
   FWCoreUtilities
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkTransitions COMMAND TestFWCoreFrameworkTransitions)
@@ -1944,7 +1944,7 @@ target_include_directories(TestFWCoreFrameworkCatch2notTP PUBLIC
  ${Boost_INCLUDE_DIR}/python
  ${CATCH2_INCLUDE_DIR}
  ${MD5_INCLUDE_DIR}
- ${PYTHON_INCLUDE_DIR}
+ ${Python2_INCLUDE_DIRS}
  ${ROOT_INCLUDE_DIR}
  ${TBB_INCLUDE_DIRS}
  ${TINYXML2_INCLUDE_DIR}
@@ -1952,17 +1952,17 @@ target_include_directories(TestFWCoreFrameworkCatch2notTP PUBLIC
  ${XERCESC_INCLUDE_DIR}
 )
 target_link_libraries(TestFWCoreFrameworkCatch2notTP PUBLIC
-  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
-  ${Boost_IOSTREAMS_LIBRARY_RELEASE}
-  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
-  ${Boost_PYTHON_LIBRARY_RELEASE}
-  ${Boost_REGEX_LIBRARY_RELEASE}
-  ${Boost_SERIALIZATION_LIBRARY_RELEASE}
-  ${Boost_SYSTEM_LIBRARY_RELEASE}
-  ${Boost_THREAD_LIBRARY_RELEASE}
-  ${PYTHON_LIBRARY}
+  Boost::filesystem
+  Boost::iostreams
+  Boost::program_options
+  Boost::python27
+  Boost::regex
+  Boost::serialization
+  Boost::system
+  Boost::thread
   FWCoreFramework
-  dl
+  Python2::Python
+  Threads::Threads
 )
 
 add_test(NAME TestFWCoreFrameworkCatch2notTP COMMAND TestFWCoreFrameworkCatch2notTP)
