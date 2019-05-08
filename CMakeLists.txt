@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(Framework VERSION 0.0.0 LANGUAGES C CXX)
 
 find_package(ROOT 6.12.0 COMPONENTS Rint Thread Cling Core MathCore MathMore Matrix Minuit Minuit2 Physics MLP Foam Hist Spectrum Tree TreePlayer RIO XMLIO Net Gpad Graf Postscript Graf3d Eve RGL Gui GuiHtml Html EG Geom GeomBuilder PyROOT TMVA)
+include(GNUInstallDirs)
 include(${ROOT_USE_FILE})
 set(Boost_NO_BOOST_CMAKE ON)
 set(Boost_NO_SYSTEM_PATHS ON)
