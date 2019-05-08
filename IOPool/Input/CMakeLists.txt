@@ -43,9 +43,12 @@ target_link_libraries(IOPoolInput PUBLIC
   FWCoreSources
   FWCoreUtilities
   IOPoolCommon
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   UtilitiesStorageFactory
 )
 
-install( TARGETS IOPoolInput DESTINATION  lib  EXPORT stitched::IOPoolInput)
+install( TARGETS IOPoolInput DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolInput)
 

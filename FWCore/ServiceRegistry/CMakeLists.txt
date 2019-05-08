@@ -41,5 +41,5 @@ target_link_libraries(FWCoreServiceRegistry PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS FWCoreServiceRegistry DESTINATION  lib  EXPORT stitched::FWCoreServiceRegistry)
+install( TARGETS FWCoreServiceRegistry DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreServiceRegistry)
 

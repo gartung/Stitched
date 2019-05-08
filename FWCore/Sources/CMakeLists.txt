@@ -34,5 +34,5 @@ target_link_libraries(FWCoreSources PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS FWCoreSources DESTINATION  lib  EXPORT stitched::FWCoreSources)
+install( TARGETS FWCoreSources DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreSources)
 

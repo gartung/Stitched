@@ -19,5 +19,5 @@ target_link_libraries(IOPoolCommon PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS IOPoolCommon DESTINATION  lib  EXPORT stitched::IOPoolCommon)
+install( TARGETS IOPoolCommon DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolCommon)
 

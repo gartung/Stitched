@@ -19,5 +19,5 @@ target_link_libraries(FWCorePrescaleService PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS FWCorePrescaleService DESTINATION  lib  EXPORT stitched::FWCorePrescaleService)
+install( TARGETS FWCorePrescaleService DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCorePrescaleService)
 

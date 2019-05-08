@@ -23,5 +23,5 @@ target_link_libraries(IOPoolStreamerPlugins PUBLIC
   IOPoolStreamer
 )
 
-install( TARGETS IOPoolStreamerPlugins DESTINATION  lib  EXPORT stitched::IOPoolStreamerPlugins)
+install( TARGETS IOPoolStreamerPlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolStreamerPlugins)
 

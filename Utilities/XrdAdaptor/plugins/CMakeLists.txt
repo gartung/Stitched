@@ -23,5 +23,5 @@ target_link_libraries(UtilitiesXrdAdaptorPlugin PUBLIC
   XrdClient
 )
 
-install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION  lib  EXPORT stitched::UtilitiesXrdAdaptorPlugin)
+install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::UtilitiesXrdAdaptorPlugin)
 

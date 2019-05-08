@@ -44,10 +44,13 @@ target_link_libraries(IOPoolStreamer PUBLIC
   FWCoreSources
   FWCoreUtilities
   FWCoreVersion
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   UtilitiesStorageFactory
   z
 )
 
-install( TARGETS IOPoolStreamer DESTINATION  lib  EXPORT stitched::IOPoolStreamer)
+install( TARGETS IOPoolStreamer DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolStreamer)
 

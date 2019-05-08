@@ -41,10 +41,13 @@ target_link_libraries(DataFormatsFWLite PUBLIC
   FWCoreFWLite
   FWCoreParameterSet
   FWCoreUtilities
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS DataFormatsFWLite DESTINATION  lib  EXPORT stitched::DataFormatsFWLite)
+install( TARGETS DataFormatsFWLite DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsFWLite)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -54,8 +57,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsFWLite src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsFWLiteDict)
-add_library(DataFormatsFWLiteDict SHARED DataFormatsFWLiteDict.cpp)
-add_dependencies(DataFormatsFWLite DataFormatsFWLiteGen)
-install( TARGETS DataFormatsFWLiteDict DESTINATION lib EXPORT stitched::DataFormatsFWLiteDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLiteDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLite.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsFWLite src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsFWLite DataFormatsFWLite-dictgen)

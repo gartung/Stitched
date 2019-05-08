@@ -37,5 +37,5 @@ target_link_libraries(FWCorePluginManager PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCorePluginManager DESTINATION  lib  EXPORT stitched::FWCorePluginManager)
+install( TARGETS FWCorePluginManager DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCorePluginManager)
 

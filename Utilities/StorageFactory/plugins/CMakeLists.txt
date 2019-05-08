@@ -24,5 +24,5 @@ target_link_libraries(UtilitiesStorageFactoryPlugins PUBLIC
   UtilitiesStorageFactory
 )
 
-install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION  lib  EXPORT stitched::UtilitiesStorageFactoryPlugins)
+install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::UtilitiesStorageFactoryPlugins)
 

@@ -56,5 +56,5 @@ target_link_libraries(UtilitiesStorageFactory PUBLIC
   Threads::Threads
 )
 
-install( TARGETS UtilitiesStorageFactory DESTINATION  lib  EXPORT stitched::UtilitiesStorageFactory)
+install( TARGETS UtilitiesStorageFactory DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::UtilitiesStorageFactory)
 

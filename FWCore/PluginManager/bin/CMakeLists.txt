@@ -24,7 +24,7 @@ target_link_libraries(edmPluginDump PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmPluginDump DESTINATION  bin  EXPORT stitched::edmPluginDump)
+install( TARGETS edmPluginDump DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmPluginDump)
 
 add_executable(edmPluginRefresh
   refresh.cc
@@ -52,5 +52,5 @@ target_link_libraries(edmPluginRefresh PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmPluginRefresh DESTINATION  bin  EXPORT stitched::edmPluginRefresh)
+install( TARGETS edmPluginRefresh DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmPluginRefresh)
 

@@ -37,7 +37,7 @@ target_link_libraries(cmsRunGlibC PUBLIC
   Threads::Threads
 )
 
-install( TARGETS cmsRunGlibC DESTINATION  bin  EXPORT stitched::cmsRunGlibC)
+install( TARGETS cmsRunGlibC DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRunGlibC)
 
 add_executable(cmsRunTC
   cmsRun.cpp
@@ -78,7 +78,7 @@ target_link_libraries(cmsRunTC PUBLIC
   Threads::Threads
 )
 
-install( TARGETS cmsRunTC DESTINATION  bin  EXPORT stitched::cmsRunTC)
+install( TARGETS cmsRunTC DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRunTC)
 
 add_executable(cmsRun
   cmsRun.cpp
@@ -117,7 +117,7 @@ target_link_libraries(cmsRun PUBLIC
   Threads::Threads
 )
 
-install( TARGETS cmsRun DESTINATION  bin  EXPORT stitched::cmsRun)
+install( TARGETS cmsRun DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRun)
 
 add_executable(cmsRunVDT
   cmsRun.cpp
@@ -160,7 +160,7 @@ target_link_libraries(cmsRunVDT PUBLIC
   vdt
 )
 
-install( TARGETS cmsRunVDT DESTINATION  bin  EXPORT stitched::cmsRunVDT)
+install( TARGETS cmsRunVDT DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRunVDT)
 
 add_executable(cmsRunJE
   cmsRun.cpp
@@ -201,7 +201,7 @@ target_link_libraries(cmsRunJE PUBLIC
   Threads::Threads
 )
 
-install( TARGETS cmsRunJE DESTINATION  bin  EXPORT stitched::cmsRunJE)
+install( TARGETS cmsRunJE DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRunJE)
 
 add_executable(cmsRunPyDev
   cmsRunPyDev.cpp
@@ -241,5 +241,5 @@ target_link_libraries(cmsRunPyDev PUBLIC
   Threads::Threads
 )
 
-install( TARGETS cmsRunPyDev DESTINATION  bin  EXPORT stitched::cmsRunPyDev)
+install( TARGETS cmsRunPyDev DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsRunPyDev)
 

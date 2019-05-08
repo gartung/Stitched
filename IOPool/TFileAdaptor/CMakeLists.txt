@@ -27,11 +27,14 @@ target_link_libraries(IOPoolTFileAdaptor PUBLIC
   FWCoreMessageLogger
   FWCoreParameterSet
   FWCoreServiceRegistry
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   UtilitiesStorageFactory
 )
 
-install( TARGETS IOPoolTFileAdaptor DESTINATION  lib  EXPORT stitched::IOPoolTFileAdaptor)
+install( TARGETS IOPoolTFileAdaptor DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolTFileAdaptor)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -45,8 +48,5 @@ include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
 include_directories(${XERCESC_INCLUDE_DIR})
-reflex_generate_dictionary(IOPoolTFileAdaptor src/classes.h src/classes_def.xml ROOTMAPLIB IOPoolTFileAdaptorDict)
-add_library(IOPoolTFileAdaptorDict SHARED IOPoolTFileAdaptorDict.cpp)
-add_dependencies(IOPoolTFileAdaptor IOPoolTFileAdaptorGen)
-install( TARGETS IOPoolTFileAdaptorDict DESTINATION lib EXPORT stitched::IOPoolTFileAdaptorDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptorDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptor.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(IOPoolTFileAdaptor src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(IOPoolTFileAdaptor IOPoolTFileAdaptor-dictgen)

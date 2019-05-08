@@ -48,11 +48,14 @@ target_link_libraries(DataFormatsCommon PUBLIC
   FWCoreMessageLogger
   FWCoreUtilities
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS DataFormatsCommon DESTINATION  lib  EXPORT stitched::DataFormatsCommon)
+install( TARGETS DataFormatsCommon DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsCommon)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -62,8 +65,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsCommon src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsCommonDict)
-add_library(DataFormatsCommonDict SHARED DataFormatsCommonDict.cpp)
-add_dependencies(DataFormatsCommon DataFormatsCommonGen)
-install( TARGETS DataFormatsCommonDict DESTINATION lib EXPORT stitched::DataFormatsCommonDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommonDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommon.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsCommon src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsCommon DataFormatsCommon-dictgen)

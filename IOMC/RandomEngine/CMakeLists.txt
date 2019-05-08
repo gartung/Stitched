@@ -33,10 +33,14 @@ target_link_libraries(IOMCRandomEngine PUBLIC
   FWCoreUtilities
   ROOT::Core
   ROOT::GenVector
+  ROOT::MathCore
   ROOT::MathMore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   SimDataFormatsRandomEngine
   gsl
 )
 
-install( TARGETS IOMCRandomEngine DESTINATION  lib  EXPORT stitched::IOMCRandomEngine)
+install( TARGETS IOMCRandomEngine DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOMCRandomEngine)
 

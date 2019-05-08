@@ -26,10 +26,13 @@ target_link_libraries(edmProvDump PUBLIC
   FWCoreServices
   FWCoreUtilities
   IOPoolCommon
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS edmProvDump DESTINATION  bin  EXPORT stitched::edmProvDump)
+install( TARGETS edmProvDump DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmProvDump)
 
 add_executable(edmFileUtil
   CollUtil.cc
@@ -65,13 +68,16 @@ target_link_libraries(edmFileUtil PUBLIC
   FWCoreServices
   IOPoolCommon
   Python2::Python
-  ROOT::Core
   ROOT::Hist
+  ROOT::MathCore
   ROOT::Matrix
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS edmFileUtil DESTINATION  bin  EXPORT stitched::edmFileUtil)
+install( TARGETS edmFileUtil DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmFileUtil)
 
 add_executable(edmCopyUtil
   EdmCopyUtil.cpp
@@ -110,5 +116,5 @@ target_link_libraries(edmCopyUtil PUBLIC
   UtilitiesStorageFactory
 )
 
-install( TARGETS edmCopyUtil DESTINATION  bin  EXPORT stitched::edmCopyUtil)
+install( TARGETS edmCopyUtil DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmCopyUtil)
 

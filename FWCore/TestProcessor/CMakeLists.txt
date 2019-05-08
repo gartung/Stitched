@@ -34,5 +34,5 @@ target_link_libraries(FWCoreTestProcessor PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCoreTestProcessor DESTINATION  lib  EXPORT stitched::FWCoreTestProcessor)
+install( TARGETS FWCoreTestProcessor DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreTestProcessor)
 

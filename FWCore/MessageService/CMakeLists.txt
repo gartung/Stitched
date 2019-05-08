@@ -51,5 +51,5 @@ target_link_libraries(FWCoreMessageService PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCoreMessageService DESTINATION  lib  EXPORT stitched::FWCoreMessageService)
+install( TARGETS FWCoreMessageService DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreMessageService)
 

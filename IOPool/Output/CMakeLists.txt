@@ -29,8 +29,11 @@ target_link_libraries(IOPoolOutput PUBLIC
   FWCoreVersion
   IOPoolCommon
   IOPoolProvenance
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS IOPoolOutput DESTINATION  lib  EXPORT stitched::IOPoolOutput)
+install( TARGETS IOPoolOutput DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolOutput)
 

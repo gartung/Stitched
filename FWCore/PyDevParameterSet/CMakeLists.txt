@@ -28,5 +28,5 @@ target_link_libraries(FWCorePyDevParameterSet PUBLIC
   Python2::Python
 )
 
-install( TARGETS FWCorePyDevParameterSet DESTINATION  lib  EXPORT stitched::FWCorePyDevParameterSet)
+install( TARGETS FWCorePyDevParameterSet DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCorePyDevParameterSet)
 

@@ -69,9 +69,12 @@ target_link_libraries(FWCoreUtilities PUBLIC
   Boost::system
   Boost::thread
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS FWCoreUtilities DESTINATION  lib  EXPORT stitched::FWCoreUtilities)
+install( TARGETS FWCoreUtilities DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreUtilities)
 

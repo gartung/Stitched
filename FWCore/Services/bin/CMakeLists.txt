@@ -23,5 +23,5 @@ target_link_libraries(cmsGetFnConnect PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS cmsGetFnConnect DESTINATION  bin  EXPORT stitched::cmsGetFnConnect)
+install( TARGETS cmsGetFnConnect DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cmsGetFnConnect)
 

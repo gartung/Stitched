@@ -18,7 +18,10 @@ target_link_libraries(Enum_t PUBLIC
   DataFormatsStdDictionaries
   DataFormatsTestObjects
   DataFormatsWrappedStdDictionaries
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
 add_test(NAME Enum_t COMMAND Enum_t)

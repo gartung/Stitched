@@ -28,7 +28,7 @@ target_link_libraries(edmConfigHash PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmConfigHash DESTINATION  bin  EXPORT stitched::edmConfigHash)
+install( TARGETS edmConfigHash DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmConfigHash)
 
 add_executable(edmParameterSetDump
   edmParameterSetDump.cpp
@@ -60,5 +60,5 @@ target_link_libraries(edmParameterSetDump PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmParameterSetDump DESTINATION  bin  EXPORT stitched::edmParameterSetDump)
+install( TARGETS edmParameterSetDump DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmParameterSetDump)
 

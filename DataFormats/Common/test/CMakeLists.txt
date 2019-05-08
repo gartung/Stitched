@@ -136,7 +136,10 @@ target_link_libraries(DictionaryTools_t PUBLIC
   DataFormatsStdDictionaries
   DataFormatsWrappedStdDictionaries
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 

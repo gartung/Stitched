@@ -18,5 +18,5 @@ target_link_libraries(IOPoolOutputPlugins PUBLIC
   IOPoolOutput
 )
 
-install( TARGETS IOPoolOutputPlugins DESTINATION  lib  EXPORT stitched::IOPoolOutputPlugins)
+install( TARGETS IOPoolOutputPlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolOutputPlugins)
 

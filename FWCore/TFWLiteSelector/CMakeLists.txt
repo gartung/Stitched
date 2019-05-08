@@ -23,10 +23,13 @@ target_link_libraries(FWCoreTFWLiteSelector PUBLIC
   FWCoreFramework
   FWCoreParameterSet
   FWCoreUtilities
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS FWCoreTFWLiteSelector DESTINATION  lib  EXPORT stitched::FWCoreTFWLiteSelector)
+install( TARGETS FWCoreTFWLiteSelector DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreTFWLiteSelector)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -39,8 +42,5 @@ include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
 include_directories(${XERCESC_INCLUDE_DIR})
-reflex_generate_dictionary(FWCoreTFWLiteSelector src/classes.h src/classes_def.xml ROOTMAPLIB FWCoreTFWLiteSelectorDict)
-add_library(FWCoreTFWLiteSelectorDict SHARED FWCoreTFWLiteSelectorDict.cpp)
-add_dependencies(FWCoreTFWLiteSelector FWCoreTFWLiteSelectorGen)
-install( TARGETS FWCoreTFWLiteSelectorDict DESTINATION lib EXPORT stitched::FWCoreTFWLiteSelectorDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelector.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(FWCoreTFWLiteSelector src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(FWCoreTFWLiteSelector FWCoreTFWLiteSelector-dictgen)

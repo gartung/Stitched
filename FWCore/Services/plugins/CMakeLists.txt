@@ -52,5 +52,5 @@ target_link_libraries(FWCoreServicesPlugins PUBLIC
   atomic
 )
 
-install( TARGETS FWCoreServicesPlugins DESTINATION  lib  EXPORT stitched::FWCoreServicesPlugins)
+install( TARGETS FWCoreServicesPlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreServicesPlugins)
 

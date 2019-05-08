@@ -23,7 +23,7 @@ target_link_libraries(DataFormatsFEDRawData PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS DataFormatsFEDRawData DESTINATION  lib  EXPORT stitched::DataFormatsFEDRawData)
+install( TARGETS DataFormatsFEDRawData DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsFEDRawData)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -33,8 +33,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsFEDRawData src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsFEDRawDataDict)
-add_library(DataFormatsFEDRawDataDict SHARED DataFormatsFEDRawDataDict.cpp)
-add_dependencies(DataFormatsFEDRawData DataFormatsFEDRawDataGen)
-install( TARGETS DataFormatsFEDRawDataDict DESTINATION lib EXPORT stitched::DataFormatsFEDRawDataDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFEDRawDataDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFEDRawData.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsFEDRawData src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsFEDRawData DataFormatsFEDRawData-dictgen)

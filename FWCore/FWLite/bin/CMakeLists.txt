@@ -23,11 +23,14 @@ target_link_libraries(edmClassStorageSize PUBLIC
   Boost::thread
   FWCoreFWLite
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS edmClassStorageSize DESTINATION  bin  EXPORT stitched::edmClassStorageSize)
+install( TARGETS edmClassStorageSize DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmClassStorageSize)
 
 add_executable(edmBranchStorageSize
   storageSizeForBranch.cc
@@ -54,9 +57,12 @@ target_link_libraries(edmBranchStorageSize PUBLIC
   Boost::thread
   FWCoreFWLite
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS edmBranchStorageSize DESTINATION  bin  EXPORT stitched::edmBranchStorageSize)
+install( TARGETS edmBranchStorageSize DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmBranchStorageSize)
 

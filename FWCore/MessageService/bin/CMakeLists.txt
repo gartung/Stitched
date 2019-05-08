@@ -32,5 +32,5 @@ target_link_libraries(Standalone PUBLIC
   Threads::Threads
 )
 
-install( TARGETS Standalone DESTINATION  bin  EXPORT stitched::Standalone)
+install( TARGETS Standalone DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::Standalone)
 

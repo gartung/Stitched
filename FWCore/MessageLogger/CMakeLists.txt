@@ -39,7 +39,7 @@ target_link_libraries(FWCoreMessageLogger PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCoreMessageLogger DESTINATION  lib  EXPORT stitched::FWCoreMessageLogger)
+install( TARGETS FWCoreMessageLogger DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreMessageLogger)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -49,8 +49,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(FWCoreMessageLogger src/classes.h src/classes_def.xml ROOTMAPLIB FWCoreMessageLoggerDict)
-add_library(FWCoreMessageLoggerDict SHARED FWCoreMessageLoggerDict.cpp)
-add_dependencies(FWCoreMessageLogger FWCoreMessageLoggerGen)
-install( TARGETS FWCoreMessageLoggerDict DESTINATION lib EXPORT stitched::FWCoreMessageLoggerDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLoggerDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(FWCoreMessageLogger src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(FWCoreMessageLogger FWCoreMessageLogger-dictgen)

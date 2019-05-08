@@ -41,11 +41,14 @@ target_link_libraries(FWCoreServices PUBLIC
   FWCoreServiceRegistry
   FWCoreUtilities
   Python2::Python
-  ROOT::Core
   ROOT::Hist
+  ROOT::MathCore
   ROOT::Matrix
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS FWCoreServices DESTINATION  lib  EXPORT stitched::FWCoreServices)
+install( TARGETS FWCoreServices DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreServices)
 

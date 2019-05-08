@@ -18,12 +18,12 @@ target_include_directories(FWCoreTFWLiteSelectorTest PUBLIC
 target_link_libraries(FWCoreTFWLiteSelectorTest PUBLIC
   DataFormatsCommon
   FWCoreTFWLiteSelector
-  ROOT::Graf3D
+  ROOT::Graf3d
   ROOT::Postscript
   ROOT::TreePlayer
 )
 
-install( TARGETS FWCoreTFWLiteSelectorTest DESTINATION  lib  EXPORT stitched::FWCoreTFWLiteSelectorTest)
+install( TARGETS FWCoreTFWLiteSelectorTest DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreTFWLiteSelectorTest)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -36,8 +36,5 @@ include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
 include_directories(${XERCESC_INCLUDE_DIR})
-reflex_generate_dictionary(FWCoreTFWLiteSelectorTest src/classes.h src/classes_def.xml ROOTMAPLIB FWCoreTFWLiteSelectorTestDict)
-add_library(FWCoreTFWLiteSelectorTestDict SHARED FWCoreTFWLiteSelectorTestDict.cpp)
-add_dependencies(FWCoreTFWLiteSelectorTest FWCoreTFWLiteSelectorTestGen)
-install( TARGETS FWCoreTFWLiteSelectorTestDict DESTINATION lib EXPORT stitched::FWCoreTFWLiteSelectorTestDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTestDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTest.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(FWCoreTFWLiteSelectorTest src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(FWCoreTFWLiteSelectorTest FWCoreTFWLiteSelectorTest-dictgen)

@@ -27,7 +27,7 @@ target_link_libraries(edmPluginHelp PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmPluginHelp DESTINATION  bin  EXPORT stitched::edmPluginHelp)
+install( TARGETS edmPluginHelp DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmPluginHelp)
 
 add_executable(edmWriteConfigs
   edmWriteConfigs.cpp
@@ -58,5 +58,5 @@ target_link_libraries(edmWriteConfigs PUBLIC
   Threads::Threads
 )
 
-install( TARGETS edmWriteConfigs DESTINATION  bin  EXPORT stitched::edmWriteConfigs)
+install( TARGETS edmWriteConfigs DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmWriteConfigs)
 

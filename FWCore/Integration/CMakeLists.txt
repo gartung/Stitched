@@ -20,5 +20,5 @@ target_link_libraries(FWCoreIntegration PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS FWCoreIntegration DESTINATION  lib  EXPORT stitched::FWCoreIntegration)
+install( TARGETS FWCoreIntegration DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreIntegration)
 

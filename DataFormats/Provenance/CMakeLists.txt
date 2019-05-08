@@ -75,11 +75,14 @@ target_link_libraries(DataFormatsProvenance PUBLIC
   FWCoreMessageLogger
   FWCoreUtilities
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS DataFormatsProvenance DESTINATION  lib  EXPORT stitched::DataFormatsProvenance)
+install( TARGETS DataFormatsProvenance DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsProvenance)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -89,8 +92,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsProvenanceDict)
-add_library(DataFormatsProvenanceDict SHARED DataFormatsProvenanceDict.cpp)
-add_dependencies(DataFormatsProvenance DataFormatsProvenanceGen)
-install( TARGETS DataFormatsProvenanceDict DESTINATION lib EXPORT stitched::DataFormatsProvenanceDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsProvenance DataFormatsProvenance-dictgen)

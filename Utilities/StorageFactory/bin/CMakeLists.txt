@@ -19,5 +19,5 @@ target_link_libraries(cms_anycp PUBLIC
   UtilitiesStorageFactory
 )
 
-install( TARGETS cms_anycp DESTINATION  bin  EXPORT stitched::cms_anycp)
+install( TARGETS cms_anycp DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cms_anycp)
 

@@ -14,8 +14,11 @@ target_include_directories(IOPoolProvenance PUBLIC
 target_link_libraries(IOPoolProvenance PUBLIC
   DataFormatsProvenance
   FWCoreParameterSet
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS IOPoolProvenance DESTINATION  lib  EXPORT stitched::IOPoolProvenance)
+install( TARGETS IOPoolProvenance DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOPoolProvenance)
 

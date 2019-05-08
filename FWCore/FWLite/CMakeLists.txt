@@ -25,10 +25,13 @@ target_link_libraries(FWCoreFWLite PUBLIC
   DataFormatsProvenance
   FWCorePluginManager
   FWCoreUtilities
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS FWCoreFWLite DESTINATION  lib  EXPORT stitched::FWCoreFWLite)
+install( TARGETS FWCoreFWLite DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreFWLite)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -38,8 +41,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(FWCoreFWLite src/classes.h src/classes_def.xml ROOTMAPLIB FWCoreFWLiteDict)
-add_library(FWCoreFWLiteDict SHARED FWCoreFWLiteDict.cpp)
-add_dependencies(FWCoreFWLite FWCoreFWLiteGen)
-install( TARGETS FWCoreFWLiteDict DESTINATION lib EXPORT stitched::FWCoreFWLiteDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLiteDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(FWCoreFWLite src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(FWCoreFWLite FWCoreFWLite-dictgen)

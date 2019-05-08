@@ -22,7 +22,7 @@ target_link_libraries(FWCoreCommon PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS FWCoreCommon DESTINATION  lib  EXPORT stitched::FWCoreCommon)
+install( TARGETS FWCoreCommon DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreCommon)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -32,8 +32,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(FWCoreCommon src/classes.h src/classes_def.xml ROOTMAPLIB FWCoreCommonDict)
-add_library(FWCoreCommonDict SHARED FWCoreCommonDict.cpp)
-add_dependencies(FWCoreCommon FWCoreCommonGen)
-install( TARGETS FWCoreCommonDict DESTINATION lib EXPORT stitched::FWCoreCommonDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommonDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(FWCoreCommon src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(FWCoreCommon FWCoreCommon-dictgen)

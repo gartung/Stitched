@@ -14,10 +14,13 @@ target_include_directories(DataFormatsStreamer PUBLIC
 target_link_libraries(DataFormatsStreamer PUBLIC
   DataFormatsProvenance
   DataFormatsStdDictionaries
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
 )
 
-install( TARGETS DataFormatsStreamer DESTINATION  lib  EXPORT stitched::DataFormatsStreamer)
+install( TARGETS DataFormatsStreamer DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsStreamer)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -27,8 +30,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsStreamer src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsStreamerDict)
-add_library(DataFormatsStreamerDict SHARED DataFormatsStreamerDict.cpp)
-add_dependencies(DataFormatsStreamer DataFormatsStreamerGen)
-install( TARGETS DataFormatsStreamerDict DESTINATION lib EXPORT stitched::DataFormatsStreamerDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamerDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsStreamer src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsStreamer DataFormatsStreamer-dictgen)

@@ -59,5 +59,5 @@ target_link_libraries(FWCoreModules PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCoreModules DESTINATION  lib  EXPORT stitched::FWCoreModules)
+install( TARGETS FWCoreModules DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreModules)
 

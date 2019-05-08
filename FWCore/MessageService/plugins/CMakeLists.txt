@@ -17,5 +17,5 @@ target_link_libraries(FWCoreMessageServicePlugins PUBLIC
   FWCoreMessageService
 )
 
-install( TARGETS FWCoreMessageServicePlugins DESTINATION  lib  EXPORT stitched::FWCoreMessageServicePlugins)
+install( TARGETS FWCoreMessageServicePlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreMessageServicePlugins)
 

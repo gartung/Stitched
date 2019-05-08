@@ -18,5 +18,5 @@ target_link_libraries(FWCoreParameterSetReader PUBLIC
   FWCorePythonParameterSet
 )
 
-install( TARGETS FWCoreParameterSetReader DESTINATION  lib  EXPORT stitched::FWCoreParameterSetReader)
+install( TARGETS FWCoreParameterSetReader DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreParameterSetReader)
 

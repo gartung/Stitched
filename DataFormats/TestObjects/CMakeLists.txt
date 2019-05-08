@@ -22,7 +22,7 @@ target_link_libraries(DataFormatsTestObjects PUBLIC
   DataFormatsCommon
 )
 
-install( TARGETS DataFormatsTestObjects DESTINATION  lib  EXPORT stitched::DataFormatsTestObjects)
+install( TARGETS DataFormatsTestObjects DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsTestObjects)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/include/)
@@ -32,8 +32,5 @@ include_directories(${ROOT_INCLUDE_DIR})
 include_directories(${TBB_INCLUDE_DIRS})
 include_directories(${TINYXML2_INCLUDE_DIR})
 include_directories(${UUID_INCLUDE_DIR})
-reflex_generate_dictionary(DataFormatsTestObjects src/classes.h src/classes_def.xml ROOTMAPLIB DataFormatsTestObjectsDict)
-add_library(DataFormatsTestObjectsDict SHARED DataFormatsTestObjectsDict.cpp)
-add_dependencies(DataFormatsTestObjects DataFormatsTestObjectsGen)
-install( TARGETS DataFormatsTestObjectsDict DESTINATION lib EXPORT stitched::DataFormatsTestObjectsDict )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjectsDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjects.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+reflex_build_dictionary(DataFormatsTestObjects src/classes.h src/classes_def.xml OPTIONS )
+add_dependencies(DataFormatsTestObjects DataFormatsTestObjects-dictgen)

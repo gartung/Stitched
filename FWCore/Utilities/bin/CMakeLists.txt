@@ -14,7 +14,7 @@ target_link_libraries(edmToFriendlyClassName PUBLIC
   FWCoreUtilities
 )
 
-install( TARGETS edmToFriendlyClassName DESTINATION  bin  EXPORT stitched::edmToFriendlyClassName)
+install( TARGETS edmToFriendlyClassName DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::edmToFriendlyClassName)
 
 add_executable(cms_adler32
   adler32.c
@@ -34,5 +34,5 @@ target_link_libraries(cms_adler32 PUBLIC
   z
 )
 
-install( TARGETS cms_adler32 DESTINATION  bin  EXPORT stitched::cms_adler32)
+install( TARGETS cms_adler32 DESTINATION  ${CMAKE_INSTALL_BINDIR}  EXPORT stitched::cms_adler32)
 

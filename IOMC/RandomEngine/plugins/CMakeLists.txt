@@ -22,5 +22,5 @@ target_link_libraries(IOMCRandomEnginePlugins PUBLIC
   IOMCRandomEngine
 )
 
-install( TARGETS IOMCRandomEnginePlugins DESTINATION  lib  EXPORT stitched::IOMCRandomEnginePlugins)
+install( TARGETS IOMCRandomEnginePlugins DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOMCRandomEnginePlugins)
 

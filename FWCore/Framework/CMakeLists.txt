@@ -177,9 +177,12 @@ target_link_libraries(FWCoreFramework PUBLIC
   FWCoreUtilities
   FWCoreVersion
   Python2::Python
-  ROOT::Core
+  ROOT::MathCore
+  ROOT::Net
+  ROOT::Thread
+  ROOT::Tree
   Threads::Threads
 )
 
-install( TARGETS FWCoreFramework DESTINATION  lib  EXPORT stitched::FWCoreFramework)
+install( TARGETS FWCoreFramework DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreFramework)
 

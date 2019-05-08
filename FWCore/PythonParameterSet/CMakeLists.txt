@@ -38,5 +38,5 @@ target_link_libraries(FWCorePythonParameterSet PUBLIC
   Threads::Threads
 )
 
-install( TARGETS FWCorePythonParameterSet DESTINATION  lib  EXPORT stitched::FWCorePythonParameterSet)
+install( TARGETS FWCorePythonParameterSet DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCorePythonParameterSet)
 
