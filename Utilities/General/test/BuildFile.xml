@@ -9,3 +9,8 @@
   <use name="google-benchmark-main"/>
 </bin>
 
+<iftool name="cuda-gcc-support">
+    <test name="CudaGCCSupport" command="echo Supported GCC version"/>
+<else/>
+    <test name="CudaGCCSupport" command="echo ERROR: Unsupported GCC version &amp;&amp; exit 1"/>
+</iftool>
