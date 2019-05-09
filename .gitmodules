@@ -1,0 +1,3 @@
+[submodule "cmaketools"]
+	path = cmaketools
+	url = https://github.com/gartung/cmaketools.git
