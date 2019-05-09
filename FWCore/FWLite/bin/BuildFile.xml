@@ -2,7 +2,6 @@
   <use   name="rootcore"/>
   <use   name="boost"/>
   <use   name="boost_program_options"/>
-  <use   name="tinyxml2"/>
   <use   name="FWCore/FWLite"/>
 </bin>
 
@@ -10,6 +9,5 @@
   <use   name="rootcore"/>
   <use   name="boost"/>
   <use   name="boost_program_options"/>
-  <use   name="tinyxml2"/>
   <use   name="FWCore/FWLite"/>
 </bin>
