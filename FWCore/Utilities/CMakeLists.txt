@@ -49,32 +49,37 @@ add_library(FWCoreUtilities SHARED
 )
 
 target_include_directories(FWCoreUtilities PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCoreUtilities PUBLIC
- ${Boost_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(FWCoreUtilities PUBLIC
-  ${MD5_LIBRARY}
-  ${TBB_LIBRARIES}
-  ${UUID_LIBRARIES}
-  Boost::filesystem
-  Boost::iostreams
-  Boost::program_options
-  Boost::python27
-  Boost::regex
-  Boost::serialization
-  Boost::system
-  Boost::thread
-  Python2::Python
-  ROOT::MathCore
-  ROOT::Net
-  ROOT::Thread
-  ROOT::Tree
-  Threads::Threads
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${UUID_INCLUDE_DIR}
 )
 
-install( TARGETS FWCoreUtilities DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreUtilities)
+target_link_libraries(FWCoreUtilities PUBLIC
+${MD5_LIBRARY}
+${TBB_LIBRARIES}
+${UUID_LIBRARIES}
+Boost::filesystem
+Boost::iostreams
+Boost::program_options
+Boost::python27
+Boost::regex
+Boost::serialization
+Boost::system
+Boost::thread
+Core
+MathCore
+Net
+Python::python
+RIO
+Thread
+Threads::Threads
+Tree
+)
+
+
+install( TARGETS FWCoreUtilities DESTINATION  lib  EXPORT cmssw::FWCoreUtilities)
 

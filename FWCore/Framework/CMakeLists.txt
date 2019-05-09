@@ -146,43 +146,48 @@ add_library(FWCoreFramework SHARED
 )
 
 target_include_directories(FWCoreFramework PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCoreFramework PUBLIC
- ${Boost_INCLUDE_DIR}
- ${Boost_INCLUDE_DIR}/python
- ${MD5_INCLUDE_DIR}
- ${Python2_INCLUDE_DIRS}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(FWCoreFramework PUBLIC
-  Boost::filesystem
-  Boost::iostreams
-  Boost::program_options
-  Boost::python27
-  Boost::regex
-  Boost::serialization
-  Boost::system
-  Boost::thread
-  DataFormatsCommon
-  DataFormatsProvenance
-  FWCoreCommon
-  FWCoreConcurrency
-  FWCoreMessageLogger
-  FWCoreParameterSet
-  FWCorePluginManager
-  FWCoreServiceRegistry
-  FWCoreUtilities
-  FWCoreVersion
-  Python2::Python
-  ROOT::MathCore
-  ROOT::Net
-  ROOT::Thread
-  ROOT::Tree
-  Threads::Threads
+${Boost_INCLUDE_DIR}
+${Boost_INCLUDE_DIR}/python
+${MD5_INCLUDE_DIR}
+${Python2_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+${XERCESC_INCLUDE_DIR}
 )
 
-install( TARGETS FWCoreFramework DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreFramework)
+target_link_libraries(FWCoreFramework PUBLIC
+Boost::filesystem
+Boost::iostreams
+Boost::program_options
+Boost::python27
+Boost::regex
+Boost::serialization
+Boost::system
+Boost::thread
+Core
+DataFormatsCommon
+DataFormatsProvenance
+FWCoreCommon
+FWCoreConcurrency
+FWCoreMessageLogger
+FWCoreParameterSet
+FWCorePluginManager
+FWCoreServiceRegistry
+FWCoreUtilities
+FWCoreVersion
+MathCore
+Net
+Python::python
+RIO
+Thread
+Threads::Threads
+Tree
+)
+
+
+install( TARGETS FWCoreFramework DESTINATION  lib  EXPORT cmssw::FWCoreFramework)
 

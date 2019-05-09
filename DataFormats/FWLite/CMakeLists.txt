@@ -26,36 +26,50 @@ add_library(DataFormatsFWLite SHARED
 )
 
 target_include_directories(DataFormatsFWLite PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(DataFormatsFWLite PUBLIC
- ${Boost_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(DataFormatsFWLite PUBLIC
-  DataFormatsCommon
-  DataFormatsProvenance
-  FWCoreCommon
-  FWCoreFWLite
-  FWCoreParameterSet
-  FWCoreUtilities
-  ROOT::MathCore
-  ROOT::Net
-  ROOT::Thread
-  ROOT::Tree
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
-install( TARGETS DataFormatsFWLite DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsFWLite)
+target_link_libraries(DataFormatsFWLite PUBLIC
+Core
+DataFormatsCommon
+DataFormatsProvenance
+FWCoreCommon
+FWCoreFWLite
+FWCoreParameterSet
+FWCoreUtilities
+MathCore
+Net
+RIO
+Thread
+Tree
+)
+
+
+install( TARGETS DataFormatsFWLite DESTINATION  lib  EXPORT cmssw::DataFormatsFWLite)
+
+include_directories(
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
 
 include_directories(${CMAKE_SOURCE_DIR})
+
 include_directories(/usr/include/)
-include_directories(${Boost_INCLUDE_DIR})
-include_directories(${MD5_INCLUDE_DIR})
-include_directories(${ROOT_INCLUDE_DIR})
-include_directories(${TBB_INCLUDE_DIRS})
-include_directories(${TINYXML2_INCLUDE_DIR})
-include_directories(${UUID_INCLUDE_DIR})
-reflex_build_dictionary(DataFormatsFWLite src/classes.h src/classes_def.xml OPTIONS )
+
+reflex_build_dictionary(DataFormatsFWLite src/classes.h src/classes_def.xml)
+
 add_dependencies(DataFormatsFWLite DataFormatsFWLite-dictgen)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLiteDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLite.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+

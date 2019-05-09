@@ -6,90 +6,114 @@ add_executable(testFWCoreConcurrency
 )
 
 target_include_directories(testFWCoreConcurrency PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(testFWCoreConcurrency PUBLIC
- ${CPPUNIT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(testFWCoreConcurrency PUBLIC
-  ${CPPUNIT_LIBRARY}
-  FWCoreConcurrency
+${CPPUNIT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(testFWCoreConcurrency PUBLIC
+${CPPUNIT_LIBRARY}
+FWCoreConcurrency
+)
+
+
 add_test(NAME testFWCoreConcurrency COMMAND testFWCoreConcurrency)
+
 add_executable(test_xercesInitialize
   test_xercesInitialize.cpp
 )
 
 target_include_directories(test_xercesInitialize PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(test_xercesInitialize PUBLIC
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(test_xercesInitialize PUBLIC
-  FWCoreConcurrency
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(test_xercesInitialize PUBLIC
+FWCoreConcurrency
+)
+
+
 add_test(NAME test_xercesInitialize COMMAND test_xercesInitialize)
+
 add_executable(test_threadSafeOutputFileStream
   test_threadSafeOutputFileStream.cpp
 )
 
 target_include_directories(test_threadSafeOutputFileStream PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(test_threadSafeOutputFileStream PUBLIC
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(test_threadSafeOutputFileStream PUBLIC
-  FWCoreConcurrency
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(test_threadSafeOutputFileStream PUBLIC
+FWCoreConcurrency
+)
+
+
 add_test(NAME test_threadSafeOutputFileStream COMMAND test_threadSafeOutputFileStream)
+
 add_executable(ThreadSafeAddOnlyContainer_t
   ThreadSafeAddOnlyContainer_t.cpp
 )
 
 target_include_directories(ThreadSafeAddOnlyContainer_t PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(ThreadSafeAddOnlyContainer_t PUBLIC
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(ThreadSafeAddOnlyContainer_t PUBLIC
-  FWCoreConcurrency
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(ThreadSafeAddOnlyContainer_t PUBLIC
+FWCoreConcurrency
+)
+
+
 add_test(NAME ThreadSafeAddOnlyContainer_t COMMAND ThreadSafeAddOnlyContainer_t)
+
 add_executable(TestFWCoreConcurrencyDriver
   TestFWCoreConcurrencyDriver.cpp
 )
 
 target_include_directories(TestFWCoreConcurrencyDriver PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(TestFWCoreConcurrencyDriver PUBLIC
- ${Boost_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${UUID_INCLUDE_DIR}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(TestFWCoreConcurrencyDriver PUBLIC
-  FWCoreConcurrency
-  FWCoreUtilities
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${UUID_INCLUDE_DIR}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(TestFWCoreConcurrencyDriver PUBLIC
+FWCoreConcurrency
+FWCoreUtilities
+)
+
+
 add_test(NAME TestFWCoreConcurrencyDriver COMMAND TestFWCoreConcurrencyDriver)
+
 add_executable(testFWCoreConcurrencyTBB.cc
   TestTBB.cc
 )
 
 target_include_directories(testFWCoreConcurrencyTBB.cc PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(testFWCoreConcurrencyTBB.cc PUBLIC
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(testFWCoreConcurrencyTBB.cc PUBLIC
-  ${TBB_LIBRARIES}
-  FWCoreConcurrency
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
+target_link_libraries(testFWCoreConcurrencyTBB.cc PUBLIC
+${TBB_LIBRARIES}
+FWCoreConcurrency
+)
+
+
 add_test(NAME testFWCoreConcurrencyTBB.cc COMMAND testFWCoreConcurrencyTBB.cc)
+

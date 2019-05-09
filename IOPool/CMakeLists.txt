@@ -1,9 +1,9 @@
 add_subdirectory(Common)
 add_subdirectory(Input)
 add_subdirectory(Output)
-add_subdirectory(Provenance)
 add_subdirectory(Streamer)
 add_subdirectory(TFileAdaptor)
+add_subdirectory(Provenance)
 add_subdirectory(SecondaryInput)
 
 

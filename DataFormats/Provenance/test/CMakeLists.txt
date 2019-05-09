@@ -14,101 +14,121 @@ add_executable(testDataFormatsProvenance
 )
 
 target_include_directories(testDataFormatsProvenance PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(testDataFormatsProvenance PUBLIC
- ${Boost_INCLUDE_DIR}
- ${CPPUNIT_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(testDataFormatsProvenance PUBLIC
-  ${CPPUNIT_LIBRARY}
-  DataFormatsProvenance
+${Boost_INCLUDE_DIR}
+${CPPUNIT_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
+target_link_libraries(testDataFormatsProvenance PUBLIC
+${CPPUNIT_LIBRARY}
+DataFormatsProvenance
+)
+
+
 add_test(NAME testDataFormatsProvenance COMMAND testDataFormatsProvenance)
+
 add_executable(EntryDescription_t
   EntryDescription_t.cpp
 )
 
 target_include_directories(EntryDescription_t PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(EntryDescription_t PUBLIC
- ${Boost_INCLUDE_DIR}
- ${CPPUNIT_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(EntryDescription_t PUBLIC
-  ${CPPUNIT_LIBRARY}
-  DataFormatsProvenance
+${Boost_INCLUDE_DIR}
+${CPPUNIT_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
+target_link_libraries(EntryDescription_t PUBLIC
+${CPPUNIT_LIBRARY}
+DataFormatsProvenance
+)
+
+
 add_test(NAME EntryDescription_t COMMAND EntryDescription_t)
+
 add_executable(ElementID_t
   ElementID_t.cpp
 )
 
 target_include_directories(ElementID_t PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(ElementID_t PUBLIC
- ${Boost_INCLUDE_DIR}
- ${CATCH2_INCLUDE_DIR}
- ${CPPUNIT_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(ElementID_t PUBLIC
-  ${CPPUNIT_LIBRARY}
-  DataFormatsProvenance
+${Boost_INCLUDE_DIR}
+${CATCH2_INCLUDE_DIRS}
+${CPPUNIT_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
+target_link_libraries(ElementID_t PUBLIC
+${CPPUNIT_LIBRARY}
+DataFormatsProvenance
+)
+
+
 add_test(NAME ElementID_t COMMAND ElementID_t)
+
 add_executable(testProductResolverIndexHelper
   productResolverIndexHelper_t.cppunit.cc
   testRunner.cpp
 )
 
 target_include_directories(testProductResolverIndexHelper PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(testProductResolverIndexHelper PUBLIC
- ${Boost_INCLUDE_DIR}
- ${CPPUNIT_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(testProductResolverIndexHelper PUBLIC
-  ${CPPUNIT_LIBRARY}
-  DataFormatsProvenance
-  DataFormatsTestObjects
+${Boost_INCLUDE_DIR}
+${CPPUNIT_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
+target_link_libraries(testProductResolverIndexHelper PUBLIC
+${CPPUNIT_LIBRARY}
+DataFormatsProvenance
+DataFormatsTestObjects
+)
+
+
 add_test(NAME testProductResolverIndexHelper COMMAND testProductResolverIndexHelper)
+
 add_executable(productResolverIndexHelperTest
   productResolverIndexHelperTest.cc
 )
 
 target_include_directories(productResolverIndexHelperTest PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(productResolverIndexHelperTest PUBLIC
- ${Boost_INCLUDE_DIR}
- ${CPPUNIT_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(productResolverIndexHelperTest PUBLIC
-  ${CPPUNIT_LIBRARY}
-  DataFormatsProvenance
+${Boost_INCLUDE_DIR}
+${CPPUNIT_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
+target_link_libraries(productResolverIndexHelperTest PUBLIC
+${CPPUNIT_LIBRARY}
+DataFormatsProvenance
+)
+
+
 add_test(NAME productResolverIndexHelperTest COMMAND productResolverIndexHelperTest)
+

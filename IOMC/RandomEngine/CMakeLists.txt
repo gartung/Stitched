@@ -10,37 +10,41 @@ add_library(IOMCRandomEngine SHARED
 )
 
 target_include_directories(IOMCRandomEngine PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(IOMCRandomEngine PUBLIC
- ${Boost_INCLUDE_DIR}
- ${Boost_INCLUDE_DIR}/python
- ${CLHEP_INCLUDE_DIR}
- ${GSL_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${Python2_INCLUDE_DIRS}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(IOMCRandomEngine PUBLIC
-  ${CLHEP_MAIN_LIBRARY}
-  DataFormatsProvenance
-  FWCoreFramework
-  FWCoreMessageLogger
-  FWCoreParameterSet
-  FWCoreServiceRegistry
-  FWCoreUtilities
-  ROOT::Core
-  ROOT::GenVector
-  ROOT::MathCore
-  ROOT::MathMore
-  ROOT::Net
-  ROOT::Thread
-  ROOT::Tree
-  SimDataFormatsRandomEngine
-  gsl
+${Boost_INCLUDE_DIR}
+${Boost_INCLUDE_DIR}/python
+${CLHEP_INCLUDE_DIR}
+${GSL_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${Python2_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+${XERCESC_INCLUDE_DIR}
 )
 
-install( TARGETS IOMCRandomEngine DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::IOMCRandomEngine)
+target_link_libraries(IOMCRandomEngine PUBLIC
+${CLHEP_MAIN_LIBRARY}
+Core
+DataFormatsProvenance
+FWCoreFramework
+FWCoreMessageLogger
+FWCoreParameterSet
+FWCoreServiceRegistry
+FWCoreUtilities
+GenVector
+MathCore
+MathMore
+Net
+RIO
+SimDataFormatsRandomEngine
+Thread
+Tree
+gsl
+)
+
+
+install( TARGETS IOMCRandomEngine DESTINATION  lib  EXPORT cmssw::IOMCRandomEngine)
 

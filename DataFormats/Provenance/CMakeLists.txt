@@ -54,43 +54,57 @@ add_library(DataFormatsProvenance SHARED
 )
 
 target_include_directories(DataFormatsProvenance PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(DataFormatsProvenance PUBLIC
- ${Boost_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(DataFormatsProvenance PUBLIC
-  ${TBB_LIBRARIES}
-  Boost::filesystem
-  Boost::iostreams
-  Boost::program_options
-  Boost::python27
-  Boost::regex
-  Boost::serialization
-  Boost::system
-  Boost::thread
-  FWCoreMessageLogger
-  FWCoreUtilities
-  Python2::Python
-  ROOT::MathCore
-  ROOT::Net
-  ROOT::Thread
-  ROOT::Tree
-  Threads::Threads
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
-install( TARGETS DataFormatsProvenance DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::DataFormatsProvenance)
+target_link_libraries(DataFormatsProvenance PUBLIC
+${TBB_LIBRARIES}
+Boost::filesystem
+Boost::iostreams
+Boost::program_options
+Boost::python27
+Boost::regex
+Boost::serialization
+Boost::system
+Boost::thread
+Core
+FWCoreMessageLogger
+FWCoreUtilities
+MathCore
+Net
+Python::python
+RIO
+Thread
+Threads::Threads
+Tree
+)
+
+
+install( TARGETS DataFormatsProvenance DESTINATION  lib  EXPORT cmssw::DataFormatsProvenance)
+
+include_directories(
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
 
 include_directories(${CMAKE_SOURCE_DIR})
+
 include_directories(/usr/include/)
-include_directories(${Boost_INCLUDE_DIR})
-include_directories(${MD5_INCLUDE_DIR})
-include_directories(${ROOT_INCLUDE_DIR})
-include_directories(${TBB_INCLUDE_DIRS})
-include_directories(${TINYXML2_INCLUDE_DIR})
-include_directories(${UUID_INCLUDE_DIR})
-reflex_build_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml OPTIONS )
+
+reflex_build_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml)
+
 add_dependencies(DataFormatsProvenance DataFormatsProvenance-dictgen)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+

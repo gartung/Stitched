@@ -10,23 +10,23 @@ add_library(FWCorePyDevParameterSet SHARED
 )
 
 target_include_directories(FWCorePyDevParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCorePyDevParameterSet PUBLIC
- ${Boost_INCLUDE_DIR}
- ${MD5_INCLUDE_DIR}
- ${Python2_INCLUDE_DIRS}
- ${Python2_INCLUDE_DIRS}/pybind11
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(FWCorePyDevParameterSet PUBLIC
-  ${PYBIND11_LIBRARY}
-  DataFormatsProvenance
-  FWCoreParameterSet
-  FWCoreUtilities
-  Python2::Python
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${Python2_INCLUDE_DIRS}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
-install( TARGETS FWCorePyDevParameterSet DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCorePyDevParameterSet)
+target_link_libraries(FWCorePyDevParameterSet PUBLIC
+DataFormatsProvenance
+FWCoreParameterSet
+FWCoreUtilities
+)
+
+
+install( TARGETS FWCorePyDevParameterSet DESTINATION  lib  EXPORT cmssw::FWCorePyDevParameterSet)
 

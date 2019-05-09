@@ -11,14 +11,17 @@ add_library(FWCoreConcurrency SHARED
 )
 
 target_include_directories(FWCoreConcurrency PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCoreConcurrency PUBLIC
- ${TBB_INCLUDE_DIRS}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(FWCoreConcurrency PUBLIC
-  ${TBB_LIBRARIES}
-  ${XERCESC_LIBRARIES}
+${TBB_INCLUDE_DIRS}
+${XERCESC_INCLUDE_DIR}
 )
 
-install( TARGETS FWCoreConcurrency DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreConcurrency)
+target_link_libraries(FWCoreConcurrency PUBLIC
+${TBB_LIBRARIES}
+${XERCESC_LIBRARIES}
+)
+
+
+install( TARGETS FWCoreConcurrency DESTINATION  lib  EXPORT cmssw::FWCoreConcurrency)
 

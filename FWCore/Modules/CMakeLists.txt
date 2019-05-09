@@ -28,36 +28,39 @@ add_library(FWCoreModules SHARED
 )
 
 target_include_directories(FWCoreModules PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCoreModules PUBLIC
- ${Boost_INCLUDE_DIR}
- ${Boost_INCLUDE_DIR}/python
- ${MD5_INCLUDE_DIR}
- ${Python2_INCLUDE_DIRS}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
- ${XERCESC_INCLUDE_DIR}
-)
-target_link_libraries(FWCoreModules PUBLIC
-  Boost::filesystem
-  Boost::iostreams
-  Boost::program_options
-  Boost::python27
-  Boost::regex
-  Boost::serialization
-  Boost::system
-  Boost::thread
-  DataFormatsCommon
-  DataFormatsProvenance
-  FWCoreFramework
-  FWCoreMessageLogger
-  FWCoreParameterSet
-  FWCoreSources
-  FWCoreUtilities
-  Python2::Python
-  Threads::Threads
+${Boost_INCLUDE_DIR}
+${Boost_INCLUDE_DIR}/python
+${MD5_INCLUDE_DIR}
+${Python2_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+${XERCESC_INCLUDE_DIR}
 )
 
-install( TARGETS FWCoreModules DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreModules)
+target_link_libraries(FWCoreModules PUBLIC
+Boost::filesystem
+Boost::iostreams
+Boost::program_options
+Boost::python27
+Boost::regex
+Boost::serialization
+Boost::system
+Boost::thread
+DataFormatsCommon
+DataFormatsProvenance
+FWCoreFramework
+FWCoreMessageLogger
+FWCoreParameterSet
+FWCoreSources
+FWCoreUtilities
+Python::python
+Threads::Threads
+)
+
+
+install( TARGETS FWCoreModules DESTINATION  lib  EXPORT cmssw::FWCoreModules)
 

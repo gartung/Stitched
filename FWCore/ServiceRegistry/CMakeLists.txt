@@ -23,23 +23,26 @@ add_library(FWCoreServiceRegistry SHARED
 )
 
 target_include_directories(FWCoreServiceRegistry PRIVATE ${CMAKE_SOURCE_DIR})
+
 target_include_directories(FWCoreServiceRegistry PUBLIC
- ${Boost_INCLUDE_DIR}
- ${Boost_INCLUDE_DIR}/python
- ${MD5_INCLUDE_DIR}
- ${Python2_INCLUDE_DIRS}
- ${ROOT_INCLUDE_DIR}
- ${TBB_INCLUDE_DIRS}
- ${TINYXML2_INCLUDE_DIR}
- ${UUID_INCLUDE_DIR}
-)
-target_link_libraries(FWCoreServiceRegistry PUBLIC
-  DataFormatsProvenance
-  FWCoreParameterSet
-  FWCoreParameterSetReader
-  FWCorePluginManager
-  FWCoreUtilities
+${Boost_INCLUDE_DIR}
+${Boost_INCLUDE_DIR}/python
+${MD5_INCLUDE_DIR}
+${Python2_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
 )
 
-install( TARGETS FWCoreServiceRegistry DESTINATION  ${CMAKE_INSTALL_LIBDIR}  EXPORT stitched::FWCoreServiceRegistry)
+target_link_libraries(FWCoreServiceRegistry PUBLIC
+DataFormatsProvenance
+FWCoreParameterSet
+FWCoreParameterSetReader
+FWCorePluginManager
+FWCoreUtilities
+)
+
+
+install( TARGETS FWCoreServiceRegistry DESTINATION  lib  EXPORT cmssw::FWCoreServiceRegistry)
 
