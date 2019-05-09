@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCoreCatalog SHARED 
@@ -33,7 +33,7 @@ Boost::thread
 FWCoreConcurrency
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

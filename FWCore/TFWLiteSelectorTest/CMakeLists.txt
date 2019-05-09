@@ -18,21 +18,21 @@ ${XERCESC_INCLUDE_DIR}
 )
 
 target_link_libraries(FWCoreTFWLiteSelectorTest PUBLIC
-Core
 DataFormatsCommon
 FWCoreTFWLiteSelector
-Gpad
-Graf
-Graf3d
-Hist
-MathCore
-Matrix
-Net
-Postscript
-RIO
-Thread
-Tree
-TreePlayer
+ROOT::Core
+ROOT::Gpad
+ROOT::Graf
+ROOT::Graf3d
+ROOT::Hist
+ROOT::MathCore
+ROOT::Matrix
+ROOT::Net
+ROOT::Postscript
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
+ROOT::TreePlayer
 )
 
 

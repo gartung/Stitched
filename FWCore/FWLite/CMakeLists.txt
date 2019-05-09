@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCoreFWLite SHARED 
@@ -23,16 +23,16 @@ ${UUID_INCLUDE_DIR}
 )
 
 target_link_libraries(FWCoreFWLite PUBLIC
-Core
 DataFormatsCommon
 DataFormatsProvenance
 FWCorePluginManager
 FWCoreUtilities
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

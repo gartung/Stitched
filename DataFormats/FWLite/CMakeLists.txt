@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(DataFormatsFWLite SHARED 
@@ -37,18 +37,18 @@ ${UUID_INCLUDE_DIR}
 )
 
 target_link_libraries(DataFormatsFWLite PUBLIC
-Core
 DataFormatsCommon
 DataFormatsProvenance
 FWCoreCommon
 FWCoreFWLite
 FWCoreParameterSet
 FWCoreUtilities
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

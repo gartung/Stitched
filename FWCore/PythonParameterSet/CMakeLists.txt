@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCorePythonParameterSet SHARED 
@@ -36,8 +36,7 @@ Boost::thread
 DataFormatsProvenance
 FWCoreParameterSet
 FWCoreUtilities
-Python::python
-Thread::Thread
+Python2::Python
 Threads::Threads
 )
 

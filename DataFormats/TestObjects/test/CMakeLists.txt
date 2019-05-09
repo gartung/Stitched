@@ -16,16 +16,16 @@ ${UUID_INCLUDE_DIR}
 
 target_link_libraries(Enum_t PUBLIC
 ${CPPUNIT_LIBRARY}
-Core
 DataFormatsCommon
 DataFormatsStdDictionaries
 DataFormatsTestObjects
 DataFormatsWrappedStdDictionaries
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

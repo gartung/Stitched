@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCoreUtilities SHARED 
@@ -70,14 +70,14 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
-MathCore
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 

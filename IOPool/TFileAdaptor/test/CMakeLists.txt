@@ -20,14 +20,14 @@ ${XERCESC_INCLUDE_DIR}
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 
 target_link_libraries(test_TFileAdaptor_TFile PUBLIC
-Core
 FWCorePluginManager
 IOPoolTFileAdaptor
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 UtilitiesStorageFactory
 )
 

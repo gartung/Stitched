@@ -32,7 +32,7 @@ FWCoreParameterSet
 FWCorePythonParameterSet
 FWCoreTestProcessor
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

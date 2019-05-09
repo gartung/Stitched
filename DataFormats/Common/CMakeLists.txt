@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(DataFormatsCommon SHARED 
@@ -45,18 +45,18 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
 DataFormatsProvenance
 DataFormatsStdDictionaries
 FWCoreMessageLogger
 FWCoreUtilities
-MathCore
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 

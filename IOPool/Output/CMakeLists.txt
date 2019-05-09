@@ -21,7 +21,6 @@ ${XERCESC_INCLUDE_DIR}
 )
 
 target_link_libraries(IOPoolOutput PUBLIC
-Core
 DataFormatsCommon
 DataFormatsProvenance
 FWCoreFramework
@@ -32,11 +31,12 @@ FWCoreUtilities
 FWCoreVersion
 IOPoolCommon
 IOPoolProvenance
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

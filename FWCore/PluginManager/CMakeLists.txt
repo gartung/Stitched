@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCorePluginManager SHARED 
@@ -35,7 +35,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

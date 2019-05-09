@@ -18,7 +18,6 @@ ${XERCESC_INCLUDE_DIR}
 
 target_link_libraries(edmProvDump PUBLIC
 Boost::program_options
-Core
 DataFormatsCommon
 DataFormatsProvenance
 DataFormatsStdDictionaries
@@ -29,11 +28,12 @@ FWCoreServiceRegistry
 FWCoreServices
 FWCoreUtilities
 IOPoolCommon
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 
@@ -67,23 +67,23 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
 DataFormatsProvenance
 FWCoreCatalog
 FWCoreParameterSet
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreServices
-Hist
 IOPoolCommon
-MathCore
-Matrix
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::Hist
+ROOT::MathCore
+ROOT::Matrix
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 
@@ -124,7 +124,7 @@ FWCoreParameterSet
 FWCoreServiceRegistry
 FWCoreServices
 IOPoolCommon
-Python::python
+Python2::Python
 Threads::Threads
 UtilitiesStorageFactory
 )

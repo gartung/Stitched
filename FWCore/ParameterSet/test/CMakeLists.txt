@@ -50,7 +50,7 @@ Boost::thread
 DataFormatsProvenance
 FWCoreParameterSet
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

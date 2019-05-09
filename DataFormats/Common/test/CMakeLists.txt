@@ -45,7 +45,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -79,7 +79,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -113,7 +113,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -146,17 +146,17 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
 DataFormatsCommon
 DataFormatsStdDictionaries
 DataFormatsWrappedStdDictionaries
-MathCore
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 
@@ -189,7 +189,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -223,7 +223,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -257,7 +257,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -291,7 +291,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -325,7 +325,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -359,7 +359,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -393,7 +393,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -427,7 +427,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -461,7 +461,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -495,7 +495,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -529,7 +529,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -563,7 +563,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -597,7 +597,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -632,7 +632,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 DataFormatsCommon
-Python::python
+Python2::Python
 Threads::Threads
 )
 

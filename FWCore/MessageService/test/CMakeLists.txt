@@ -27,7 +27,7 @@ Boost::thread
 FWCoreMessageLogger
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -63,7 +63,7 @@ Boost::thread
 FWCoreMessageLogger
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -98,7 +98,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -133,7 +133,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -168,7 +168,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -203,7 +203,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -238,7 +238,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -273,7 +273,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -308,7 +308,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -343,7 +343,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -378,7 +378,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -413,7 +413,7 @@ Boost::system
 Boost::thread
 FWCoreMessageService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -453,7 +453,7 @@ FWCoreMessageService
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

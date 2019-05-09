@@ -1,3 +1,5 @@
+add_library(DataFormatsStdDictionaries INTERFACE)
+
 include_directories(
 ${ROOT_INCLUDE_DIR}
 )

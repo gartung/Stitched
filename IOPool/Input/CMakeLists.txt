@@ -36,7 +36,6 @@ add_compile_options("-D_FILE_OFFSET_BITS=64")
 
 target_link_libraries(IOPoolInput PUBLIC
 ${CLHEP_MAIN_LIBRARY}
-Core
 DataFormatsCommon
 DataFormatsProvenance
 FWCoreCatalog
@@ -47,11 +46,12 @@ FWCoreServiceRegistry
 FWCoreSources
 FWCoreUtilities
 IOPoolCommon
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 UtilitiesStorageFactory
 )
 

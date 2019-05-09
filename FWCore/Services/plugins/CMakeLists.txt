@@ -47,7 +47,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 FWCoreServices
-Python::python
+Python2::Python
 Threads::Threads
 UtilitiesStorageFactory
 UtilitiesXrdAdaptor

@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(IOPoolTFileAdaptor SHARED 
@@ -26,16 +26,16 @@ ${XERCESC_INCLUDE_DIR}
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 
 target_link_libraries(IOPoolTFileAdaptor PUBLIC
-Core
 FWCoreCatalog
 FWCoreMessageLogger
 FWCoreParameterSet
 FWCoreServiceRegistry
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 UtilitiesStorageFactory
 )
 

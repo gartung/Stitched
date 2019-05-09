@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_subdirectory(plugins)
@@ -49,7 +49,7 @@ FWCoreMessageLogger
 FWCoreParameterSet
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

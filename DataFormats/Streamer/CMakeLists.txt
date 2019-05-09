@@ -14,14 +14,14 @@ ${UUID_INCLUDE_DIR}
 )
 
 target_link_libraries(DataFormatsStreamer PUBLIC
-Core
 DataFormatsProvenance
 DataFormatsStdDictionaries
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

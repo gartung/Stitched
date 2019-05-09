@@ -26,7 +26,7 @@ Boost::system
 Boost::thread
 FWCoreParameterSet
 FWCorePythonParameterSet
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -61,7 +61,7 @@ Boost::system
 Boost::thread
 FWCoreParameterSet
 FWCorePythonParameterSet
-Python::python
+Python2::Python
 Threads::Threads
 )
 

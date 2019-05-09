@@ -22,7 +22,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 FWCorePluginManager
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -53,7 +53,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 FWCorePluginManager
-Python::python
+Python2::Python
 Threads::Threads
 )
 

@@ -30,7 +30,7 @@ FWCorePluginManager
 FWCorePythonParameterSet
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

@@ -30,7 +30,7 @@ Boost::serialization
 Boost::system
 Boost::thread
 FWCoreServiceRegistry
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -65,7 +65,7 @@ Boost::system
 Boost::thread
 FWCoreServiceRegistry
 FWCoreServiceRegistryTestDummyService
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -105,7 +105,7 @@ FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreServiceRegistryTestDummyService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -145,7 +145,7 @@ FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreServiceRegistryTestDummyService
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

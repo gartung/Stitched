@@ -1,5 +1,5 @@
 add_subdirectory(bin)
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_subdirectory(plugins)
@@ -32,7 +32,6 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
 DataFormatsCommon
 DataFormatsProvenance
 DataFormatsStreamer
@@ -43,15 +42,16 @@ FWCoreParameterSet
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Hist
-MathCore
-Matrix
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::Hist
+ROOT::MathCore
+ROOT::Matrix
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 

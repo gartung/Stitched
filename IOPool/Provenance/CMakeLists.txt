@@ -14,14 +14,14 @@ ${UUID_INCLUDE_DIR}
 )
 
 target_link_libraries(IOPoolProvenance PUBLIC
-Core
 DataFormatsProvenance
 FWCoreParameterSet
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

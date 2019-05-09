@@ -25,7 +25,7 @@ Boost::system
 Boost::thread
 DataFormatsCommon
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

@@ -36,7 +36,6 @@ ${ZLIB_INCLUDE_DIR}
 add_compile_options("-D_FILE_OFFSET_BITS=64")
 
 target_link_libraries(IOPoolStreamer PUBLIC
-Core
 DataFormatsCommon
 DataFormatsProvenance
 DataFormatsStreamer
@@ -48,11 +47,12 @@ FWCoreServiceRegistry
 FWCoreSources
 FWCoreUtilities
 FWCoreVersion
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 UtilitiesStorageFactory
 z
 )

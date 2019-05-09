@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCoreTestProcessor SHARED 
@@ -32,8 +32,7 @@ Boost::system
 Boost::thread
 FWCoreFramework
 FWCorePythonParameterSet
-Python::python
-Thread::Thread
+Python2::Python
 Threads::Threads
 )
 

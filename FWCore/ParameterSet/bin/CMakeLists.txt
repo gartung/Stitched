@@ -25,7 +25,7 @@ Boost::thread
 FWCoreParameterSet
 FWCorePluginManager
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -59,7 +59,7 @@ Boost::thread
 FWCoreParameterSet
 FWCorePluginManager
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

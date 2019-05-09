@@ -1,3 +1,5 @@
+add_library(DataFormatsWrappedStdDictionaries INTERFACE)
+
 include_directories(
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}

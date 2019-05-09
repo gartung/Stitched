@@ -26,7 +26,6 @@ Boost::regex
 Boost::serialization
 Boost::system
 Boost::thread
-Core
 FWCoreFramework
 FWCoreMessageLogger
 FWCoreParameterSet
@@ -34,15 +33,16 @@ FWCoreParameterSetReader
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Hist
-MathCore
-Matrix
-Net
-Python::python
-RIO
-Thread
+Python2::Python
+ROOT::Core
+ROOT::Hist
+ROOT::MathCore
+ROOT::Matrix
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 Threads::Threads
-Tree
 )
 
 
@@ -84,7 +84,7 @@ FWCoreParameterSetReader
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 tcmalloc_minimal
 )
@@ -127,7 +127,7 @@ FWCoreParameterSetReader
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 
@@ -171,7 +171,7 @@ FWCoreParameterSetReader
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 jemalloc
 vdt
@@ -216,7 +216,7 @@ FWCoreParameterSetReader
 FWCorePluginManager
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 jemalloc
 )
@@ -260,7 +260,7 @@ FWCorePluginManager
 FWCorePyDevParameterSet
 FWCoreServiceRegistry
 FWCoreUtilities
-Python::python
+Python2::Python
 Threads::Threads
 )
 

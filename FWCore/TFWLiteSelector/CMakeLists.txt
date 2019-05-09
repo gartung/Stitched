@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_library(FWCoreTFWLiteSelector SHARED 
@@ -20,17 +20,17 @@ ${XERCESC_INCLUDE_DIR}
 )
 
 target_link_libraries(FWCoreTFWLiteSelector PUBLIC
-Core
 DataFormatsCommon
 DataFormatsProvenance
 FWCoreFramework
 FWCoreParameterSet
 FWCoreUtilities
-MathCore
-Net
-RIO
-Thread
-Tree
+ROOT::Core
+ROOT::MathCore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 )
 
 

@@ -1,4 +1,4 @@
-if(BUILDTEST)
+if(${BUILDTEST})
 add_subdirectory(test)
 endif()
 add_subdirectory(plugins)
@@ -27,21 +27,21 @@ ${XERCESC_INCLUDE_DIR}
 
 target_link_libraries(IOMCRandomEngine PUBLIC
 ${CLHEP_MAIN_LIBRARY}
-Core
 DataFormatsProvenance
 FWCoreFramework
 FWCoreMessageLogger
 FWCoreParameterSet
 FWCoreServiceRegistry
 FWCoreUtilities
-GenVector
-MathCore
-MathMore
-Net
-RIO
+ROOT::Core
+ROOT::GenVector
+ROOT::MathCore
+ROOT::MathMore
+ROOT::Net
+ROOT::RIO
+ROOT::Thread
+ROOT::Tree
 SimDataFormatsRandomEngine
-Thread
-Tree
 gsl
 )
 
