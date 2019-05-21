@@ -27,5 +27,5 @@ IOPoolStreamer
 )
 
 
-install( TARGETS IOPoolStreamerPlugins DESTINATION  lib  EXPORT cmssw::IOPoolStreamerPlugins)
+install( TARGETS IOPoolStreamerPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolStreamerPlugins)
 

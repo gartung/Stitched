@@ -28,5 +28,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCorePyDevParameterSet DESTINATION  lib  EXPORT cmssw::FWCorePyDevParameterSet)
+install( TARGETS FWCorePyDevParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePyDevParameterSet)
 

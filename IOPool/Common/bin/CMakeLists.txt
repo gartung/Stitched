@@ -37,7 +37,7 @@ ROOT::Tree
 )
 
 
-install( TARGETS edmProvDump DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmProvDump)
+install( TARGETS edmProvDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmProvDump)
 
 add_executable(edmFileUtil
   CollUtil.cc
@@ -87,7 +87,7 @@ Threads::Threads
 )
 
 
-install( TARGETS edmFileUtil DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmFileUtil)
+install( TARGETS edmFileUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmFileUtil)
 
 add_executable(edmCopyUtil
   EdmCopyUtil.cpp
@@ -130,5 +130,5 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS edmCopyUtil DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmCopyUtil)
+install( TARGETS edmCopyUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmCopyUtil)
 

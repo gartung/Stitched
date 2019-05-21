@@ -23,5 +23,5 @@ ${XERCESC_LIBRARIES}
 )
 
 
-install( TARGETS FWCoreConcurrency DESTINATION  lib  EXPORT cmssw::FWCoreConcurrency)
+install( TARGETS FWCoreConcurrency DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreConcurrency)
 

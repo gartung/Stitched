@@ -25,9 +25,9 @@ DataFormatsCommon
 )
 
 
-install( TARGETS DataFormatsTestObjects DESTINATION  lib  EXPORT cmssw::DataFormatsTestObjects)
+install( TARGETS DataFormatsTestObjects DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsTestObjects)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -36,13 +36,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(DataFormatsTestObjects src/classes.h src/classes_def.xml)
 
-add_dependencies(DataFormatsTestObjects DataFormatsTestObjects-dictgen)
+add_library(DataFormatsTestObjectsDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjects.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjectsDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjects.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET DataFormatsTestObjectsDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(DataFormatsTestObjectsDictObj DataFormatsTestObjects-dictgen)
+
+add_dependencies(DataFormatsTestObjects DataFormatsTestObjectsDictObj)
+
+target_link_libraries(DataFormatsTestObjects PUBLIC $<TARGET_OBJECTS:DataFormatsTestObjectsDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjects_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsTestObjectsDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

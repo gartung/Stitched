@@ -35,5 +35,5 @@ Threads::Threads
 )
 
 
-install( TARGETS Standalone DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::Standalone)
+install( TARGETS Standalone DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::Standalone)
 

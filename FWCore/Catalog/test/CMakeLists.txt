@@ -23,5 +23,5 @@ FWCoreServiceRegistry
 )
 
 
-add_test(NAME edmCatalogFileLocator_t COMMAND edmCatalogFileLocator_t)
+add_test(edmCatalogFileLocator_t edmCatalogFileLocator_t)
 

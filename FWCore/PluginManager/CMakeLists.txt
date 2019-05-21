@@ -40,5 +40,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCorePluginManager DESTINATION  lib  EXPORT cmssw::FWCorePluginManager)
+install( TARGETS FWCorePluginManager DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePluginManager)
 

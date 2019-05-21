@@ -1,4 +1,7 @@
 add_subdirectory(bin)
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_library(IOPoolCommon SHARED 
   src/RootServiceChecker.cc
 )
@@ -22,5 +25,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS IOPoolCommon DESTINATION  lib  EXPORT cmssw::IOPoolCommon)
+install( TARGETS IOPoolCommon DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolCommon)
 

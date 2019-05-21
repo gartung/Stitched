@@ -46,7 +46,7 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunGlibC DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRunGlibC)
+install( TARGETS cmsRunGlibC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunGlibC)
 
 add_executable(cmsRunTC
   cmsRun.cpp
@@ -69,6 +69,7 @@ ${XERCESC_INCLUDE_DIR}
 
 target_link_libraries(cmsRunTC PUBLIC
 ${TBB_LIBRARIES}
+${tcmalloc_minimal}
 Boost::filesystem
 Boost::iostreams
 Boost::program_options
@@ -86,11 +87,10 @@ FWCoreServiceRegistry
 FWCoreUtilities
 Python2::Python
 Threads::Threads
-tcmalloc_minimal
 )
 
 
-install( TARGETS cmsRunTC DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRunTC)
+install( TARGETS cmsRunTC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunTC)
 
 add_executable(cmsRun
   cmsRun.cpp
@@ -132,7 +132,7 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRun DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRun)
+install( TARGETS cmsRun DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRun)
 
 add_executable(cmsRunVDT
   cmsRun.cpp
@@ -156,6 +156,7 @@ ${XERCESC_INCLUDE_DIR}
 
 target_link_libraries(cmsRunVDT PUBLIC
 ${TBB_LIBRARIES}
+${jemalloc}
 Boost::filesystem
 Boost::iostreams
 Boost::program_options
@@ -173,12 +174,11 @@ FWCoreServiceRegistry
 FWCoreUtilities
 Python2::Python
 Threads::Threads
-jemalloc
 vdt
 )
 
 
-install( TARGETS cmsRunVDT DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRunVDT)
+install( TARGETS cmsRunVDT DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunVDT)
 
 add_executable(cmsRunJE
   cmsRun.cpp
@@ -201,6 +201,7 @@ ${XERCESC_INCLUDE_DIR}
 
 target_link_libraries(cmsRunJE PUBLIC
 ${TBB_LIBRARIES}
+${jemalloc}
 Boost::filesystem
 Boost::iostreams
 Boost::program_options
@@ -218,11 +219,10 @@ FWCoreServiceRegistry
 FWCoreUtilities
 Python2::Python
 Threads::Threads
-jemalloc
 )
 
 
-install( TARGETS cmsRunJE DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRunJE)
+install( TARGETS cmsRunJE DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunJE)
 
 add_executable(cmsRunPyDev
   cmsRunPyDev.cpp
@@ -265,5 +265,5 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunPyDev DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsRunPyDev)
+install( TARGETS cmsRunPyDev DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunPyDev)
 

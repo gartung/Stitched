@@ -6,5 +6,5 @@ add_library(FWCoreVersion SHARED
 target_include_directories(FWCoreVersion PRIVATE ${CMAKE_SOURCE_DIR})
 
 
-install( TARGETS FWCoreVersion DESTINATION  lib  EXPORT cmssw::FWCoreVersion)
+install( TARGETS FWCoreVersion DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreVersion)
 

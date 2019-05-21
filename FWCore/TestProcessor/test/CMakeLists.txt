@@ -37,5 +37,5 @@ Threads::Threads
 )
 
 
-add_test(NAME testFWCoreTestProcessor COMMAND testFWCoreTestProcessor)
+add_test(testFWCoreTestProcessor testFWCoreTestProcessor)
 

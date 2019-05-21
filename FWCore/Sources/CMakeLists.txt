@@ -37,5 +37,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreSources DESTINATION  lib  EXPORT cmssw::FWCoreSources)
+install( TARGETS FWCoreSources DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreSources)
 

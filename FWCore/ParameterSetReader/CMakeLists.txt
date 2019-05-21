@@ -21,5 +21,5 @@ FWCorePythonParameterSet
 )
 
 
-install( TARGETS FWCoreParameterSetReader DESTINATION  lib  EXPORT cmssw::FWCoreParameterSetReader)
+install( TARGETS FWCoreParameterSetReader DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreParameterSetReader)
 

@@ -32,5 +32,5 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_TFileAdaptor_TFile COMMAND test_TFileAdaptor_TFile)
+add_test(test_TFileAdaptor_TFile test_TFileAdaptor_TFile)
 

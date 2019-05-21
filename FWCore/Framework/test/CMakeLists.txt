@@ -212,7 +212,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkTBBTasks COMMAND TestFWCoreFrameworkTBBTasks)
+add_test(TestFWCoreFrameworkTBBTasks TestFWCoreFrameworkTBBTasks)
 
 add_library(TestTriggerNames SHARED 
   stubs/TestTriggerNames.cc
@@ -1022,7 +1022,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFramework COMMAND TestFWCoreFramework)
+add_test(TestFWCoreFramework TestFWCoreFramework)
 
 add_executable(TestFWCoreFrameworkeventsetup
   callback_t.cppunit.cc
@@ -1077,7 +1077,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkeventsetup COMMAND TestFWCoreFrameworkeventsetup)
+add_test(TestFWCoreFrameworkeventsetup TestFWCoreFrameworkeventsetup)
 
 add_executable(TestFWCoreFrameworkeventprocessor
   eventprocessor2_t.cppunit.cc
@@ -1123,7 +1123,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkeventprocessor COMMAND TestFWCoreFrameworkeventprocessor)
+add_test(TestFWCoreFrameworkeventprocessor TestFWCoreFrameworkeventprocessor)
 
 add_executable(TestFWCoreFrameworkeventprincipal
   eventprincipal_t.cppunit.cc
@@ -1168,7 +1168,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkeventprincipal COMMAND TestFWCoreFrameworkeventprincipal)
+add_test(TestFWCoreFrameworkeventprincipal TestFWCoreFrameworkeventprincipal)
 
 add_executable(TestFWCoreFrameworkEvent
   Event_t.cpp
@@ -1212,7 +1212,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEvent COMMAND TestFWCoreFrameworkEvent)
+add_test(TestFWCoreFrameworkEvent TestFWCoreFrameworkEvent)
 
 add_executable(TestFWCoreFrameworkView
   View_t.cpp
@@ -1250,7 +1250,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkView COMMAND TestFWCoreFrameworkView)
+add_test(TestFWCoreFrameworkView TestFWCoreFrameworkView)
 
 add_executable(TestFWCoreFrameworkCmsRun
   TestDriver.cpp
@@ -1286,7 +1286,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkCmsRun COMMAND TestFWCoreFrameworkCmsRun)
+add_test(TestFWCoreFrameworkCmsRun TestFWCoreFrameworkCmsRun)
 
 add_executable(TestFWCoreFrameworkESRefer
   TestDriver.cpp
@@ -1322,7 +1322,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkESRefer COMMAND TestFWCoreFrameworkESRefer)
+add_test(TestFWCoreFrameworkESRefer TestFWCoreFrameworkESRefer)
 
 add_executable(TestFWCoreFrameworkUnscheduled
   TestDriver.cpp
@@ -1358,7 +1358,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkUnscheduled COMMAND TestFWCoreFrameworkUnscheduled)
+add_test(TestFWCoreFrameworkUnscheduled TestFWCoreFrameworkUnscheduled)
 
 add_executable(TestFWCoreFrameworkGlobalStreamOne
   TestDriver.cpp
@@ -1396,7 +1396,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkGlobalStreamOne COMMAND TestFWCoreFrameworkGlobalStreamOne)
+add_test(TestFWCoreFrameworkGlobalStreamOne TestFWCoreFrameworkGlobalStreamOne)
 
 add_executable(TestFWCoreFrameworkMayConsumesDeadlock
   TestDriver.cpp
@@ -1434,7 +1434,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkMayConsumesDeadlock COMMAND TestFWCoreFrameworkMayConsumesDeadlock)
+add_test(TestFWCoreFrameworkMayConsumesDeadlock TestFWCoreFrameworkMayConsumesDeadlock)
 
 add_executable(TestFWCoreFrameworkReplace
   TestDriver.cpp
@@ -1470,7 +1470,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkReplace COMMAND TestFWCoreFrameworkReplace)
+add_test(TestFWCoreFrameworkReplace TestFWCoreFrameworkReplace)
 
 add_executable(TestFWCoreFrameworkESProducerLooper
   TestDriver.cpp
@@ -1506,7 +1506,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkESProducerLooper COMMAND TestFWCoreFrameworkESProducerLooper)
+add_test(TestFWCoreFrameworkESProducerLooper TestFWCoreFrameworkESProducerLooper)
 
 add_executable(TestFWCoreFrameworkTrigBit
   TestDriver.cpp
@@ -1542,7 +1542,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkTrigBit COMMAND TestFWCoreFrameworkTrigBit)
+add_test(TestFWCoreFrameworkTrigBit TestFWCoreFrameworkTrigBit)
 
 add_executable(TestFWCoreFrameworkTrigMask
   TestDriver.cpp
@@ -1578,7 +1578,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkTrigMask COMMAND TestFWCoreFrameworkTrigMask)
+add_test(TestFWCoreFrameworkTrigMask TestFWCoreFrameworkTrigMask)
 
 add_executable(TestXMLSafeException
   TestDriver.cpp
@@ -1614,7 +1614,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestXMLSafeException COMMAND TestXMLSafeException)
+add_test(TestXMLSafeException TestXMLSafeException)
 
 add_executable(TestFWCoreFrameworkProductSelector
   ProductSelector_t.cpp
@@ -1652,7 +1652,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkProductSelector COMMAND TestFWCoreFrameworkProductSelector)
+add_test(TestFWCoreFrameworkProductSelector TestFWCoreFrameworkProductSelector)
 
 add_executable(TestFWCoreFrameworkEventSelector
   EventSelector_t.cpp
@@ -1691,7 +1691,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEventSelector COMMAND TestFWCoreFrameworkEventSelector)
+add_test(TestFWCoreFrameworkEventSelector TestFWCoreFrameworkEventSelector)
 
 add_executable(TestFWCoreFrameworkEventSelWildcard
   EventSelWildcard_t.cpp
@@ -1730,7 +1730,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEventSelWildcard COMMAND TestFWCoreFrameworkEventSelWildcard)
+add_test(TestFWCoreFrameworkEventSelWildcard TestFWCoreFrameworkEventSelWildcard)
 
 add_executable(TestFWCoreFrameworkEventSelExc
   EventSelExc_t.cpp
@@ -1769,7 +1769,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEventSelExc COMMAND TestFWCoreFrameworkEventSelExc)
+add_test(TestFWCoreFrameworkEventSelExc TestFWCoreFrameworkEventSelExc)
 
 add_executable(TestFWCoreFrameworkEventSelOverlap
   EventSelOverlap_t.cpp
@@ -1808,7 +1808,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEventSelOverlap COMMAND TestFWCoreFrameworkEventSelOverlap)
+add_test(TestFWCoreFrameworkEventSelOverlap TestFWCoreFrameworkEventSelOverlap)
 
 add_executable(TestFWCoreFrameworkRegistryTemplate
   RegistryTemplate_t.cpp
@@ -1846,7 +1846,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkRegistryTemplate COMMAND TestFWCoreFrameworkRegistryTemplate)
+add_test(TestFWCoreFrameworkRegistryTemplate TestFWCoreFrameworkRegistryTemplate)
 
 add_executable(TestFWCoreOutputModuleUtilities
   OutputModuleUtilities_t.cpp
@@ -1881,7 +1881,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreOutputModuleUtilities COMMAND TestFWCoreOutputModuleUtilities)
+add_test(TestFWCoreOutputModuleUtilities TestFWCoreOutputModuleUtilities)
 
 add_executable(TestFWCoreFrameworkStatemachine
   statemachine_t.cc
@@ -1917,7 +1917,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkStatemachine COMMAND TestFWCoreFrameworkStatemachine)
+add_test(TestFWCoreFrameworkStatemachine TestFWCoreFrameworkStatemachine)
 
 add_executable(TestFWCoreFrameworkStatemachineSH
   TestDriver.cpp
@@ -1953,7 +1953,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkStatemachineSH COMMAND TestFWCoreFrameworkStatemachineSH)
+add_test(TestFWCoreFrameworkStatemachineSH TestFWCoreFrameworkStatemachineSH)
 
 add_executable(TestFWCoreFrameworkInputTagFailure
   TestDriver.cpp
@@ -1989,7 +1989,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkInputTagFailure COMMAND TestFWCoreFrameworkInputTagFailure)
+add_test(TestFWCoreFrameworkInputTagFailure TestFWCoreFrameworkInputTagFailure)
 
 add_executable(TestFWCoreFrameworkDeleteEarly
   TestDriver.cpp
@@ -2025,7 +2025,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkDeleteEarly COMMAND TestFWCoreFrameworkDeleteEarly)
+add_test(TestFWCoreFrameworkDeleteEarly TestFWCoreFrameworkDeleteEarly)
 
 add_executable(TestFWCoreFrameworkEarlyTerminationSignal
   TestDriver.cpp
@@ -2061,7 +2061,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkEarlyTerminationSignal COMMAND TestFWCoreFrameworkEarlyTerminationSignal)
+add_test(TestFWCoreFrameworkEarlyTerminationSignal TestFWCoreFrameworkEarlyTerminationSignal)
 
 add_executable(TestFWCoreFrameworkPrintDependencies
   TestDriver.cpp
@@ -2097,7 +2097,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkPrintDependencies COMMAND TestFWCoreFrameworkPrintDependencies)
+add_test(TestFWCoreFrameworkPrintDependencies TestFWCoreFrameworkPrintDependencies)
 
 add_executable(TestFWCoreFrameworkTransitions
   TestDriver.cpp
@@ -2133,7 +2133,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkTransitions COMMAND TestFWCoreFrameworkTransitions)
+add_test(TestFWCoreFrameworkTransitions TestFWCoreFrameworkTransitions)
 
 add_executable(TestFWCoreFrameworkCatch2notTP
   test_catch2_main.cc
@@ -2170,5 +2170,5 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreFrameworkCatch2notTP COMMAND TestFWCoreFrameworkCatch2notTP)
+add_test(TestFWCoreFrameworkCatch2notTP TestFWCoreFrameworkCatch2notTP)
 

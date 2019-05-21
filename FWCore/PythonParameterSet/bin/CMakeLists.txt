@@ -31,7 +31,7 @@ Threads::Threads
 )
 
 
-install( TARGETS edmConfigHash DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmConfigHash)
+install( TARGETS edmConfigHash DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmConfigHash)
 
 add_executable(edmParameterSetDump
   edmParameterSetDump.cpp
@@ -66,5 +66,5 @@ Threads::Threads
 )
 
 
-install( TARGETS edmParameterSetDump DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmParameterSetDump)
+install( TARGETS edmParameterSetDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmParameterSetDump)
 

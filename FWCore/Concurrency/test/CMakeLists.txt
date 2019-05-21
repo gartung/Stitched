@@ -19,7 +19,7 @@ FWCoreConcurrency
 )
 
 
-add_test(NAME testFWCoreConcurrency COMMAND testFWCoreConcurrency)
+add_test(testFWCoreConcurrency testFWCoreConcurrency)
 
 add_executable(test_xercesInitialize
   test_xercesInitialize.cpp
@@ -37,7 +37,7 @@ FWCoreConcurrency
 )
 
 
-add_test(NAME test_xercesInitialize COMMAND test_xercesInitialize)
+add_test(test_xercesInitialize test_xercesInitialize)
 
 add_executable(test_threadSafeOutputFileStream
   test_threadSafeOutputFileStream.cpp
@@ -55,7 +55,7 @@ FWCoreConcurrency
 )
 
 
-add_test(NAME test_threadSafeOutputFileStream COMMAND test_threadSafeOutputFileStream)
+add_test(test_threadSafeOutputFileStream test_threadSafeOutputFileStream)
 
 add_executable(ThreadSafeAddOnlyContainer_t
   ThreadSafeAddOnlyContainer_t.cpp
@@ -73,7 +73,7 @@ FWCoreConcurrency
 )
 
 
-add_test(NAME ThreadSafeAddOnlyContainer_t COMMAND ThreadSafeAddOnlyContainer_t)
+add_test(ThreadSafeAddOnlyContainer_t ThreadSafeAddOnlyContainer_t)
 
 add_executable(TestFWCoreConcurrencyDriver
   TestFWCoreConcurrencyDriver.cpp
@@ -96,7 +96,7 @@ FWCoreUtilities
 )
 
 
-add_test(NAME TestFWCoreConcurrencyDriver COMMAND TestFWCoreConcurrencyDriver)
+add_test(TestFWCoreConcurrencyDriver TestFWCoreConcurrencyDriver)
 
 add_executable(testFWCoreConcurrencyTBB.cc
   TestTBB.cc
@@ -115,5 +115,5 @@ FWCoreConcurrency
 )
 
 
-add_test(NAME testFWCoreConcurrencyTBB.cc COMMAND testFWCoreConcurrencyTBB.cc)
+add_test(testFWCoreConcurrencyTBB.cc testFWCoreConcurrencyTBB.cc)
 

@@ -37,5 +37,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreTestProcessor DESTINATION  lib  EXPORT cmssw::FWCoreTestProcessor)
+install( TARGETS FWCoreTestProcessor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreTestProcessor)
 

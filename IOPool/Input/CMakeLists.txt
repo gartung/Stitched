@@ -1,3 +1,6 @@
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_library(IOPoolInput SHARED 
   src/DuplicateChecker.cc
   src/EmbeddedRootSource.cc
@@ -56,5 +59,5 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS IOPoolInput DESTINATION  lib  EXPORT cmssw::IOPoolInput)
+install( TARGETS IOPoolInput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolInput)
 

@@ -46,5 +46,5 @@ gsl
 )
 
 
-install( TARGETS IOMCRandomEngine DESTINATION  lib  EXPORT cmssw::IOMCRandomEngine)
+install( TARGETS IOMCRandomEngine DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOMCRandomEngine)
 

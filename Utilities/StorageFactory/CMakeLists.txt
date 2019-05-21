@@ -60,5 +60,5 @@ Threads::Threads
 )
 
 
-install( TARGETS UtilitiesStorageFactory DESTINATION  lib  EXPORT cmssw::UtilitiesStorageFactory)
+install( TARGETS UtilitiesStorageFactory DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesStorageFactory)
 

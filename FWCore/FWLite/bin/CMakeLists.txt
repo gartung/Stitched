@@ -34,7 +34,7 @@ Threads::Threads
 )
 
 
-install( TARGETS edmClassStorageSize DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmClassStorageSize)
+install( TARGETS edmClassStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmClassStorageSize)
 
 add_executable(edmBranchStorageSize
   storageSizeForBranch.cc
@@ -72,5 +72,5 @@ Threads::Threads
 )
 
 
-install( TARGETS edmBranchStorageSize DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmBranchStorageSize)
+install( TARGETS edmBranchStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmBranchStorageSize)
 

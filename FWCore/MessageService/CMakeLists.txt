@@ -54,5 +54,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreMessageService DESTINATION  lib  EXPORT cmssw::FWCoreMessageService)
+install( TARGETS FWCoreMessageService DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageService)
 

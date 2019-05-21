@@ -42,9 +42,9 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreMessageLogger DESTINATION  lib  EXPORT cmssw::FWCoreMessageLogger)
+install( TARGETS FWCoreMessageLogger DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageLogger)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -53,13 +53,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(FWCoreMessageLogger src/classes.h src/classes_def.xml)
 
-add_dependencies(FWCoreMessageLogger FWCoreMessageLogger-dictgen)
+add_library(FWCoreMessageLoggerDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLoggerDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET FWCoreMessageLoggerDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(FWCoreMessageLoggerDictObj FWCoreMessageLogger-dictgen)
+
+add_dependencies(FWCoreMessageLogger FWCoreMessageLoggerDictObj)
+
+target_link_libraries(FWCoreMessageLogger PUBLIC $<TARGET_OBJECTS:FWCoreMessageLoggerDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLoggerDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

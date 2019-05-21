@@ -1,3 +1,7 @@
+add_subdirectory(bin)
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_subdirectory(plugins)
 add_library(IOPoolStreamer SHARED 
   src/ClassFiller.cc
@@ -58,5 +62,5 @@ z
 )
 
 
-install( TARGETS IOPoolStreamer DESTINATION  lib  EXPORT cmssw::IOPoolStreamer)
+install( TARGETS IOPoolStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolStreamer)
 

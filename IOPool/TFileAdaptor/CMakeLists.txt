@@ -40,9 +40,9 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS IOPoolTFileAdaptor DESTINATION  lib  EXPORT cmssw::IOPoolTFileAdaptor)
+install( TARGETS IOPoolTFileAdaptor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolTFileAdaptor)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${Boost_INCLUDE_DIR}/python
 ${MD5_INCLUDE_DIR}
@@ -55,13 +55,17 @@ ${UUID_INCLUDE_DIR}
 ${XERCESC_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(IOPoolTFileAdaptor src/classes.h src/classes_def.xml)
 
-add_dependencies(IOPoolTFileAdaptor IOPoolTFileAdaptor-dictgen)
+add_library(IOPoolTFileAdaptorDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptor.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptorDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptor.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET IOPoolTFileAdaptorDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(IOPoolTFileAdaptorDictObj IOPoolTFileAdaptor-dictgen)
+
+add_dependencies(IOPoolTFileAdaptor IOPoolTFileAdaptorDictObj)
+
+target_link_libraries(IOPoolTFileAdaptor PUBLIC $<TARGET_OBJECTS:IOPoolTFileAdaptorDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptor_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/IOPoolTFileAdaptorDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

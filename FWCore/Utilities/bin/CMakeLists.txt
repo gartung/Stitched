@@ -17,7 +17,7 @@ FWCoreUtilities
 )
 
 
-install( TARGETS edmToFriendlyClassName DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmToFriendlyClassName)
+install( TARGETS edmToFriendlyClassName DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmToFriendlyClassName)
 
 add_executable(cms_adler32
   adler32.c
@@ -40,5 +40,5 @@ z
 )
 
 
-install( TARGETS cms_adler32 DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cms_adler32)
+install( TARGETS cms_adler32 DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cms_adler32)
 

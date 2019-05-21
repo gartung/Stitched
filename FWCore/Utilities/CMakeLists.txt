@@ -81,5 +81,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreUtilities DESTINATION  lib  EXPORT cmssw::FWCoreUtilities)
+install( TARGETS FWCoreUtilities DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreUtilities)
 

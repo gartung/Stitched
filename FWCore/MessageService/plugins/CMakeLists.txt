@@ -20,5 +20,5 @@ FWCoreMessageService
 )
 
 
-install( TARGETS FWCoreMessageServicePlugins DESTINATION  lib  EXPORT cmssw::FWCoreMessageServicePlugins)
+install( TARGETS FWCoreMessageServicePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageServicePlugins)
 

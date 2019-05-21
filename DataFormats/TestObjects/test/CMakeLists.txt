@@ -29,5 +29,5 @@ ROOT::Tree
 )
 
 
-add_test(NAME Enum_t COMMAND Enum_t)
+add_test(Enum_t Enum_t)
 

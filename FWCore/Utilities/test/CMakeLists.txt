@@ -27,7 +27,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Exception_t COMMAND Exception_t)
+add_test(Exception_t Exception_t)
 
 add_executable(EDMException_t
   EDMException_t.cpp
@@ -58,7 +58,7 @@ Threads::Threads
 )
 
 
-add_test(NAME EDMException_t COMMAND EDMException_t)
+add_test(EDMException_t EDMException_t)
 
 add_executable(TestHelper_t
   TestHelper_t.cpp
@@ -89,7 +89,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestHelper_t COMMAND TestHelper_t)
+add_test(TestHelper_t TestHelper_t)
 
 add_executable(value_ptr_t
   value_ptr_t.cpp
@@ -120,7 +120,7 @@ Threads::Threads
 )
 
 
-add_test(NAME value_ptr_t COMMAND value_ptr_t)
+add_test(value_ptr_t value_ptr_t)
 
 add_executable(atomic_value_ptr_t
   atomic_value_ptr_t.cpp
@@ -151,7 +151,7 @@ Threads::Threads
 )
 
 
-add_test(NAME atomic_value_ptr_t COMMAND atomic_value_ptr_t)
+add_test(atomic_value_ptr_t atomic_value_ptr_t)
 
 add_executable(Digest_t
   Digest_t.cpp
@@ -182,7 +182,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Digest_t COMMAND Digest_t)
+add_test(Digest_t Digest_t)
 
 add_executable(CRC32Calculator_t
   CRC32Calculator_t.cpp
@@ -213,7 +213,7 @@ Threads::Threads
 )
 
 
-add_test(NAME CRC32Calculator_t COMMAND CRC32Calculator_t)
+add_test(CRC32Calculator_t CRC32Calculator_t)
 
 add_executable(Guid_t
   Guid_t.cpp
@@ -244,7 +244,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Guid_t COMMAND Guid_t)
+add_test(Guid_t Guid_t)
 
 add_executable(typedefs_t
   typedefs_t.cpp
@@ -275,7 +275,7 @@ Threads::Threads
 )
 
 
-add_test(NAME typedefs_t COMMAND typedefs_t)
+add_test(typedefs_t typedefs_t)
 
 add_executable(HRTime_t
   HRTime_t.cpp
@@ -308,7 +308,7 @@ Threads::Threads
 )
 
 
-add_test(NAME HRTime_t COMMAND HRTime_t)
+add_test(HRTime_t HRTime_t)
 
 add_executable(isFinite_t
   isFinite_t.cpp
@@ -339,7 +339,7 @@ Threads::Threads
 )
 
 
-add_test(NAME isFinite_t COMMAND isFinite_t)
+add_test(isFinite_t isFinite_t)
 
 add_executable(clone_ptr_t
   clone_ptr_t.cpp
@@ -370,7 +370,7 @@ Threads::Threads
 )
 
 
-add_test(NAME clone_ptr_t COMMAND clone_ptr_t)
+add_test(clone_ptr_t clone_ptr_t)
 
 add_executable(MallocOpts_t
   MallocOpts_t.cpp
@@ -403,7 +403,7 @@ Threads::Threads
 )
 
 
-add_test(NAME MallocOpts_t COMMAND MallocOpts_t)
+add_test(MallocOpts_t MallocOpts_t)
 
 add_executable(testFWCoreUtilities
   callxnowait_t.cppunit.cpp
@@ -449,7 +449,7 @@ Threads::Threads
 )
 
 
-add_test(NAME testFWCoreUtilities COMMAND testFWCoreUtilities)
+add_test(testFWCoreUtilities testFWCoreUtilities)
 
 add_executable(InputTag_t
   InputTag_t.cpp
@@ -481,7 +481,7 @@ Threads::Threads
 )
 
 
-add_test(NAME InputTag_t COMMAND InputTag_t)
+add_test(InputTag_t InputTag_t)
 
 add_executable(EDGetToken_t
   EDGetToken_t.cpp
@@ -512,7 +512,7 @@ Threads::Threads
 )
 
 
-add_test(NAME EDGetToken_t COMMAND EDGetToken_t)
+add_test(EDGetToken_t EDGetToken_t)
 
 add_executable(RunningAverage_t
   RunningAverage_t.cpp
@@ -544,5 +544,5 @@ Threads::Threads
 )
 
 
-add_test(NAME RunningAverage_t COMMAND RunningAverage_t)
+add_test(RunningAverage_t RunningAverage_t)
 

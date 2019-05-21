@@ -1,2 +1,3 @@
-add_library(IOPoolSecondaryInput INTERFACE)
-
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()

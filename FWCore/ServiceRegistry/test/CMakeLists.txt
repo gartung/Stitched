@@ -110,7 +110,7 @@ Threads::Threads
 )
 
 
-add_test(NAME testServiceRegistry COMMAND testServiceRegistry)
+add_test(testServiceRegistry testServiceRegistry)
 
 add_executable(servicesmanager_order
   servicesmanager_order.cpp
@@ -150,5 +150,5 @@ Threads::Threads
 )
 
 
-add_test(NAME servicesmanager_order COMMAND servicesmanager_order)
+add_test(servicesmanager_order servicesmanager_order)
 

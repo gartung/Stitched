@@ -26,5 +26,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS cmsGetFnConnect DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cmsGetFnConnect)
+install( TARGETS cmsGetFnConnect DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsGetFnConnect)
 

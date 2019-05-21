@@ -189,5 +189,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreFramework DESTINATION  lib  EXPORT cmssw::FWCoreFramework)
+install( TARGETS FWCoreFramework DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreFramework)
 

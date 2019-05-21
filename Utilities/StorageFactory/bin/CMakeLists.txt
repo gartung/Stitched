@@ -23,5 +23,5 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS cms_anycp DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::cms_anycp)
+install( TARGETS cms_anycp DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cms_anycp)
 

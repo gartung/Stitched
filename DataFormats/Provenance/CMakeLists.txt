@@ -87,9 +87,9 @@ Threads::Threads
 )
 
 
-install( TARGETS DataFormatsProvenance DESTINATION  lib  EXPORT cmssw::DataFormatsProvenance)
+install( TARGETS DataFormatsProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsProvenance)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -98,13 +98,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml)
 
-add_dependencies(DataFormatsProvenance DataFormatsProvenance-dictgen)
+add_library(DataFormatsProvenanceDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET DataFormatsProvenanceDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(DataFormatsProvenanceDictObj DataFormatsProvenance-dictgen)
+
+add_dependencies(DataFormatsProvenance DataFormatsProvenanceDictObj)
+
+target_link_libraries(DataFormatsProvenance PUBLIC $<TARGET_OBJECTS:DataFormatsProvenanceDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

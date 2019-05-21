@@ -50,7 +50,7 @@ Threads::Threads
 )
 
 
-add_test(NAME testDataFormatsCommon COMMAND testDataFormatsCommon)
+add_test(testDataFormatsCommon testDataFormatsCommon)
 
 add_executable(DetSetVector_t
   DetSetVector_t.cpp
@@ -84,7 +84,7 @@ Threads::Threads
 )
 
 
-add_test(NAME DetSetVector_t COMMAND DetSetVector_t)
+add_test(DetSetVector_t DetSetVector_t)
 
 add_executable(OwnVector_t
   OwnVector_t.cpp
@@ -118,7 +118,7 @@ Threads::Threads
 )
 
 
-add_test(NAME OwnVector_t COMMAND OwnVector_t)
+add_test(OwnVector_t OwnVector_t)
 
 add_executable(DictionaryTools_t
   DictionaryTools_t.cpp
@@ -160,7 +160,7 @@ Threads::Threads
 )
 
 
-add_test(NAME DictionaryTools_t COMMAND DictionaryTools_t)
+add_test(DictionaryTools_t DictionaryTools_t)
 
 add_executable(Wrapper_t
   Wrapper_t.cpp
@@ -194,7 +194,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Wrapper_t COMMAND Wrapper_t)
+add_test(Wrapper_t Wrapper_t)
 
 add_executable(traits_t
   traits_t.cpp
@@ -228,7 +228,7 @@ Threads::Threads
 )
 
 
-add_test(NAME traits_t COMMAND traits_t)
+add_test(traits_t traits_t)
 
 add_executable(RefCore_t
   RefCore_t.cpp
@@ -262,7 +262,7 @@ Threads::Threads
 )
 
 
-add_test(NAME RefCore_t COMMAND RefCore_t)
+add_test(RefCore_t RefCore_t)
 
 add_executable(Ref_t
   Ref_t.cpp
@@ -296,7 +296,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Ref_t COMMAND Ref_t)
+add_test(Ref_t Ref_t)
 
 add_executable(RefVector_t
   RefVector_t.cpp
@@ -330,7 +330,7 @@ Threads::Threads
 )
 
 
-add_test(NAME RefVector_t COMMAND RefVector_t)
+add_test(RefVector_t RefVector_t)
 
 add_executable(DataFrame_t
   DataFrame_t.cpp
@@ -364,7 +364,7 @@ Threads::Threads
 )
 
 
-add_test(NAME DataFrame_t COMMAND DataFrame_t)
+add_test(DataFrame_t DataFrame_t)
 
 add_executable(DetSetNew_t
   DetSetNew_t.cpp
@@ -398,7 +398,7 @@ Threads::Threads
 )
 
 
-add_test(NAME DetSetNew_t COMMAND DetSetNew_t)
+add_test(DetSetNew_t DetSetNew_t)
 
 add_executable(DetSetNewTS_t
   DetSetNewTS_t.cpp
@@ -432,7 +432,7 @@ Threads::Threads
 )
 
 
-add_test(NAME DetSetNewTS_t COMMAND DetSetNewTS_t)
+add_test(DetSetNewTS_t DetSetNewTS_t)
 
 add_executable(MapOfVectors_t
   MapOfVectors_t.cpp
@@ -466,7 +466,7 @@ Threads::Threads
 )
 
 
-add_test(NAME MapOfVectors_t COMMAND MapOfVectors_t)
+add_test(MapOfVectors_t MapOfVectors_t)
 
 add_executable(exDSTV
   exDSTV.cpp
@@ -500,7 +500,7 @@ Threads::Threads
 )
 
 
-add_test(NAME exDSTV COMMAND exDSTV)
+add_test(exDSTV exDSTV)
 
 add_executable(Trie_t
   Trie_t.cpp
@@ -534,7 +534,7 @@ Threads::Threads
 )
 
 
-add_test(NAME Trie_t COMMAND Trie_t)
+add_test(Trie_t Trie_t)
 
 add_executable(exTrie
   exTrie.cpp
@@ -568,7 +568,7 @@ Threads::Threads
 )
 
 
-add_test(NAME exTrie COMMAND exTrie)
+add_test(exTrie exTrie)
 
 add_executable(testBoostRange
   testBoostRange.cpp
@@ -602,7 +602,7 @@ Threads::Threads
 )
 
 
-add_test(NAME testBoostRange COMMAND testBoostRange)
+add_test(testBoostRange testBoostRange)
 
 add_executable(testMultiAssociation
   testMultiAssociation.cc
@@ -637,5 +637,5 @@ Threads::Threads
 )
 
 
-add_test(NAME testMultiAssociation COMMAND testMultiAssociation)
+add_test(testMultiAssociation testMultiAssociation)
 

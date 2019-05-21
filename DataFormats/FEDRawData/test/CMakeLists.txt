@@ -21,7 +21,7 @@ DataFormatsFEDRawData
 )
 
 
-add_test(NAME testFEDRawData COMMAND testFEDRawData)
+add_test(testFEDRawData testFEDRawData)
 
 add_library(testDumpFEDRawDataProduct SHARED 
   DumpFEDRawDataProduct.cc

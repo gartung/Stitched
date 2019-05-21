@@ -15,8 +15,6 @@ add_dependencies(DataFormats_all
   DataFormatsFEDRawData
   DataFormatsFWLite
   DataFormatsProvenance
-  DataFormatsStdDictionaries
   DataFormatsStreamer
   DataFormatsTestObjects
-  DataFormatsWrappedStdDictionaries
 )

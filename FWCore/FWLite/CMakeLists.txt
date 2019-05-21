@@ -36,9 +36,9 @@ ROOT::Tree
 )
 
 
-install( TARGETS FWCoreFWLite DESTINATION  lib  EXPORT cmssw::FWCoreFWLite)
+install( TARGETS FWCoreFWLite DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreFWLite)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -47,13 +47,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(FWCoreFWLite src/classes.h src/classes_def.xml)
 
-add_dependencies(FWCoreFWLite FWCoreFWLite-dictgen)
+add_library(FWCoreFWLiteDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLiteDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET FWCoreFWLiteDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(FWCoreFWLiteDictObj FWCoreFWLite-dictgen)
+
+add_dependencies(FWCoreFWLite FWCoreFWLiteDictObj)
+
+target_link_libraries(FWCoreFWLite PUBLIC $<TARGET_OBJECTS:FWCoreFWLiteDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLiteDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

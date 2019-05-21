@@ -27,7 +27,7 @@ Threads::Threads
 )
 
 
-install( TARGETS edmPluginDump DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmPluginDump)
+install( TARGETS edmPluginDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmPluginDump)
 
 add_executable(edmPluginRefresh
   refresh.cc
@@ -58,5 +58,5 @@ Threads::Threads
 )
 
 
-install( TARGETS edmPluginRefresh DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmPluginRefresh)
+install( TARGETS edmPluginRefresh DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmPluginRefresh)
 

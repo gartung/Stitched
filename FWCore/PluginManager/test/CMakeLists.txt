@@ -29,7 +29,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCorePluginManagerPluginFactoryManager COMMAND TestFWCorePluginManagerPluginFactoryManager)
+add_test(TestFWCorePluginManagerPluginFactoryManager TestFWCorePluginManagerPluginFactoryManager)
 
 add_executable(TestFWCorePluginManagerPluginManager
   pluginmanager_t.cc
@@ -63,7 +63,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCorePluginManagerPluginManager COMMAND TestFWCorePluginManagerPluginManager)
+add_test(TestFWCorePluginManagerPluginManager TestFWCorePluginManagerPluginManager)
 
 add_executable(TestFWCorePluginManagerCacheParser
   cacheparser_t.cc
@@ -96,7 +96,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCorePluginManagerCacheParser COMMAND TestFWCorePluginManagerCacheParser)
+add_test(TestFWCorePluginManagerCacheParser TestFWCorePluginManagerCacheParser)
 
 add_executable(TestFWCorePluginManagerPluginFactory
   pluginfactory_t.cc
@@ -129,7 +129,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCorePluginManagerPluginFactory COMMAND TestFWCorePluginManagerPluginFactory)
+add_test(TestFWCorePluginManagerPluginFactory TestFWCorePluginManagerPluginFactory)
 
 add_library(TestFWCorePluginManagerDummyFactory SHARED 
   DummyFactory.cc

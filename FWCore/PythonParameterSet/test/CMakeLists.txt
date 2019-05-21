@@ -37,5 +37,5 @@ Threads::Threads
 )
 
 
-add_test(NAME testPythonParameterSet COMMAND testPythonParameterSet)
+add_test(testPythonParameterSet testPythonParameterSet)
 

@@ -21,7 +21,7 @@ FWCoreUtilities
 )
 
 
-add_test(NAME testParameterSet COMMAND testParameterSet)
+add_test(testParameterSet testParameterSet)
 
 add_executable(TestFWCoreParameterSetDescription
   parameterSetDescription_t.cc
@@ -55,7 +55,7 @@ Threads::Threads
 )
 
 
-add_test(NAME TestFWCoreParameterSetDescription COMMAND TestFWCoreParameterSetDescription)
+add_test(TestFWCoreParameterSetDescription TestFWCoreParameterSetDescription)
 
 add_executable(TestFWCoreParameterSetDriver
   TestFWCoreParameterSetDriver.cpp
@@ -78,7 +78,7 @@ FWCoreUtilities
 )
 
 
-add_test(NAME TestFWCoreParameterSetDriver COMMAND TestFWCoreParameterSetDriver)
+add_test(TestFWCoreParameterSetDriver TestFWCoreParameterSetDriver)
 
 add_executable(testDefaultModuleLabel
   defaultModuleLabel_t.cc
@@ -102,5 +102,5 @@ FWCoreParameterSet
 )
 
 
-add_test(NAME testDefaultModuleLabel COMMAND testDefaultModuleLabel)
+add_test(testDefaultModuleLabel testDefaultModuleLabel)
 

@@ -21,5 +21,5 @@ FWCoreServiceRegistry
 )
 
 
-install( TARGETS FWCorePrescaleServicePlugin DESTINATION  lib  EXPORT cmssw::FWCorePrescaleServicePlugin)
+install( TARGETS FWCorePrescaleServicePlugin DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePrescaleServicePlugin)
 

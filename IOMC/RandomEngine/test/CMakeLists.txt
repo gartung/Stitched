@@ -60,5 +60,5 @@ IOMCRandomEngine
 )
 
 
-add_test(NAME TestIOMCRandomEngineService COMMAND TestIOMCRandomEngineService)
+add_test(TestIOMCRandomEngineService TestIOMCRandomEngineService)
 

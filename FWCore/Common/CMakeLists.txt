@@ -25,9 +25,9 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreCommon DESTINATION  lib  EXPORT cmssw::FWCoreCommon)
+install( TARGETS FWCoreCommon DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreCommon)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -36,13 +36,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(FWCoreCommon src/classes.h src/classes_def.xml)
 
-add_dependencies(FWCoreCommon FWCoreCommon-dictgen)
+add_library(FWCoreCommonDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommonDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET FWCoreCommonDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(FWCoreCommonDictObj FWCoreCommon-dictgen)
+
+add_dependencies(FWCoreCommon FWCoreCommonDictObj)
+
+target_link_libraries(FWCoreCommon PUBLIC $<TARGET_OBJECTS:FWCoreCommonDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommonDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

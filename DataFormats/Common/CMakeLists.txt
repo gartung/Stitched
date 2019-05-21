@@ -60,9 +60,9 @@ Threads::Threads
 )
 
 
-install( TARGETS DataFormatsCommon DESTINATION  lib  EXPORT cmssw::DataFormatsCommon)
+install( TARGETS DataFormatsCommon DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsCommon)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -71,13 +71,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(DataFormatsCommon src/classes.h src/classes_def.xml)
 
-add_dependencies(DataFormatsCommon DataFormatsCommon-dictgen)
+add_library(DataFormatsCommonDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommon.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommonDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommon.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET DataFormatsCommonDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(DataFormatsCommonDictObj DataFormatsCommon-dictgen)
+
+add_dependencies(DataFormatsCommon DataFormatsCommonDictObj)
+
+target_link_libraries(DataFormatsCommon PUBLIC $<TARGET_OBJECTS:DataFormatsCommonDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommon_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsCommonDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

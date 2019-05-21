@@ -1,3 +1,6 @@
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_library(FWCoreIntegration SHARED 
   src/ESTestData.cc
   src/ESTestRecords.cc
@@ -23,5 +26,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreIntegration DESTINATION  lib  EXPORT cmssw::FWCoreIntegration)
+install( TARGETS FWCoreIntegration DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreIntegration)
 

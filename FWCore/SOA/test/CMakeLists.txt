@@ -13,5 +13,5 @@ ${CPPUNIT_LIBRARY}
 )
 
 
-add_test(NAME testFWCoreSOA COMMAND testFWCoreSOA)
+add_test(testFWCoreSOA testFWCoreSOA)
 

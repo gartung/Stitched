@@ -28,5 +28,5 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION  lib  EXPORT cmssw::UtilitiesStorageFactoryPlugins)
+install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesStorageFactoryPlugins)
 

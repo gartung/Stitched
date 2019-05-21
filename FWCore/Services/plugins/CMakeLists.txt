@@ -55,5 +55,5 @@ atomic
 )
 
 
-install( TARGETS FWCoreServicesPlugins DESTINATION  lib  EXPORT cmssw::FWCoreServicesPlugins)
+install( TARGETS FWCoreServicesPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreServicesPlugins)
 

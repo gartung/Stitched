@@ -30,7 +30,7 @@ Threads::Threads
 )
 
 
-install( TARGETS edmPluginHelp DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmPluginHelp)
+install( TARGETS edmPluginHelp DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmPluginHelp)
 
 add_executable(edmWriteConfigs
   edmWriteConfigs.cpp
@@ -64,5 +64,5 @@ Threads::Threads
 )
 
 
-install( TARGETS edmWriteConfigs DESTINATION ${CMAKE_BIN_INSTALLDIR}  EXPORT cmssw::edmWriteConfigs)
+install( TARGETS edmWriteConfigs DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmWriteConfigs)
 

@@ -25,5 +25,5 @@ IOMCRandomEngine
 )
 
 
-install( TARGETS IOMCRandomEnginePlugins DESTINATION  lib  EXPORT cmssw::IOMCRandomEnginePlugins)
+install( TARGETS IOMCRandomEnginePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOMCRandomEnginePlugins)
 

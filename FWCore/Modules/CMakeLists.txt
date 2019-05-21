@@ -1,3 +1,6 @@
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_library(FWCoreModules SHARED 
   src/AbortOnEventIDAnalyzer.cc
   src/AsciiOutputModule.cc
@@ -62,5 +65,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreModules DESTINATION  lib  EXPORT cmssw::FWCoreModules)
+install( TARGETS FWCoreModules DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreModules)
 

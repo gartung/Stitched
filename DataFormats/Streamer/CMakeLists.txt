@@ -25,9 +25,9 @@ ROOT::Tree
 )
 
 
-install( TARGETS DataFormatsStreamer DESTINATION  lib  EXPORT cmssw::DataFormatsStreamer)
+install( TARGETS DataFormatsStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsStreamer)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -36,13 +36,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(DataFormatsStreamer src/classes.h src/classes_def.xml)
 
-add_dependencies(DataFormatsStreamer DataFormatsStreamer-dictgen)
+add_library(DataFormatsStreamerDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamerDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET DataFormatsStreamerDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(DataFormatsStreamerDictObj DataFormatsStreamer-dictgen)
+
+add_dependencies(DataFormatsStreamer DataFormatsStreamerDictObj)
+
+target_link_libraries(DataFormatsStreamer PUBLIC $<TARGET_OBJECTS:DataFormatsStreamerDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamerDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

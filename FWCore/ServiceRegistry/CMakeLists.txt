@@ -44,5 +44,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreServiceRegistry DESTINATION  lib  EXPORT cmssw::FWCoreServiceRegistry)
+install( TARGETS FWCoreServiceRegistry DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreServiceRegistry)
 

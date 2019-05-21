@@ -22,5 +22,5 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCorePrescaleService DESTINATION  lib  EXPORT cmssw::FWCorePrescaleService)
+install( TARGETS FWCorePrescaleService DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePrescaleService)
 

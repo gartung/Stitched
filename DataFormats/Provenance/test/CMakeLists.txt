@@ -31,7 +31,7 @@ DataFormatsProvenance
 )
 
 
-add_test(NAME testDataFormatsProvenance COMMAND testDataFormatsProvenance)
+add_test(testDataFormatsProvenance testDataFormatsProvenance)
 
 add_executable(EntryDescription_t
   EntryDescription_t.cpp
@@ -55,7 +55,7 @@ DataFormatsProvenance
 )
 
 
-add_test(NAME EntryDescription_t COMMAND EntryDescription_t)
+add_test(EntryDescription_t EntryDescription_t)
 
 add_executable(ElementID_t
   ElementID_t.cpp
@@ -80,7 +80,7 @@ DataFormatsProvenance
 )
 
 
-add_test(NAME ElementID_t COMMAND ElementID_t)
+add_test(ElementID_t ElementID_t)
 
 add_executable(testProductResolverIndexHelper
   productResolverIndexHelper_t.cppunit.cc
@@ -106,7 +106,7 @@ DataFormatsTestObjects
 )
 
 
-add_test(NAME testProductResolverIndexHelper COMMAND testProductResolverIndexHelper)
+add_test(testProductResolverIndexHelper testProductResolverIndexHelper)
 
 add_executable(productResolverIndexHelperTest
   productResolverIndexHelperTest.cc
@@ -130,5 +130,5 @@ DataFormatsProvenance
 )
 
 
-add_test(NAME productResolverIndexHelperTest COMMAND productResolverIndexHelperTest)
+add_test(productResolverIndexHelperTest productResolverIndexHelperTest)
 

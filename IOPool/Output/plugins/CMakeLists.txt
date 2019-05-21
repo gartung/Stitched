@@ -21,5 +21,5 @@ IOPoolOutput
 )
 
 
-install( TARGETS IOPoolOutputPlugins DESTINATION  lib  EXPORT cmssw::IOPoolOutputPlugins)
+install( TARGETS IOPoolOutputPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolOutputPlugins)
 

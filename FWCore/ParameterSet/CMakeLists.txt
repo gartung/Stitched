@@ -67,5 +67,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreParameterSet DESTINATION  lib  EXPORT cmssw::FWCoreParameterSet)
+install( TARGETS FWCoreParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreParameterSet)
 

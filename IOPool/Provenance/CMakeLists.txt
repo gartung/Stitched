@@ -25,5 +25,5 @@ ROOT::Tree
 )
 
 
-install( TARGETS IOPoolProvenance DESTINATION  lib  EXPORT cmssw::IOPoolProvenance)
+install( TARGETS IOPoolProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolProvenance)
 

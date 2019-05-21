@@ -26,5 +26,5 @@ FWCoreUtilities
 )
 
 
-add_test(NAME testPyBind11ParameterSet COMMAND testPyBind11ParameterSet)
+add_test(testPyBind11ParameterSet testPyBind11ParameterSet)
 

@@ -26,5 +26,5 @@ XrdClient
 )
 
 
-install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION  lib  EXPORT cmssw::UtilitiesXrdAdaptorPlugin)
+install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesXrdAdaptorPlugin)
 

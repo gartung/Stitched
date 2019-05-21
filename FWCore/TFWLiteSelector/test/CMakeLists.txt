@@ -24,5 +24,5 @@ FWCoreUtilities
 )
 
 
-add_test(NAME TestRunnerFWCoreTFWLiteSelector COMMAND TestRunnerFWCoreTFWLiteSelector)
+add_test(TestRunnerFWCoreTFWLiteSelector TestRunnerFWCoreTFWLiteSelector)
 

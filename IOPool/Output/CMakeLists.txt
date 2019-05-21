@@ -1,3 +1,6 @@
+if(${BUILDTEST})
+add_subdirectory(test)
+endif()
 add_subdirectory(plugins)
 add_library(IOPoolOutput SHARED 
   src/PoolOutputModule.cc
@@ -40,5 +43,5 @@ ROOT::Tree
 )
 
 
-install( TARGETS IOPoolOutput DESTINATION  lib  EXPORT cmssw::IOPoolOutput)
+install( TARGETS IOPoolOutput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolOutput)
 

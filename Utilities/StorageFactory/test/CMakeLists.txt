@@ -24,7 +24,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_t0Repack COMMAND test_StorageFactory_t0Repack)
+add_test(test_StorageFactory_t0Repack test_StorageFactory_t0Repack)
 
 add_executable(test_StorageFactory_randomread
   randomread.cpp
@@ -52,7 +52,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_randomread COMMAND test_StorageFactory_randomread)
+add_test(test_StorageFactory_randomread test_StorageFactory_randomread)
 
 add_executable(test_StorageFactory_Any
   any.cpp
@@ -80,7 +80,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Any COMMAND test_StorageFactory_Any)
+add_test(test_StorageFactory_Any test_StorageFactory_Any)
 
 add_executable(test_StorageFactory_Local
   local.cpp
@@ -108,7 +108,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Local COMMAND test_StorageFactory_Local)
+add_test(test_StorageFactory_Local test_StorageFactory_Local)
 
 add_executable(test_StorageFactory_Local2
   local2.cpp
@@ -136,7 +136,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Local2 COMMAND test_StorageFactory_Local2)
+add_test(test_StorageFactory_Local2 test_StorageFactory_Local2)
 
 add_executable(test_StorageFactory_Local3
   local3.cpp
@@ -164,7 +164,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Local3 COMMAND test_StorageFactory_Local3)
+add_test(test_StorageFactory_Local3 test_StorageFactory_Local3)
 
 add_executable(test_StorageFactory_Ftp
   ftp.cpp
@@ -192,7 +192,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Ftp COMMAND test_StorageFactory_Ftp)
+add_test(test_StorageFactory_Ftp test_StorageFactory_Ftp)
 
 add_executable(test_StorageFactory_Ftp2
   ftp2.cpp
@@ -220,7 +220,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Ftp2 COMMAND test_StorageFactory_Ftp2)
+add_test(test_StorageFactory_Ftp2 test_StorageFactory_Ftp2)
 
 add_executable(test_StorageFactory_Rfio2
   rfio2.cpp
@@ -248,7 +248,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Rfio2 COMMAND test_StorageFactory_Rfio2)
+add_test(test_StorageFactory_Rfio2 test_StorageFactory_Rfio2)
 
 add_executable(test_StorageFactory_Rfio3
   rfio3.cpp
@@ -276,7 +276,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Rfio3 COMMAND test_StorageFactory_Rfio3)
+add_test(test_StorageFactory_Rfio3 test_StorageFactory_Rfio3)
 
 add_executable(test_StorageFactory_Write
   write.cpp
@@ -304,7 +304,7 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Write COMMAND test_StorageFactory_Write)
+add_test(test_StorageFactory_Write test_StorageFactory_Write)
 
 add_executable(test_StorageFactory_Mkstemp
   mkstemp.cpp
@@ -332,5 +332,5 @@ UtilitiesStorageFactory
 )
 
 
-add_test(NAME test_StorageFactory_Mkstemp COMMAND test_StorageFactory_Mkstemp)
+add_test(test_StorageFactory_Mkstemp test_StorageFactory_Mkstemp)
 

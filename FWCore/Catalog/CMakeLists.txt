@@ -38,5 +38,5 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreCatalog DESTINATION  lib  EXPORT cmssw::FWCoreCatalog)
+install( TARGETS FWCoreCatalog DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreCatalog)
 

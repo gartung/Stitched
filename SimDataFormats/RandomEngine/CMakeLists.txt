@@ -30,9 +30,9 @@ Threads::Threads
 )
 
 
-install( TARGETS SimDataFormatsRandomEngine DESTINATION  lib  EXPORT cmssw::SimDataFormatsRandomEngine)
+install( TARGETS SimDataFormatsRandomEngine DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::SimDataFormatsRandomEngine)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${MD5_INCLUDE_DIR}
 ${ROOT_INCLUDE_DIR}
@@ -41,13 +41,17 @@ ${TINYXML2_INCLUDE_DIR}
 ${UUID_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(SimDataFormatsRandomEngine src/classes.h src/classes_def.xml)
 
-add_dependencies(SimDataFormatsRandomEngine SimDataFormatsRandomEngine-dictgen)
+add_library(SimDataFormatsRandomEngineDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/SimDataFormatsRandomEngine.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SimDataFormatsRandomEngineDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/SimDataFormatsRandomEngine.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET SimDataFormatsRandomEngineDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(SimDataFormatsRandomEngineDictObj SimDataFormatsRandomEngine-dictgen)
+
+add_dependencies(SimDataFormatsRandomEngine SimDataFormatsRandomEngineDictObj)
+
+target_link_libraries(SimDataFormatsRandomEngine PUBLIC $<TARGET_OBJECTS:SimDataFormatsRandomEngineDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SimDataFormatsRandomEngine_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/SimDataFormatsRandomEngineDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 

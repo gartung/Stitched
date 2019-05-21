@@ -72,5 +72,5 @@ FWCoreUtilities
 )
 
 
-add_test(NAME TestFWCoreServicesDriver COMMAND TestFWCoreServicesDriver)
+add_test(TestFWCoreServicesDriver TestFWCoreServicesDriver)
 

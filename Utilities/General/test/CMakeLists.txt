@@ -9,7 +9,7 @@ UtilitiesGeneral
 )
 
 
-add_test(NAME test_precomputed_value_sort COMMAND test_precomputed_value_sort)
+add_test(test_precomputed_value_sort test_precomputed_value_sort)
 
 add_executable(googlebenchmarkbasic
   google-benchmark-basic.cpp
@@ -17,17 +17,13 @@ add_executable(googlebenchmarkbasic
 
 target_include_directories(googlebenchmarkbasic PRIVATE ${CMAKE_SOURCE_DIR})
 
-target_include_directories(googlebenchmarkbasic PUBLIC
-${GoogleBenchmark_INCLUDE_DIR}
-)
-
 target_link_libraries(googlebenchmarkbasic PUBLIC
 UtilitiesGeneral
-benchmark
+benchmark::benchmark
 )
 
 
-add_test(NAME googlebenchmarkbasic COMMAND googlebenchmarkbasic)
+add_test(googlebenchmarkbasic googlebenchmarkbasic)
 
 add_executable(googlebenchmarkpassargv
   google-benchmark-pass-argv.cpp
@@ -35,15 +31,11 @@ add_executable(googlebenchmarkpassargv
 
 target_include_directories(googlebenchmarkpassargv PRIVATE ${CMAKE_SOURCE_DIR})
 
-target_include_directories(googlebenchmarkpassargv PUBLIC
-${GoogleBenchmark_INCLUDE_DIR}
-)
-
 target_link_libraries(googlebenchmarkpassargv PUBLIC
 UtilitiesGeneral
-benchmark_main
+benchmark::benchmark_main
 )
 
 
-add_test(NAME googlebenchmarkpassargv COMMAND googlebenchmarkpassargv)
+add_test(googlebenchmarkpassargv googlebenchmarkpassargv)
 

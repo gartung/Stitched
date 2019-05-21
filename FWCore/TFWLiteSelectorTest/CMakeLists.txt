@@ -36,9 +36,9 @@ ROOT::TreePlayer
 )
 
 
-install( TARGETS FWCoreTFWLiteSelectorTest DESTINATION  lib  EXPORT cmssw::FWCoreTFWLiteSelectorTest)
+install( TARGETS FWCoreTFWLiteSelectorTest DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreTFWLiteSelectorTest)
 
-include_directories(
+include_directories(${CMAKE_SOURCE_DIR}
 ${Boost_INCLUDE_DIR}
 ${Boost_INCLUDE_DIR}/python
 ${MD5_INCLUDE_DIR}
@@ -50,13 +50,17 @@ ${UUID_INCLUDE_DIR}
 ${XERCESC_INCLUDE_DIR}
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
-include_directories(/usr/include/)
-
 reflex_build_dictionary(FWCoreTFWLiteSelectorTest src/classes.h src/classes_def.xml)
 
-add_dependencies(FWCoreTFWLiteSelectorTest FWCoreTFWLiteSelectorTest-dictgen)
+add_library(FWCoreTFWLiteSelectorTestDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTest.cxx)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTestDict_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTest.rootmap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+set_property(TARGET FWCoreTFWLiteSelectorTestDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_dependencies(FWCoreTFWLiteSelectorTestDictObj FWCoreTFWLiteSelectorTest-dictgen)
+
+add_dependencies(FWCoreTFWLiteSelectorTest FWCoreTFWLiteSelectorTestDictObj)
+
+target_link_libraries(FWCoreTFWLiteSelectorTest PUBLIC $<TARGET_OBJECTS:FWCoreTFWLiteSelectorTestDictObj>)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTest_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreTFWLiteSelectorTestDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
