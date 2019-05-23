@@ -1,4 +1,4 @@
-add_library(FWCoreServicesPlugins SHARED 
+add_library(FWCoreServicesPlugins SHARED ${FWCoreServicesPlugins_EXTRA_SOURCES}
   CPU.cc
   CheckTransitions.cc
   ConcurrentModuleTimer.cc
@@ -19,6 +19,8 @@ add_library(FWCoreServicesPlugins SHARED
   ZombieKillerService.cc
 )
 
+set_target_properties(FWCoreServicesPlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(FWCoreServicesPlugins PROPERTIES PREFIX "plugin")
 target_include_directories(FWCoreServicesPlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreServicesPlugins PUBLIC
@@ -55,5 +57,6 @@ atomic
 )
 
 
-install( TARGETS FWCoreServicesPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreServicesPlugins)
+add_python_rules(FWCore/Services/plugins/)
+install( TARGETS FWCoreServicesPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

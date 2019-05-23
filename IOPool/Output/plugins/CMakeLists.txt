@@ -1,7 +1,9 @@
-add_library(IOPoolOutputPlugins SHARED 
+add_library(IOPoolOutputPlugins SHARED ${IOPoolOutputPlugins_EXTRA_SOURCES}
   Module.cc
 )
 
+set_target_properties(IOPoolOutputPlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(IOPoolOutputPlugins PROPERTIES PREFIX "plugin")
 target_include_directories(IOPoolOutputPlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolOutputPlugins PUBLIC
@@ -21,5 +23,6 @@ IOPoolOutput
 )
 
 
-install( TARGETS IOPoolOutputPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolOutputPlugins)
+add_python_rules(IOPool/Output/plugins/)
+install( TARGETS IOPoolOutputPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

@@ -1,7 +1,5 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(IOPoolInput SHARED 
+add_library(IOPoolInput SHARED ${IOPoolInput_EXTRA_SOURCES}
   src/DuplicateChecker.cc
   src/EmbeddedRootSource.cc
   src/InputFile.cc
@@ -19,6 +17,8 @@ add_library(IOPoolInput SHARED
   src/RunHelper.cc
 )
 
+set_target_properties(IOPoolInput PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(IOPoolInput PROPERTIES PREFIX "plugin")
 target_include_directories(IOPoolInput PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolInput PUBLIC
@@ -59,5 +59,6 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS IOPoolInput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolInput)
+add_python_rules(IOPool/Input)
+install( TARGETS IOPoolInput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

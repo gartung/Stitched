@@ -1,9 +1,7 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
 add_subdirectory(plugins)
-add_library(IOPoolStreamer SHARED 
+add_library(IOPoolStreamer SHARED ${IOPoolStreamer_EXTRA_SOURCES}
   src/ClassFiller.cc
   src/DumpTools.cc
   src/EventMessage.cc
@@ -21,6 +19,7 @@ add_library(IOPoolStreamer SHARED
   src/StreamerOutputModuleBase.cc
 )
 
+set_target_properties(IOPoolStreamer PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(IOPoolStreamer PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolStreamer PUBLIC
@@ -62,5 +61,6 @@ z
 )
 
 
-install( TARGETS IOPoolStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolStreamer)
+add_python_rules(IOPool/Streamer)
+install( TARGETS IOPoolStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

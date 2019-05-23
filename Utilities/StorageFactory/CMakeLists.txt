@@ -1,9 +1,7 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
 add_subdirectory(plugins)
-add_library(UtilitiesStorageFactory SHARED 
+add_library(UtilitiesStorageFactory SHARED ${UtilitiesStorageFactory_EXTRA_SOURCES}
   src/File.cc
   src/IOChannel.cc
   src/IOInput.cc
@@ -23,6 +21,7 @@ add_library(UtilitiesStorageFactory SHARED
   src/UnixIOChannel.cc
 )
 
+set_target_properties(UtilitiesStorageFactory PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(UtilitiesStorageFactory PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(UtilitiesStorageFactory PUBLIC
@@ -60,5 +59,6 @@ Threads::Threads
 )
 
 
-install( TARGETS UtilitiesStorageFactory DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesStorageFactory)
+add_python_rules(Utilities/StorageFactory)
+install( TARGETS UtilitiesStorageFactory DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

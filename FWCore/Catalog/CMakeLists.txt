@@ -1,11 +1,10 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreCatalog SHARED 
+add_library(FWCoreCatalog SHARED ${FWCoreCatalog_EXTRA_SOURCES}
   src/FileLocator.cc
   src/InputFileCatalog.cc
 )
 
+set_target_properties(FWCoreCatalog PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreCatalog PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreCatalog PUBLIC
@@ -38,5 +37,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreCatalog DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreCatalog)
+add_python_rules(FWCore/Catalog)
+install( TARGETS FWCoreCatalog DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

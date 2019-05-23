@@ -2,6 +2,11 @@ add_executable(TestPoolInput
   TestPoolInput.cpp
 )
 
+add_test(NAME TestPoolInput_CTest COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/TestPoolInput.sh)
+set_tests_properties(TestPoolInput_CTest PROPERTIES WORKING_DIR ${CMAKE_BINARY_DIR}/test)
+set_tests_properties(TestPoolInput_CTest 
+PROPERTIES ENVIRONMENT "CMSSW_SEARCH_PATH=${CMAKE_BINARY_DIR}/lib:${CMAKE_BINARY_DIR}/test;PYTHONPATH=${CMAKE_BINARY_DIR}/python;PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/bin:$ENV{PATH};LD_LIBRARY_PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/lib:$ENV{LD_LIBRARY_PATH};LOCAL_TMP_DIR=${CMAKE_BINARY_DIR}/test;LOCAL_TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/")
+
 target_include_directories(TestPoolInput PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(TestPoolInput PUBLIC
@@ -26,12 +31,12 @@ IOPoolInput
 )
 
 
-add_test(TestPoolInput TestPoolInput)
-
-add_library(IOExerciser SHARED 
+add_library(IOExerciser SHARED ${IOExerciser_EXTRA_SOURCES}
   IOExerciser.cc
 )
 
+set_target_properties(IOExerciser PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
+set_target_properties(IOExerciser PROPERTIES PREFIX "plugin")
 target_include_directories(IOExerciser PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOExerciser PUBLIC

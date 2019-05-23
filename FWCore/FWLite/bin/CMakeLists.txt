@@ -2,6 +2,7 @@ add_executable(edmClassStorageSize
   storageSize.cc
 )
 
+set_target_properties(edmClassStorageSize PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmClassStorageSize PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmClassStorageSize PUBLIC
@@ -34,12 +35,14 @@ Threads::Threads
 )
 
 
-install( TARGETS edmClassStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmClassStorageSize)
+add_python_rules(FWCore/FWLite/bin/)
+install( TARGETS edmClassStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(edmBranchStorageSize
   storageSizeForBranch.cc
 )
 
+set_target_properties(edmBranchStorageSize PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmBranchStorageSize PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmBranchStorageSize PUBLIC
@@ -72,5 +75,6 @@ Threads::Threads
 )
 
 
-install( TARGETS edmBranchStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmBranchStorageSize)
+add_python_rules(FWCore/FWLite/bin/)
+install( TARGETS edmBranchStorageSize DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

@@ -1,7 +1,5 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCorePyDevParameterSet SHARED 
+add_library(FWCorePyDevParameterSet SHARED ${FWCorePyDevParameterSet_EXTRA_SOURCES}
   src/MakePyBind11ParameterSets.cc
   src/PyBind11ProcessDesc.cc
   src/PyBind11Wrapper.cc
@@ -9,6 +7,7 @@ add_library(FWCorePyDevParameterSet SHARED
   src/initializePyBind11Module.cc
 )
 
+set_target_properties(FWCorePyDevParameterSet PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCorePyDevParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCorePyDevParameterSet PUBLIC
@@ -28,5 +27,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCorePyDevParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePyDevParameterSet)
+add_python_rules(FWCore/PyDevParameterSet)
+install( TARGETS FWCorePyDevParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

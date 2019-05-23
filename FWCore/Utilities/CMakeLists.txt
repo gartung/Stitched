@@ -1,8 +1,6 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreUtilities SHARED 
+add_library(FWCoreUtilities SHARED ${FWCoreUtilities_EXTRA_SOURCES}
   src/Adler32Calculator.cc
   src/BaseWithDict.cc
   src/CPUServiceBase.cc
@@ -48,6 +46,7 @@ add_library(FWCoreUtilities SHARED
   src/typelookup.cc
 )
 
+set_target_properties(FWCoreUtilities PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreUtilities PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreUtilities PUBLIC
@@ -81,5 +80,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreUtilities DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreUtilities)
+add_python_rules(FWCore/Utilities)
+install( TARGETS FWCoreUtilities DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

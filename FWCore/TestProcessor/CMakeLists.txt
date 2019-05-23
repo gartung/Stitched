@@ -1,12 +1,11 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreTestProcessor SHARED 
+add_library(FWCoreTestProcessor SHARED ${FWCoreTestProcessor_EXTRA_SOURCES}
   src/Event.cc
   src/EventSetupTestHelper.cc
   src/TestProcessor.cc
 )
 
+set_target_properties(FWCoreTestProcessor PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreTestProcessor PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreTestProcessor PUBLIC
@@ -37,5 +36,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreTestProcessor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreTestProcessor)
+add_python_rules(FWCore/TestProcessor)
+install( TARGETS FWCoreTestProcessor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

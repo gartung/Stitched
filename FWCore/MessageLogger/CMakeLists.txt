@@ -1,4 +1,15 @@
-add_library(FWCoreMessageLogger SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(FWCoreMessageLogger src/classes.h src/classes_def.xml)
+
+add_library(FWCoreMessageLogger SHARED ${FWCoreMessageLogger_EXTRA_SOURCES}
   src/AbstractMLscribe.cc
   src/ELextendedID.cc
   src/ELmap.cc
@@ -14,6 +25,9 @@ add_library(FWCoreMessageLogger SHARED
   src/SilentMLscribe.cc
 )
 
+add_rootdict_rules(FWCoreMessageLogger)
+
+set_target_properties(FWCoreMessageLogger PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreMessageLogger PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreMessageLogger PUBLIC
@@ -42,28 +56,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreMessageLogger DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageLogger)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(FWCoreMessageLogger src/classes.h src/classes_def.xml)
-
-add_library(FWCoreMessageLoggerDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger.cxx)
-
-set_property(TARGET FWCoreMessageLoggerDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(FWCoreMessageLoggerDictObj FWCoreMessageLogger-dictgen)
-
-add_dependencies(FWCoreMessageLogger FWCoreMessageLoggerDictObj)
-
-target_link_libraries(FWCoreMessageLogger PUBLIC $<TARGET_OBJECTS:FWCoreMessageLoggerDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLogger_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreMessageLoggerDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(FWCore/MessageLogger)
+install( TARGETS FWCoreMessageLogger DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

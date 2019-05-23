@@ -1,74 +1,28 @@
-add_library(DataFormatsStdDictionaries INTERFACE)
+include_directories(${CMAKE_SOURCE_DIR}
+${ROOT_INCLUDE_DIR}
+)
+
+cms_rootdict(DataFormatsStdDictionaries src/classes_map.h src/classes_def_map.xml)
 
 include_directories(${CMAKE_SOURCE_DIR}
 ${ROOT_INCLUDE_DIR}
 )
 
-reflex_build_dictionary(DataFormatsStdDictionaries_map src/classes_map.h src/classes_def_map.xml)
-
-add_library(DataFormatsStdDictionaries_mapDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_map.cxx)
-
-set_property(TARGET DataFormatsStdDictionaries_mapDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsStdDictionaries_mapDictObj DataFormatsStdDictionaries_map-dictgen)
-
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_mapDictObj)
-
-target_link_libraries(DataFormatsStdDictionaries INTERFACE $<TARGET_OBJECTS:DataFormatsStdDictionaries_mapDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_map_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_mapDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+cms_rootdict(DataFormatsStdDictionaries src/classes_others.h src/classes_def_others.xml)
 
 include_directories(${CMAKE_SOURCE_DIR}
 ${ROOT_INCLUDE_DIR}
 )
 
-reflex_build_dictionary(DataFormatsStdDictionaries_others src/classes_others.h src/classes_def_others.xml)
-
-add_library(DataFormatsStdDictionaries_othersDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_others.cxx)
-
-set_property(TARGET DataFormatsStdDictionaries_othersDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsStdDictionaries_othersDictObj DataFormatsStdDictionaries_others-dictgen)
-
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_othersDictObj)
-
-target_link_libraries(DataFormatsStdDictionaries INTERFACE $<TARGET_OBJECTS:DataFormatsStdDictionaries_othersDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_others_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_othersDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+cms_rootdict(DataFormatsStdDictionaries src/classes_pair.h src/classes_def_pair.xml)
 
 include_directories(${CMAKE_SOURCE_DIR}
 ${ROOT_INCLUDE_DIR}
 )
 
-reflex_build_dictionary(DataFormatsStdDictionaries_pair src/classes_pair.h src/classes_def_pair.xml)
+cms_rootdict(DataFormatsStdDictionaries src/classes_vector.h src/classes_def_vector.xml)
 
-add_library(DataFormatsStdDictionaries_pairDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_pair.cxx)
+add_rootdict_rules(DataFormatsStdDictionaries)
 
-set_property(TARGET DataFormatsStdDictionaries_pairDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsStdDictionaries_pairDictObj DataFormatsStdDictionaries_pair-dictgen)
-
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_pairDictObj)
-
-target_link_libraries(DataFormatsStdDictionaries INTERFACE $<TARGET_OBJECTS:DataFormatsStdDictionaries_pairDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_pair_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_pairDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
-
-include_directories(${CMAKE_SOURCE_DIR}
-${ROOT_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(DataFormatsStdDictionaries_vector src/classes_vector.h src/classes_def_vector.xml)
-
-add_library(DataFormatsStdDictionaries_vectorDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_vector.cxx)
-
-set_property(TARGET DataFormatsStdDictionaries_vectorDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsStdDictionaries_vectorDictObj DataFormatsStdDictionaries_vector-dictgen)
-
-add_dependencies(DataFormatsStdDictionaries DataFormatsStdDictionaries_vectorDictObj)
-
-target_link_libraries(DataFormatsStdDictionaries INTERFACE $<TARGET_OBJECTS:DataFormatsStdDictionaries_vectorDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_vector_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStdDictionaries_vectorDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_library(DataFormatsStdDictionaries SHARED ${DataFormatsStdDictionaries_EXTRA_SOURCES})
 

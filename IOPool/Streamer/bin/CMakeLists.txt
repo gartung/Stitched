@@ -2,6 +2,7 @@ add_executable(DiagStreamerFile
   DiagStreamerFile.cpp
 )
 
+set_target_properties(DiagStreamerFile PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(DiagStreamerFile PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(DiagStreamerFile PUBLIC
@@ -26,12 +27,14 @@ IOPoolStreamer
 )
 
 
-install( TARGETS DiagStreamerFile DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::DiagStreamerFile)
+add_python_rules(IOPool/Streamer/bin/)
+install( TARGETS DiagStreamerFile DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(CalcAdler32
   CalcAdler32.cpp
 )
 
+set_target_properties(CalcAdler32 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(CalcAdler32 PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(CalcAdler32 PUBLIC
@@ -66,5 +69,6 @@ Threads::Threads
 )
 
 
-install( TARGETS CalcAdler32 DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::CalcAdler32)
+add_python_rules(IOPool/Streamer/bin/)
+install( TARGETS CalcAdler32 DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

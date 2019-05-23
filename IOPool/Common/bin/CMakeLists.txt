@@ -2,6 +2,7 @@ add_executable(edmProvDump
   EdmProvDump.cc
 )
 
+set_target_properties(edmProvDump PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmProvDump PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmProvDump PUBLIC
@@ -37,13 +38,15 @@ ROOT::Tree
 )
 
 
-install( TARGETS edmProvDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmProvDump)
+add_python_rules(IOPool/Common/bin/)
+install( TARGETS edmProvDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(edmFileUtil
   CollUtil.cc
   EdmFileUtil.cpp
 )
 
+set_target_properties(edmFileUtil PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmFileUtil PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmFileUtil PUBLIC
@@ -87,12 +90,14 @@ Threads::Threads
 )
 
 
-install( TARGETS edmFileUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmFileUtil)
+add_python_rules(IOPool/Common/bin/)
+install( TARGETS edmFileUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(edmCopyUtil
   EdmCopyUtil.cpp
 )
 
+set_target_properties(edmCopyUtil PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmCopyUtil PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmCopyUtil PUBLIC
@@ -130,5 +135,6 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS edmCopyUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmCopyUtil)
+add_python_rules(IOPool/Common/bin/)
+install( TARGETS edmCopyUtil DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

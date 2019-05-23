@@ -1,11 +1,10 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreIntegration SHARED 
+add_library(FWCoreIntegration SHARED ${FWCoreIntegration_EXTRA_SOURCES}
   src/ESTestData.cc
   src/ESTestRecords.cc
 )
 
+set_target_properties(FWCoreIntegration PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreIntegration PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreIntegration PUBLIC
@@ -26,5 +25,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreIntegration DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreIntegration)
+add_python_rules(FWCore/Integration)
+install( TARGETS FWCoreIntegration DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

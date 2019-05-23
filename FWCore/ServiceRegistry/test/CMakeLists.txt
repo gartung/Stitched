@@ -1,10 +1,11 @@
-add_library(FWCoreServiceRegistryTestDummyService SHARED 
+add_library(FWCoreServiceRegistryTestDummyService SHARED ${FWCoreServiceRegistryTestDummyService_EXTRA_SOURCES}
   stubs/DependsOnDummyService.cc
   stubs/DummyService.cc
   stubs/DummyServiceE0.cc
   stubs/DummyStoreConfigService.cc
 )
 
+set_target_properties(FWCoreServiceRegistryTestDummyService PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 target_include_directories(FWCoreServiceRegistryTestDummyService PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreServiceRegistryTestDummyService PUBLIC
@@ -35,10 +36,12 @@ Threads::Threads
 )
 
 
-add_library(FWCoreServiceRegistryTestDummyServicePlugin SHARED 
+add_library(FWCoreServiceRegistryTestDummyServicePlugin SHARED ${FWCoreServiceRegistryTestDummyServicePlugin_EXTRA_SOURCES}
   stubs/Modules.cc
 )
 
+set_target_properties(FWCoreServiceRegistryTestDummyServicePlugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
+set_target_properties(FWCoreServiceRegistryTestDummyServicePlugin PROPERTIES PREFIX "plugin")
 target_include_directories(FWCoreServiceRegistryTestDummyServicePlugin PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreServiceRegistryTestDummyServicePlugin PUBLIC
@@ -76,6 +79,13 @@ add_executable(testServiceRegistry
   servicesmanager_t.cppunit.cc
 )
 
+add_test(NAME testServiceRegistry_CTest COMMAND testServiceRegistry)
+
+set_tests_properties(testServiceRegistry_CTest PROPERTIES WORKING_DIR ${CMAKE_BINARY_DIR}/test )
+set_tests_properties(testServiceRegistry_CTest 
+PROPERTIES ENVIRONMENT "CMSSW_SEARCH_PATH=${CMAKE_BINARY_DIR}/lib:${CMAKE_BINARY_DIR}/test;PYTHONPATH=${CMAKE_BINARY_DIR}/python;PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/bin:$ENV{PATH};LD_LIBRARY_PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/lib:$ENV{LD_LIBRARY_PATH};LOCAL_TMP_DIR=${CMAKE_BINARY_DIR}/test;LOCAL_TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/")
+
+set_target_properties(testServiceRegistry PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 target_include_directories(testServiceRegistry PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(testServiceRegistry PUBLIC
@@ -110,12 +120,17 @@ Threads::Threads
 )
 
 
-add_test(testServiceRegistry testServiceRegistry)
-
 add_executable(servicesmanager_order
   servicesmanager_order.cpp
 )
 
+add_test(NAME servicesmanager_order_CTest COMMAND servicesmanager_order)
+
+set_tests_properties(servicesmanager_order_CTest PROPERTIES WORKING_DIR ${CMAKE_BINARY_DIR}/test )
+set_tests_properties(servicesmanager_order_CTest 
+PROPERTIES ENVIRONMENT "CMSSW_SEARCH_PATH=${CMAKE_BINARY_DIR}/lib:${CMAKE_BINARY_DIR}/test;PYTHONPATH=${CMAKE_BINARY_DIR}/python;PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/bin:$ENV{PATH};LD_LIBRARY_PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/lib:$ENV{LD_LIBRARY_PATH};LOCAL_TMP_DIR=${CMAKE_BINARY_DIR}/test;LOCAL_TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/")
+
+set_target_properties(servicesmanager_order PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 target_include_directories(servicesmanager_order PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(servicesmanager_order PUBLIC
@@ -149,6 +164,4 @@ Python2::Python
 Threads::Threads
 )
 
-
-add_test(servicesmanager_order servicesmanager_order)
 

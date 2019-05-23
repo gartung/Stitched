@@ -2,6 +2,7 @@ add_executable(Standalone
   Standalone.cpp
 )
 
+set_target_properties(Standalone PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(Standalone PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(Standalone PUBLIC
@@ -35,5 +36,6 @@ Threads::Threads
 )
 
 
-install( TARGETS Standalone DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::Standalone)
+add_python_rules(FWCore/MessageService/bin/)
+install( TARGETS Standalone DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

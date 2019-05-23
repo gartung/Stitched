@@ -1,7 +1,5 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreServiceRegistry SHARED 
+add_library(FWCoreServiceRegistry SHARED ${FWCoreServiceRegistry_EXTRA_SOURCES}
   src/ActivityRegistry.cc
   src/ConsumesInfo.cc
   src/CurrentModuleOnThread.cc
@@ -22,6 +20,7 @@ add_library(FWCoreServiceRegistry SHARED
   src/StreamContext.cc
 )
 
+set_target_properties(FWCoreServiceRegistry PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreServiceRegistry PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreServiceRegistry PUBLIC
@@ -44,5 +43,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreServiceRegistry DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreServiceRegistry)
+add_python_rules(FWCore/ServiceRegistry)
+install( TARGETS FWCoreServiceRegistry DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

@@ -1,4 +1,4 @@
-add_library(UtilitiesStorageFactoryPlugins SHARED 
+add_library(UtilitiesStorageFactoryPlugins SHARED ${UtilitiesStorageFactoryPlugins_EXTRA_SOURCES}
   GsiFTPStorageMaker.cc
   HttpStorageMaker.cc
   LocalStorageMaker.cc
@@ -7,6 +7,8 @@ add_library(UtilitiesStorageFactoryPlugins SHARED
   StormStorageMaker.cc
 )
 
+set_target_properties(UtilitiesStorageFactoryPlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(UtilitiesStorageFactoryPlugins PROPERTIES PREFIX "plugin")
 target_include_directories(UtilitiesStorageFactoryPlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(UtilitiesStorageFactoryPlugins PUBLIC
@@ -28,5 +30,6 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesStorageFactoryPlugins)
+add_python_rules(Utilities/StorageFactory/plugins/)
+install( TARGETS UtilitiesStorageFactoryPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

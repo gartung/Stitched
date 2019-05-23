@@ -1,9 +1,7 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
 add_subdirectory(plugins)
-add_library(FWCoreMessageService SHARED 
+add_library(FWCoreMessageService SHARED ${FWCoreMessageService_EXTRA_SOURCES}
   src/ELadministrator.cc
   src/ELdestination.cc
   src/ELlimitsTable.cc
@@ -21,6 +19,7 @@ add_library(FWCoreMessageService SHARED
   src/ThreadSafeLogMessageLoggerScribe.cc
 )
 
+set_target_properties(FWCoreMessageService PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreMessageService PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreMessageService PUBLIC
@@ -54,5 +53,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreMessageService DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageService)
+add_python_rules(FWCore/MessageService)
+install( TARGETS FWCoreMessageService DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

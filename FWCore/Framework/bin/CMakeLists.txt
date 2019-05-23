@@ -2,6 +2,7 @@ add_executable(cmsRunGlibC
   cmsRun.cpp
 )
 
+set_target_properties(cmsRunGlibC PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRunGlibC PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRunGlibC PUBLIC
@@ -46,12 +47,14 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunGlibC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunGlibC)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRunGlibC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(cmsRunTC
   cmsRun.cpp
 )
 
+set_target_properties(cmsRunTC PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRunTC PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRunTC PUBLIC
@@ -90,12 +93,14 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunTC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunTC)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRunTC DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(cmsRun
   cmsRun.cpp
 )
 
+set_target_properties(cmsRun PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRun PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRun PUBLIC
@@ -132,12 +137,14 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRun DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRun)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRun DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(cmsRunVDT
   cmsRun.cpp
 )
 
+set_target_properties(cmsRunVDT PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRunVDT PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRunVDT PUBLIC
@@ -178,12 +185,14 @@ vdt
 )
 
 
-install( TARGETS cmsRunVDT DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunVDT)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRunVDT DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(cmsRunJE
   cmsRun.cpp
 )
 
+set_target_properties(cmsRunJE PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRunJE PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRunJE PUBLIC
@@ -222,12 +231,14 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunJE DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunJE)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRunJE DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(cmsRunPyDev
   cmsRunPyDev.cpp
 )
 
+set_target_properties(cmsRunPyDev PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsRunPyDev PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsRunPyDev PUBLIC
@@ -265,5 +276,6 @@ Threads::Threads
 )
 
 
-install( TARGETS cmsRunPyDev DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsRunPyDev)
+add_python_rules(FWCore/Framework/bin/)
+install( TARGETS cmsRunPyDev DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

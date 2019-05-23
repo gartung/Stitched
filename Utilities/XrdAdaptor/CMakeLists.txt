@@ -1,5 +1,5 @@
 add_subdirectory(plugins)
-add_library(UtilitiesXrdAdaptor SHARED 
+add_library(UtilitiesXrdAdaptor SHARED ${UtilitiesXrdAdaptor_EXTRA_SOURCES}
   src/QualityMetric.cc
   src/XrdFile.cc
   src/XrdRequest.cc
@@ -8,6 +8,7 @@ add_library(UtilitiesXrdAdaptor SHARED
   src/XrdStatistics.cc
 )
 
+set_target_properties(UtilitiesXrdAdaptor PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(UtilitiesXrdAdaptor PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(UtilitiesXrdAdaptor PUBLIC
@@ -29,10 +30,12 @@ target_link_libraries(UtilitiesXrdAdaptor PUBLIC
 FWCoreMessageLogger
 FWCoreUtilities
 UtilitiesStorageFactory
+XrdCl
 XrdClient
 XrdUtils
 )
 
 
-install( TARGETS UtilitiesXrdAdaptor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesXrdAdaptor)
+add_python_rules(Utilities/XrdAdaptor)
+install( TARGETS UtilitiesXrdAdaptor DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

@@ -1,7 +1,21 @@
-add_library(DataFormatsStreamer SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(DataFormatsStreamer src/classes.h src/classes_def.xml)
+
+add_library(DataFormatsStreamer SHARED ${DataFormatsStreamer_EXTRA_SOURCES}
   src/StreamedProducts.cc
 )
 
+add_rootdict_rules(DataFormatsStreamer)
+
+set_target_properties(DataFormatsStreamer PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(DataFormatsStreamer PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(DataFormatsStreamer PUBLIC
@@ -25,28 +39,6 @@ ROOT::Tree
 )
 
 
-install( TARGETS DataFormatsStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsStreamer)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(DataFormatsStreamer src/classes.h src/classes_def.xml)
-
-add_library(DataFormatsStreamerDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer.cxx)
-
-set_property(TARGET DataFormatsStreamerDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsStreamerDictObj DataFormatsStreamer-dictgen)
-
-add_dependencies(DataFormatsStreamer DataFormatsStreamerDictObj)
-
-target_link_libraries(DataFormatsStreamer PUBLIC $<TARGET_OBJECTS:DataFormatsStreamerDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamer_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsStreamerDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(DataFormats/Streamer)
+install( TARGETS DataFormatsStreamer DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

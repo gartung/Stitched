@@ -1,8 +1,6 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCorePluginManager SHARED 
+add_library(FWCorePluginManager SHARED ${FWCorePluginManager_EXTRA_SOURCES}
   src/CacheParser.cc
   src/PluginCapabilities.cc
   src/PluginFactoryBase.cc
@@ -14,6 +12,7 @@ add_library(FWCorePluginManager SHARED
   src/standard.cc
 )
 
+set_target_properties(FWCorePluginManager PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCorePluginManager PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCorePluginManager PUBLIC
@@ -40,5 +39,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCorePluginManager DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePluginManager)
+add_python_rules(FWCore/PluginManager)
+install( TARGETS FWCorePluginManager DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

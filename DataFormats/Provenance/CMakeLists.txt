@@ -1,7 +1,16 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(DataFormatsProvenance SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(DataFormatsProvenance src/classes.h src/classes_def.xml)
+
+add_library(DataFormatsProvenance SHARED ${DataFormatsProvenance_EXTRA_SOURCES}
   src/BranchChildren.cc
   src/BranchDescription.cc
   src/BranchID.cc
@@ -53,6 +62,9 @@ add_library(DataFormatsProvenance SHARED
   src/ViewTypeChecker.cc
 )
 
+add_rootdict_rules(DataFormatsProvenance)
+
+set_target_properties(DataFormatsProvenance PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(DataFormatsProvenance PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(DataFormatsProvenance PUBLIC
@@ -87,28 +99,6 @@ Threads::Threads
 )
 
 
-install( TARGETS DataFormatsProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsProvenance)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(DataFormatsProvenance src/classes.h src/classes_def.xml)
-
-add_library(DataFormatsProvenanceDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance.cxx)
-
-set_property(TARGET DataFormatsProvenanceDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsProvenanceDictObj DataFormatsProvenance-dictgen)
-
-add_dependencies(DataFormatsProvenance DataFormatsProvenanceDictObj)
-
-target_link_libraries(DataFormatsProvenance PUBLIC $<TARGET_OBJECTS:DataFormatsProvenanceDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenance_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsProvenanceDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(DataFormats/Provenance)
+install( TARGETS DataFormatsProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

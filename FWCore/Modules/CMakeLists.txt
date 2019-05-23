@@ -1,7 +1,5 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreModules SHARED 
+add_library(FWCoreModules SHARED ${FWCoreModules_EXTRA_SOURCES}
   src/AbortOnEventIDAnalyzer.cc
   src/AsciiOutputModule.cc
   src/BunchCrossingFilter.cc
@@ -30,6 +28,8 @@ add_library(FWCoreModules SHARED
   src/TimeStudyModules.cc
 )
 
+set_target_properties(FWCoreModules PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(FWCoreModules PROPERTIES PREFIX "plugin")
 target_include_directories(FWCoreModules PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreModules PUBLIC
@@ -65,5 +65,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreModules DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreModules)
+add_python_rules(FWCore/Modules)
+install( TARGETS FWCoreModules DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

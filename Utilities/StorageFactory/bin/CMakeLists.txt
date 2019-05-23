@@ -2,6 +2,7 @@ add_executable(cms_anycp
   anycp.cpp
 )
 
+set_target_properties(cms_anycp PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cms_anycp PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cms_anycp PUBLIC
@@ -23,5 +24,6 @@ UtilitiesStorageFactory
 )
 
 
-install( TARGETS cms_anycp DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cms_anycp)
+add_python_rules(Utilities/StorageFactory/bin/)
+install( TARGETS cms_anycp DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

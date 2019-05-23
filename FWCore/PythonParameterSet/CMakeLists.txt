@@ -1,8 +1,6 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCorePythonParameterSet SHARED 
+add_library(FWCorePythonParameterSet SHARED ${FWCorePythonParameterSet_EXTRA_SOURCES}
   src/MakeParameterSets.cc
   src/PythonParameterSet.cc
   src/PythonProcessDesc.cc
@@ -11,6 +9,7 @@ add_library(FWCorePythonParameterSet SHARED
   src/pythonFileToConfigure.cc
 )
 
+set_target_properties(FWCorePythonParameterSet PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCorePythonParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCorePythonParameterSet PUBLIC
@@ -41,5 +40,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCorePythonParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCorePythonParameterSet)
+add_python_rules(FWCore/PythonParameterSet)
+install( TARGETS FWCorePythonParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

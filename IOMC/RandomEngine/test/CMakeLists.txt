@@ -1,7 +1,9 @@
-add_library(IOMCRandomEngineTestRandomNumberServiceGlobal SHARED 
+add_library(IOMCRandomEngineTestRandomNumberServiceGlobal SHARED ${IOMCRandomEngineTestRandomNumberServiceGlobal_EXTRA_SOURCES}
   TestRandomNumberServiceGlobal.cc
 )
 
+set_target_properties(IOMCRandomEngineTestRandomNumberServiceGlobal PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
+set_target_properties(IOMCRandomEngineTestRandomNumberServiceGlobal PROPERTIES PREFIX "plugin")
 target_include_directories(IOMCRandomEngineTestRandomNumberServiceGlobal PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOMCRandomEngineTestRandomNumberServiceGlobal PUBLIC
@@ -33,6 +35,11 @@ add_executable(TestIOMCRandomEngineService
   TestIOMCRandomEngineService.cpp
 )
 
+add_test(NAME TestIOMCRandomEngineService_CTest COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/testRandomService.sh)
+set_tests_properties(TestIOMCRandomEngineService_CTest PROPERTIES WORKING_DIR ${CMAKE_BINARY_DIR}/test)
+set_tests_properties(TestIOMCRandomEngineService_CTest 
+PROPERTIES ENVIRONMENT "CMSSW_SEARCH_PATH=${CMAKE_BINARY_DIR}/lib:${CMAKE_BINARY_DIR}/test;PYTHONPATH=${CMAKE_BINARY_DIR}/python;PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/bin:$ENV{PATH};LD_LIBRARY_PATH=${CMAKE_BINARY_DIR}/test:${CMAKE_BINARY_DIR}/lib:$ENV{LD_LIBRARY_PATH};LOCAL_TMP_DIR=${CMAKE_BINARY_DIR}/test;LOCAL_TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/")
+
 target_include_directories(TestIOMCRandomEngineService PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(TestIOMCRandomEngineService PUBLIC
@@ -59,6 +66,4 @@ FWCoreUtilities
 IOMCRandomEngine
 )
 
-
-add_test(TestIOMCRandomEngineService TestIOMCRandomEngineService)
 

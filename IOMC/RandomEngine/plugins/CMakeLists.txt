@@ -1,7 +1,9 @@
-add_library(IOMCRandomEnginePlugins SHARED 
+add_library(IOMCRandomEnginePlugins SHARED ${IOMCRandomEnginePlugins_EXTRA_SOURCES}
   Module.cc
 )
 
+set_target_properties(IOMCRandomEnginePlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(IOMCRandomEnginePlugins PROPERTIES PREFIX "plugin")
 target_include_directories(IOMCRandomEnginePlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOMCRandomEnginePlugins PUBLIC
@@ -25,5 +27,6 @@ IOMCRandomEngine
 )
 
 
-install( TARGETS IOMCRandomEnginePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOMCRandomEnginePlugins)
+add_python_rules(IOMC/RandomEngine/plugins/)
+install( TARGETS IOMCRandomEnginePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

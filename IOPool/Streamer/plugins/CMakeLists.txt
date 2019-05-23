@@ -1,7 +1,9 @@
-add_library(IOPoolStreamerPlugins SHARED 
+add_library(IOPoolStreamerPlugins SHARED ${IOPoolStreamerPlugins_EXTRA_SOURCES}
   Module.cc
 )
 
+set_target_properties(IOPoolStreamerPlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(IOPoolStreamerPlugins PROPERTIES PREFIX "plugin")
 target_include_directories(IOPoolStreamerPlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolStreamerPlugins PUBLIC
@@ -27,5 +29,6 @@ IOPoolStreamer
 )
 
 
-install( TARGETS IOPoolStreamerPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolStreamerPlugins)
+add_python_rules(IOPool/Streamer/plugins/)
+install( TARGETS IOPoolStreamerPlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

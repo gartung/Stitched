@@ -1,8 +1,6 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreFramework SHARED 
+add_library(FWCoreFramework SHARED ${FWCoreFramework_EXTRA_SOURCES}
   src/Breakpoints.cc
   src/ComponentMaker.cc
   src/DataKey.cc
@@ -145,6 +143,7 @@ add_library(FWCoreFramework SHARED
   src/throwIfImproperDependencies.cc
 )
 
+set_target_properties(FWCoreFramework PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreFramework PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreFramework PUBLIC
@@ -189,5 +188,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreFramework DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreFramework)
+add_python_rules(FWCore/Framework)
+install( TARGETS FWCoreFramework DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

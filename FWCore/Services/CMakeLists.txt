@@ -1,13 +1,12 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
 add_subdirectory(plugins)
-add_library(FWCoreServices SHARED 
+add_library(FWCoreServices SHARED ${FWCoreServices_EXTRA_SOURCES}
   src/JobReportService.cc
   src/SiteLocalConfigService.cc
 )
 
+set_target_properties(FWCoreServices PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreServices PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreServices PUBLIC
@@ -55,5 +54,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreServices DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreServices)
+add_python_rules(FWCore/Services)
+install( TARGETS FWCoreServices DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

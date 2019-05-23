@@ -1,14 +1,13 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
 add_subdirectory(plugins)
-add_library(IOPoolOutput SHARED 
+add_library(IOPoolOutput SHARED ${IOPoolOutput_EXTRA_SOURCES}
   src/PoolOutputModule.cc
   src/RootOutputFile.cc
   src/RootOutputTree.cc
   src/TimeoutPoolOutputModule.cc
 )
 
+set_target_properties(IOPoolOutput PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(IOPoolOutput PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolOutput PUBLIC
@@ -43,5 +42,6 @@ ROOT::Tree
 )
 
 
-install( TARGETS IOPoolOutput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolOutput)
+add_python_rules(IOPool/Output)
+install( TARGETS IOPoolOutput DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

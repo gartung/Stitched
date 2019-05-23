@@ -1,4 +1,4 @@
-add_library(FWCoreSources SHARED 
+add_library(FWCoreSources SHARED ${FWCoreSources_EXTRA_SOURCES}
   src/DaqProvenanceHelper.cc
   src/EventSkipperByID.cc
   src/FromFiles.cc
@@ -11,6 +11,7 @@ add_library(FWCoreSources SHARED
   src/VectorInputSourceFactory.cc
 )
 
+set_target_properties(FWCoreSources PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreSources PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreSources PUBLIC
@@ -37,5 +38,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreSources DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreSources)
+add_python_rules(FWCore/Sources)
+install( TARGETS FWCoreSources DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

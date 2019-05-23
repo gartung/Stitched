@@ -1,7 +1,9 @@
-add_library(FWCoreMessageServicePlugins SHARED 
+add_library(FWCoreMessageServicePlugins SHARED ${FWCoreMessageServicePlugins_EXTRA_SOURCES}
   Module.cc
 )
 
+set_target_properties(FWCoreMessageServicePlugins PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(FWCoreMessageServicePlugins PROPERTIES PREFIX "plugin")
 target_include_directories(FWCoreMessageServicePlugins PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreMessageServicePlugins PUBLIC
@@ -20,5 +22,6 @@ FWCoreMessageService
 )
 
 
-install( TARGETS FWCoreMessageServicePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreMessageServicePlugins)
+add_python_rules(FWCore/MessageService/plugins/)
+install( TARGETS FWCoreMessageServicePlugins DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

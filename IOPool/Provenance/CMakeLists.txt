@@ -1,7 +1,8 @@
-add_library(IOPoolProvenance SHARED 
+add_library(IOPoolProvenance SHARED ${IOPoolProvenance_EXTRA_SOURCES}
   src/CommonProvenanceFiller.cc
 )
 
+set_target_properties(IOPoolProvenance PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(IOPoolProvenance PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(IOPoolProvenance PUBLIC
@@ -25,5 +26,6 @@ ROOT::Tree
 )
 
 
-install( TARGETS IOPoolProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::IOPoolProvenance)
+add_python_rules(IOPool/Provenance)
+install( TARGETS IOPoolProvenance DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

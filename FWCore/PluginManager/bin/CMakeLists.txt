@@ -2,6 +2,7 @@ add_executable(edmPluginDump
   dump.cc
 )
 
+set_target_properties(edmPluginDump PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmPluginDump PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmPluginDump PUBLIC
@@ -27,12 +28,14 @@ Threads::Threads
 )
 
 
-install( TARGETS edmPluginDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmPluginDump)
+add_python_rules(FWCore/PluginManager/bin/)
+install( TARGETS edmPluginDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(edmPluginRefresh
   refresh.cc
 )
 
+set_target_properties(edmPluginRefresh PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmPluginRefresh PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmPluginRefresh PUBLIC
@@ -58,5 +61,6 @@ Threads::Threads
 )
 
 
-install( TARGETS edmPluginRefresh DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmPluginRefresh)
+add_python_rules(FWCore/PluginManager/bin/)
+install( TARGETS edmPluginRefresh DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

@@ -1,8 +1,6 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreParameterSet SHARED 
+add_library(FWCoreParameterSet SHARED ${FWCoreParameterSet_EXTRA_SOURCES}
   src/ANDGroupDescription.cc
   src/AllowedLabelsDescription.cc
   src/AllowedLabelsDescriptionBase.cc
@@ -37,6 +35,7 @@ add_library(FWCoreParameterSet SHARED
   src/validateTopLevelParameterSets.cc
 )
 
+set_target_properties(FWCoreParameterSet PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreParameterSet PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreParameterSet PUBLIC
@@ -67,5 +66,6 @@ Threads::Threads
 )
 
 
-install( TARGETS FWCoreParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreParameterSet)
+add_python_rules(FWCore/ParameterSet)
+install( TARGETS FWCoreParameterSet DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

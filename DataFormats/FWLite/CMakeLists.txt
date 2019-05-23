@@ -1,7 +1,16 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(DataFormatsFWLite SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(DataFormatsFWLite src/classes.h src/classes_def.xml)
+
+add_library(DataFormatsFWLite SHARED ${DataFormatsFWLite_EXTRA_SOURCES}
   src/ChainEvent.cc
   src/DataGetterHelper.cc
   src/ESHandle.cc
@@ -25,6 +34,9 @@ add_library(DataFormatsFWLite SHARED
   src/format_type_name.cc
 )
 
+add_rootdict_rules(DataFormatsFWLite)
+
+set_target_properties(DataFormatsFWLite PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(DataFormatsFWLite PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(DataFormatsFWLite PUBLIC
@@ -52,28 +64,6 @@ ROOT::Tree
 )
 
 
-install( TARGETS DataFormatsFWLite DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::DataFormatsFWLite)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(DataFormatsFWLite src/classes.h src/classes_def.xml)
-
-add_library(DataFormatsFWLiteDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLite.cxx)
-
-set_property(TARGET DataFormatsFWLiteDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(DataFormatsFWLiteDictObj DataFormatsFWLite-dictgen)
-
-add_dependencies(DataFormatsFWLite DataFormatsFWLiteDictObj)
-
-target_link_libraries(DataFormatsFWLite PUBLIC $<TARGET_OBJECTS:DataFormatsFWLiteDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLite_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/DataFormatsFWLiteDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(DataFormats/FWLite)
+install( TARGETS DataFormatsFWLite DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

@@ -1,8 +1,17 @@
 add_subdirectory(bin)
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreFWLite SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(FWCoreFWLite src/classes.h src/classes_def.xml)
+
+add_library(FWCoreFWLite SHARED ${FWCoreFWLite_EXTRA_SOURCES}
   src/AutoLibraryLoader.cc
   src/BareRootProductGetter.cc
   src/BranchMapReader.cc
@@ -11,6 +20,9 @@ add_library(FWCoreFWLite SHARED
   src/branchToClass.cc
 )
 
+add_rootdict_rules(FWCoreFWLite)
+
+set_target_properties(FWCoreFWLite PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreFWLite PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreFWLite PUBLIC
@@ -36,28 +48,6 @@ ROOT::Tree
 )
 
 
-install( TARGETS FWCoreFWLite DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreFWLite)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(FWCoreFWLite src/classes.h src/classes_def.xml)
-
-add_library(FWCoreFWLiteDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite.cxx)
-
-set_property(TARGET FWCoreFWLiteDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(FWCoreFWLiteDictObj FWCoreFWLite-dictgen)
-
-add_dependencies(FWCoreFWLite FWCoreFWLiteDictObj)
-
-target_link_libraries(FWCoreFWLite PUBLIC $<TARGET_OBJECTS:FWCoreFWLiteDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLite_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreFWLiteDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(FWCore/FWLite)
+install( TARGETS FWCoreFWLite DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

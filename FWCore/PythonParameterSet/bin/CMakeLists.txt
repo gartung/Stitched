@@ -2,6 +2,7 @@ add_executable(edmConfigHash
   edmConfigHash.cpp
 )
 
+set_target_properties(edmConfigHash PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmConfigHash PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmConfigHash PUBLIC
@@ -31,12 +32,14 @@ Threads::Threads
 )
 
 
-install( TARGETS edmConfigHash DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmConfigHash)
+add_python_rules(FWCore/PythonParameterSet/bin/)
+install( TARGETS edmConfigHash DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 
 add_executable(edmParameterSetDump
   edmParameterSetDump.cpp
 )
 
+set_target_properties(edmParameterSetDump PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(edmParameterSetDump PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(edmParameterSetDump PUBLIC
@@ -66,5 +69,6 @@ Threads::Threads
 )
 
 
-install( TARGETS edmParameterSetDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::edmParameterSetDump)
+add_python_rules(FWCore/PythonParameterSet/bin/)
+install( TARGETS edmParameterSetDump DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

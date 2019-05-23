@@ -1,7 +1,9 @@
-add_library(UtilitiesXrdAdaptorPlugin SHARED 
+add_library(UtilitiesXrdAdaptorPlugin SHARED ${UtilitiesXrdAdaptorPlugin_EXTRA_SOURCES}
   XrdStorageMaker.cc
 )
 
+set_target_properties(UtilitiesXrdAdaptorPlugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set_target_properties(UtilitiesXrdAdaptorPlugin PROPERTIES PREFIX "plugin")
 target_include_directories(UtilitiesXrdAdaptorPlugin PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(UtilitiesXrdAdaptorPlugin PUBLIC
@@ -22,9 +24,10 @@ add_compile_options("-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_S
 target_link_libraries(UtilitiesXrdAdaptorPlugin PUBLIC
 UtilitiesStorageFactory
 UtilitiesXrdAdaptor
-XrdClient
+XrdCl
 )
 
 
-install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::UtilitiesXrdAdaptorPlugin)
+add_python_rules(Utilities/XrdAdaptor/plugins/)
+install( TARGETS UtilitiesXrdAdaptorPlugin DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

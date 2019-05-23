@@ -1,4 +1,15 @@
-add_library(FWCoreCommon SHARED 
+include_directories(${CMAKE_SOURCE_DIR}
+${Boost_INCLUDE_DIR}
+${MD5_INCLUDE_DIR}
+${ROOT_INCLUDE_DIR}
+${TBB_INCLUDE_DIRS}
+${TINYXML2_INCLUDE_DIR}
+${UUID_INCLUDE_DIR}
+)
+
+cms_rootdict(FWCoreCommon src/classes.h src/classes_def.xml)
+
+add_library(FWCoreCommon SHARED ${FWCoreCommon_EXTRA_SOURCES}
   src/EventBase.cc
   src/LuminosityBlockBase.cc
   src/Provenance.cc
@@ -7,6 +18,9 @@ add_library(FWCoreCommon SHARED
   src/TriggerResultsByName.cc
 )
 
+add_rootdict_rules(FWCoreCommon)
+
+set_target_properties(FWCoreCommon PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreCommon PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreCommon PUBLIC
@@ -25,28 +39,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS FWCoreCommon DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreCommon)
-
-include_directories(${CMAKE_SOURCE_DIR}
-${Boost_INCLUDE_DIR}
-${MD5_INCLUDE_DIR}
-${ROOT_INCLUDE_DIR}
-${TBB_INCLUDE_DIRS}
-${TINYXML2_INCLUDE_DIR}
-${UUID_INCLUDE_DIR}
-)
-
-reflex_build_dictionary(FWCoreCommon src/classes.h src/classes_def.xml)
-
-add_library(FWCoreCommonDictObj OBJECT ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon.cxx)
-
-set_property(TARGET FWCoreCommonDictObj PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_dependencies(FWCoreCommonDictObj FWCoreCommon-dictgen)
-
-add_dependencies(FWCoreCommon FWCoreCommonDictObj)
-
-target_link_libraries(FWCoreCommon PUBLIC $<TARGET_OBJECTS:FWCoreCommonDictObj>)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommon_rdict.pcm  ${CMAKE_CURRENT_BINARY_DIR}/FWCoreCommonDict.rootmap DESTINATION ${CMAKE_INSTALL_LIBDIR})
+add_python_rules(FWCore/Common)
+install( TARGETS FWCoreCommon DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 

@@ -2,6 +2,7 @@ add_executable(cmsGetFnConnect
   cmsGetFnConnect.cc
 )
 
+set_target_properties(cmsGetFnConnect PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 target_include_directories(cmsGetFnConnect PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(cmsGetFnConnect PUBLIC
@@ -26,5 +27,6 @@ FWCoreUtilities
 )
 
 
-install( TARGETS cmsGetFnConnect DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::cmsGetFnConnect)
+add_python_rules(FWCore/Services/bin/)
+install( TARGETS cmsGetFnConnect DESTINATION ${CMAKE_INSTALL_BINDIR}  EXPORT fwcore::)
 

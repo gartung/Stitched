@@ -1,7 +1,5 @@
-if(${BUILDTEST})
 add_subdirectory(test)
-endif()
-add_library(FWCoreConcurrency SHARED 
+add_library(FWCoreConcurrency SHARED ${FWCoreConcurrency_EXTRA_SOURCES}
   src/SerialTaskQueue.cc
   src/SharedResourceNames.cc
   src/ThreadSafeOutputFileStream.cc
@@ -10,6 +8,7 @@ add_library(FWCoreConcurrency SHARED
   src/Xerces.cc
 )
 
+set_target_properties(FWCoreConcurrency PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 target_include_directories(FWCoreConcurrency PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_include_directories(FWCoreConcurrency PUBLIC
@@ -23,5 +22,6 @@ ${XERCESC_LIBRARIES}
 )
 
 
-install( TARGETS FWCoreConcurrency DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::FWCoreConcurrency)
+add_python_rules(FWCore/Concurrency)
+install( TARGETS FWCoreConcurrency DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT fwcore::)
 
